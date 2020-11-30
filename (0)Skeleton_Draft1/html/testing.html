@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Databases</title>
+    <link rel="stylesheet" type="text/css" href="main.css">
+</head>
+<body>
+    <h1 align="center">Sign up for updates about our new project</h1>
+    <form method="post" action="">
+        <section>
+            <div class="outerRim">
+                <div id="TicketOrderForm" class="innerBlock" >
+                    <fieldset>
+                        <legend><h1 class="innerBlockTitle">~ Ticket Reservation ~</h1></legend>
+                        <table class="formTable" align="center">
+                            <tr><td colspan=3>
+                                <table  align="center">
+                                    <th></th><th colspan=2>Number of Tickets: </th>
+                                    <tr>
+                                        <th><label for="adult">Adult(s): </label></th>
+                                        <td><input type="number" id="adult" name="adult" placeholder="Please enter a number" min="0" max="getRemainingSeats()"></td>	
+                                        <td class="ticketCostDisp">($<output for="adult" name="adultTicket">  </output>/person)</td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="senior">Senior(s): </label></th>
+                                        <td><input type="number" id="senior" name="senior" placeholder="Please enter a number" min="0" max="getRemainingSeats()()"></td> 
+                                        <td class="ticketCostDisp">($<output for="senior" name="seniorTicket">  </output>/person)</td>
+                                    </tr>
+                                    <tr>
+                                        <th><label for="child">Childeren: </label></th>
+                                        <td><input type="number" id="child" name="child" placeholder="Please enter a number" min="0" max="getRemainingSeats()"></td>  
+                                        <td class="ticketCostDisp">($<output for="child" name="childTicket">  </output>/person)</td>
+                                    </tr>
+                                    <tr>
+                                        <th rowspan=2><label for="wheelchair">Accessible: </label></th> <!-- 2 labels?  -->
+                                        <td>
+                                                <input type="checkbox" id="wheelchair" name="wheelchair" value="0" onchange="calculateTotal()">
+                                                <label for="wheelchair">Wheelchair Accessible</label>
+                                        </td>
+                                        <td class="ticketCostDisp">($<output for="wheelchair" name="accessibleTicket">  </output>/person)</td>
+                                    </tr>
+                                    <tr>
+                                        <td>
+                                            <input type="checkbox" id="support" name="support" value="0" onchange="calculateTotal()"> 
+                                            <label for="support">Support Person (No fee)</label>
+                                        </td>
+                                        <td class="ticketCostDisp">($<output for="support" name="supportTicket">  </output>/person)</td>
+                                    </tr>
+                                </table>
+                            </td></tr>
+                            <tr>
+                                <th><label for="theatre">Theatre:</label> </th>
+                                <td><select id="theatre" name="theatre" onchange="calculateTotal()">  <!-- put on recipt - no actual cost-->
+                                        <option value="invalid" display="noSeatsOrMovieNotShownAtABCD()">No Theatres Available</option>  <!-- call a function to change display -->
+                                        <option value="none" display="not(noSeatsOrMovieNotShownAtABCD())">Select a Theatre Location</option>
+                                        
+                                        <optgroup label="Oshawa" >    <!-- need proper function - Connect to database -->
+                                            <option value="a" disabled="noSeatsOrMovieNotShownAtA()">theatre a  | <output for="a" value="proximityToA()">---</output>km</option>
+                                            <option value="b" disabled="noSeatsOrMovieNotShownAtB()">theatre b  | <output for="b" value="proximityToB()">---</output>km</option>
+                                            <option value="c" disabled="noSeatsOrMovieNotShownAtC()">theatre c  | <output for="c" value="proximityToC()">---</output>km</option>
+                                            <option value="d" disabled="noSeatsOrMovieNotShownAtD()">theatre d  | <output for="d" value="proximityToD()">---</output>km</option>
+                                        </optgroup>
+                                </select> 
+                                </td>
+                                <td style="text-align:right">Distance: <output for="theatre" name="proximity" value="proximityToTheatre()"> --- </output></td>
+                            </tr>
+                            <!-- ------------------------------- --> 
+                            <tr>
+                                <th><label for="email">E-mail for Receipt: </label></th>
+                                <td>
+                                    <input type="email" id="email" name="email" placeholder="movies@gmail.com">  <!-- need function to set value=getUserEmail()-if user has an account-->
+                                </td>	
+                                <td style="text-align:right"><output for="email" name="email" display="isInvalidEmail">Invalid</output></td>
+                            </tr>
+                            <!-- ------------------------------- -->  
+                            <tr>	
+                                <th><label for='radioEx'>Radio Buttons:</label></th>
+                                <td colspan=2> 
+                                    <table class="nestedTable">
+                                        <tr>
+                                            <td>
+                                                <input type="radio" id="radio1" name="radioEx" value="radio1" onchange="calculateTotal()"> 
+                                                <label for="radio1">radio3</label>
+                                            </td>
+                                            <td>
+                                                <input type="radio" id="radio2" name="radioEx" value="radio2" onchange="calculateTotal()"> 
+                                                <label for="radio2">radio3</label>
+                                            </td>
+                                            <td>
+                                                <input type="radio" id="radio3" name="radioEx" value="radio3" onchange="calculateTotal()"> 
+                                                <label for="radio3">radio3</label>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                        </table>
+                        <p align="center"><input type="submit" id='submit' name="submit" value='Submit' onclick="validation()"></p>
+                    </fieldset>
+                </div>
+            </div>    
+        </section>
+    </form>
+</body>
+</html>
+

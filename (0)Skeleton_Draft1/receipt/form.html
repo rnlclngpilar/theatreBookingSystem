@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>                <!-- note: this file is for testing functionality of receipt and email recept -- NOT intended to replace the ticket booking form-->
+
+<head>
+	<title>MOVIE FORM</title> 
+		<!--<link href="              .css" rel="stylesheet" type="text/css" /> -->
+		<script type="text/javascript" src = "receipt.js"></script>
+</head>
+
+<body onload="hideTotal(); hideWarning();   price_display()">  
+	<h1 justify="center">Movie Tickets</h1>
+	<form action="" method="POST" id="movieForm">
+ 
+                    <fieldset> 
+                        <legend class="title">Movie Tickets</legend>
+                        
+                            <table id="formTable" justify="center">
+                                <br>
+                                form content goes here ******************
+                                <br><br>
+                                <strong>NOTE:</strong> click the last button on the page to test the email -- needs debuging
+                            </table>
+                        
+                            <!-- fix this - there should be a submit type button  THESE are for debuging-->
+                            <p align="center">
+                                <input type="button" id='submit' name="submit" value='Check if data can be Submit' onclick="calculateTotal();validation()"><br>
+                                <!--
+                                    <input type="button" id='showTotal' name="showTotal" value='Call showTotal Function' onclick="calculateTotal();showTotal()"><br>
+                                    <input type="button" id='hideWarning' name="hideWarning" value='Call hideWarning Function' onclick="calculateTotal();hideWarning()"><br>
+                                --> 
+                            </p>
+
+                            
+                        </fieldset>
+                <br>
+                    <div id="warning">
+                        <fieldset>
+                            <legend class="title">Warning</legend>
+                            <div id="errorMessage"></div>
+                        </fieldset>
+                    </div>
+                    <br>
+                    <div>
+                        <fieldset>
+                            <legend class="title" >Order</legend>
+                                <table id="receipt" justify="center"> </table>
+                        </fieldset>   
+                    </div>
+            <br>	
+
+	</form>	
+        <form action="mailto://   " method="POST"  enctype="text/plain" > <!--  get email from database (if not user then request they sign in first?)-->
+                                  
+            <input type="submit" id='submitEmail'  name="Your Movie Receipt" onclick="calculateTotal();validation();"  value="Email Receipt">
+             <!-- 
+                 the email contains either the value or name attribute aith an "=" (although if the name attribute is removed then nothing is sent,  and if value is removed then 'submit' is inserted by default?)
+                 after the "=" the text assigned to it is displayed, (Can send receipt)
+                 there is no subject line, 
+                 the displayed button value also changes
+            -->
+            
+        
+        </form>
+        
+        
+
+</body>
+</html>
+
+
+
