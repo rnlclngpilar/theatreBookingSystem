@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html>
+<header>
+
+<style>
+    html {background-color: white;}
+    body {background-color: lightgray;}
+    table{border: black double thick; padding:3px; border-spacing: 0;}
+    table caption{font-weight: bold;}
+    th, tr, td {
+        padding: 0px  5px  0px  5px;
+        border-color: black oldlace black oldlace;
+        border-style: ridge groove ridge none ;
+    }
+
+    thead, tfoot {             color:black; background-color:rgb(192, 108, 108); }
+    tbody tr td:nth-child(1){  color:black; background-color:white;}
+    tbody tr:nth-child(even){  color:white; background-color:darkred;}
+    tbody tr:nth-child(odd){   color:black; background-color:oldlace;}
+    tbody tr:hover{            color:black; background-color: khaki;}
+
+    th:first-child, 
+    td:first-child, 
+    tbody td:nth-child(2) { 
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+        border-left: black ridge;
+    }
+    th:last-child, 
+    td:last-child,
+    tbody td:first-child { 
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+        border-right: black ridge;
+    }
+    tbody td:first-child{
+        border-color: darkgoldenrod;
+    }
+    tbody td:first-child image {width:50px;}
+
+    
+</style>
+<!--    
+    may need to update image dimensions (above) once inserted
+    
+    check if they are a user & if they have watched any movies   
+    
+    if it is more convinient/reusable, possibly use innerHTML to insert all data in a row into the table?
+    
+    function: when click a row -> show more information?
+
+    (last if time) use javascript to apply fonts for genres (I need to fix/sort fonts first)
+-->
+
+</header>
+<body>
+    <table>
+        <caption>Movie History</caption>
+        <thead>
+            <tr>
+                <th>Poster</th>
+                <th>Title</th>
+                <th>Genre</th> 
+                <th>Date(s) Watched</th> <!-- note: changed this column (compared to form file)  --> 
+                <th>Rating</th>
+                <th>Reviews</th>
+                <th>Description</th> 
+            </tr>
+        </thead>
+        <tfoot>
+            <tr>
+                <td>Total:</td>
+                <td>#</td>
+                <td colspan="5"></td>
+            </tr>
+        </tfoot>
+        <tbody>
+            <tr>
+                <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+            </tr>
+            <tr>
+                <td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td>
+            </tr>
+            <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+            <tr><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td><td>1</td></tr>
+        </tbody>
+    </table>
+    <br>
+
+    <p>
+        <strong>intended use is for:</strong> User Information section in proposal
+        <br><br>Also need another page for Account Management section
+    </p>
+
+</body>
+</html>
+
