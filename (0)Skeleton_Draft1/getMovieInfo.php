@@ -1,5 +1,5 @@
 <?php
-    include 'connection.php';
+    include('connection.php');
 
     //retreive movie details
     $mysql_movInf = "SELECT * FROM movieInformation";

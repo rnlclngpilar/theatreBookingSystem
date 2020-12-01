@@ -8,34 +8,9 @@
     <Title>Movie Theater</Title>
 </head>
 <body>
-    <?php include "../TopNav_and_Header.html" ?>
     <!-- ____________ Top Navigation Bar ________________ -->
-    <!-- Can Contain: Horizontal Navigation Links, Site logo, 1 or 2 horizontal banners -->
-<!--    <header>
-        <nav class="navBar">
-            <ul>
-                <li>Home</li>
-                <li>Booking</li>
-                <li>Trailers</li>
-                <li>Snacks</li>
-            </ul>
-        </nav>
-    </header>
--->
-    <!-- ____________ Title Block ________________ -->
-<!--   <div class="nestWithBackgroundImage" id="bImg_Home">
-        <div class="outerRim">
-            <div class="innerBlock">
-                <h1 class="innerBlockTitle">Booking</h1><br>
-                <p>
-                    ___ Content ___ Words wrap around lines __
-                    __Dynamic-sizeing height expands__________
-                    <br><br><br><br>
-                </p> 
-            </div>
-        </div>
-    </div>
--->
+    <?php include("../TopNav_and_Header.html"); ?>
+    
     <!--   ____________________________     --> 
     <form action="" method="POST" id="ticketForm">
         <div class="content">
