@@ -1,0 +1,49 @@
+body {background-color: #185259;}
+h1#login p#login{margin: 0%; padding: 0%;}
+h1#signup p#signup{margin: 0%; padding: 0%;}
+
+#box {
+    width: 500px;
+    height: 450px;
+    margin: auto;
+    background-color: #d3d3d3;
+}
+
+form {
+    padding: 20px;
+    width: 100%;
+    float: left;
+}
+    
+.tab {
+    background: #888888;
+    width: 50%;
+    height: 40px;
+    line-height: 40px;
+    text-align: center;
+    float: right;
+}
+
+.active {
+    background: #d3d3d3;
+    color: #000000;
+}
+
+a {
+    color: #000;
+    text-decoration: none;
+}
+
+input[type=text],input[type=password],input[type=email] {
+    width: 90%;
+}
+
+input[type=submit] {
+    background-color: #09630ccb;
+    color: white;
+    width: 91.5%;
+    padding: 5px;
+    text-decoration: none;
+}
+
+.error {color: #df0000;}
