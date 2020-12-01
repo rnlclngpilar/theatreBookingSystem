@@ -87,6 +87,20 @@ function movieArray() {
 }
 
 
+//code below hides/unhide the movie display
+document.getElementById("btn1").addEventListener("click",function()
+        {
+            var box1 = document.getElementById("div2");
+            if (box1.style.display == "none")
+            {
+                box1.style.display = "block";
+            }
+            else
+            {
+                box1.style.display = "none";
+            }
+
+        })
 //--------------------------------------------------------------------------------
 //  Other Code (Visual Studio Code suggested using a class)
 //--------------------------------------------------------------------------------
