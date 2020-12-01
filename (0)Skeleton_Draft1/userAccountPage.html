@@ -1,0 +1,176 @@
+
+<!-- need to connect to a file which checks
+need to account for case: if not a user then .... (Ex.)
+      display a warning when they try to enter this page, 
+      or give option to redirect to login/signin, 
+      ... something
+(same checks as if they were on signup/login page)
+
+FOR THIS FILE:  ADD a way to toggle "required" or "disable" the input in signin when they login 
+                 -- or else they may be forced to do both login and signin input fields before submiting 
+                 can the width be set to "width:fit-content" on the input?  Issue: Selector Specificity
+                -->
+
+
+                <!--  a few checks for debugging
+                        input:disabled{background:navy; border:medium red solid}
+                        input:invalid{background-color: greenyellow;}
+                        input:indeterminate{background-color: orchid;}
+                        input:optional{background-color: aquamarine;}
+                        input:in-range{background-color: grey;}
+                -->
+                <!DOCTYPE html>    
+                <html>
+                
+                <head>
+                    <title>Account</title> <!-- changed border-radius under th - compared to user file - many css changes      (visibility in listener changed ***  capitalization changes in sign up)-->
+                    <style>                
+                        body, td:first-of-type{background-color:lightblue;}
+                        td:first-of-type {border-width: 0 4px 4px 0}
+                        caption {
+                            font-weight: bold; 
+                            text-decoration: darkred underline double; 
+                            padding-bottom: 5px;
+                        }
+                        table:not(#innerContentTable) {border-spacing: 0;}
+
+                        tbody, td, th {
+                            border-collapse:collapse;
+                            padding: 1px 5px 1px 5px;
+                        }
+                        th {
+                            border-radius:  10px 0 0 10px ;  
+                        }                        
+                        tbody table td::selection{background-color: darkred; ;}
+
+                        th, td, input, tbody table { border: solid black medium;}
+                        table>tbody>tr:first-child>td:nth-child(2) td:nth-child(2) {border:none;}
+
+                        tbody table td, input {  border-radius: 5px; row-gap: 3px;}
+                        tbody table td:first-child {background: darkred; color:  white; }
+                        .selected, tbody {
+                            background-color:khaki;
+                            color:black; 
+                        }
+                        .deselected, table>tbody>tr td th {
+                            background-color:darkred;  
+                            color:white; 
+                        }
+
+                        tbody>tr~tr th:only-child {height:min-content;}
+
+
+                    </style>
+                    <!-- tbody table tr td:first-child , table>tbody>tr:first-child>td:nth-child(2) td:nth-child(1)  -->
+                    <!-- 
+                        THIS is for inner table columns
+                        table>tbody>tr:first-child>td:nth-child(2) , table>tbody>tr:first-child>td:nth-child(2) td:nth-child(1)          -> td  then next line for exception
+                    
+                    table>tbody>tr:first-child>td:nth-child(2) , table>tbody>tr:first-child>td:nth-child(2) td:nth-child(1)
+
+                    -->
+                </head>
+                
+                <body>    
+                <form method="POST">             
+                        <table>
+                            <tbody>
+                            <tr>
+                                 <td>User Account</td>   
+                                
+                                    
+                                <td rowspan="7">  <!-- fix quotes on user file-->
+                                <form action="checkUser.php" method="POST" enctype="multipart/form-data"      id="content">  
+                                    <table id="innerContentTable">
+                                        <caption><span id="page">User Account Page</span></caption>
+                                        <div id="signupDiv">      <!-- if a seperate html page has the content for signin/login fields they can be used here too - using a php include statement (may need to change file type)  -->
+                                                <tr><td>First name:</td><td><input type="text"   name="f_name" id="f_name" required></td></tr>
+                                                <tr><td>Last name:</td><td><input type="text"    name="l_name" id="l_name" required></td></tr>
+                                                <tr><td>E-mail:</td><td><input   type="email"    name="email"  id="email"  required></td></tr>
+                                               
+                                                <!-- note address should be added to signin page as well-->
+                                                <tr><td>Address:</td><td><input type="text"     name="address"   id="address" required></td></tr>
+
+                                                <tr><td>Username:</td><td><input type="text"     name="user"   id="user"  required></td></tr>
+                                                <tr><td>Password:</td><td><input type="password" name="pass"   id="pass"  required disabled></td></tr> <!-- NEED TO toggle disabled  - or else both forms needed   (keep required if possible as it helps for part of the validation) -->
+                                       
+                            
+                                        </div>
+                                        <div></div>
+                                        
+                                        
+                                        <div></div>
+
+                                    </table>
+                                    <br>
+                                    <input type="submit" value="Submit" id="submit">
+                                    </form>
+                                </td>
+                            </tr> 
+                            <tr name="tab" class="selected"   id="update"   ><th>Update Account</th></tr>
+                                  <!-- 
+                                        add address, image[optional], 
+                                        check info here and on signup page is consistent for fields
+
+                                  -->
+                            <tr name="tab" class="deselected" id="movieHist"><th>Movie History</th></tr> 
+                                    <!-- above div corresponding to movieHist should include / get from database:  [suggestions - add/change them]
+                                                import/include movie history table page
+                                                past theatres visited 
+                                                      (also link directing to relivant section of the theatres page (not yet created) ) 
+                                                      
+                                            --> 
+                            
+                            <tr name="tab" class="deselected" id="stats"    ><th>Statistics</th></tr>
+                            <!--               general statistics... 
+                                                    favorite genre  ( calculated based on tally of movies watched of each type (can have multiple if ties)  )
+                                                    favorite theatre location 
+                                                    time, day....
+                                                    movies (if they re-watch them? - only count if different movie times (ex. not group tickets)?)
+                                                    
+                                                ****************
+                                                    idea: show as much information that can be pulled from the database as possible [as long as it is relivant] - especially if not able to show elsewhere. 
+                                                    Create new sections where needed for reasonable page length / neatness 
+                                                *****************
+                            -->
+
+
+
+                         <tr rowspan="4" style="visibility: hidden"><th>row gap</th></tr> <!-- gap - note: visibility is different than display  -->
+                            
+
+                        </tbody>
+                        </table>
+                   
+                        
+                        <script>  // toggle tab display and page contents --------------- (Incomplete)  -- MOVE this to seperate file
+                            
+
+
+                            var obj = document.getElementById("update");                      
+
+                            var objName = document.getElementById("page");
+                            var frm = document.getElementById("formDiv");   // note not used 
+
+                            obj.addEventListener("click", function() {                      
+                                objName.innerHTML="Log In"; // change title 
+                                obj.className = "selected"; 
+                                signupDiv.style.display="none"; // swap the display style for selected and previously selected tabs....
+                                loginDiv.style.display="block"; 
+                            });
+
+                            /*   ------------------------------------- 
+                            partial idea [suggestion] 
+                              - is there a more condensed/dynamic way to click tabs and see content without creating a listener for each?
+                              
+                              var tabs = document.getElementsByName("tab");
+                              
+                              for each tab array element create event listener when clicked
+                              pass through array - if element was the one that was clicked set it's class to "selected", else set rest to "deselected"
+                              .... 
+                            */
+                        </script>
+                
+                    </form>  
+                </body>
+                </html>
