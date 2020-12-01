@@ -1,4 +1,4 @@
-<!DOCTYPE html>        <!-- Write: html -- OR -- html5 ??????? -->
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"></meta>
@@ -8,9 +8,10 @@
     <Title>Movie Theater</Title>
 </head>
 <body>
+    <?php include "../TopNav_and_Header.html" ?>
     <!-- ____________ Top Navigation Bar ________________ -->
     <!-- Can Contain: Horizontal Navigation Links, Site logo, 1 or 2 horizontal banners -->
-    <header>
+<!--    <header>
         <nav class="navBar">
             <ul>
                 <li>Home</li>
@@ -20,9 +21,9 @@
             </ul>
         </nav>
     </header>
-
+-->
     <!-- ____________ Title Block ________________ -->
-    <div class="nestWithBackgroundImage" id="bImg_Home">
+<!--   <div class="nestWithBackgroundImage" id="bImg_Home">
         <div class="outerRim">
             <div class="innerBlock">
                 <h1 class="innerBlockTitle">Booking</h1><br>
@@ -34,7 +35,7 @@
             </div>
         </div>
     </div>
-
+-->
     <!--   ____________________________     --> 
     <form action="" method="POST" id="ticketForm">
         <div class="content">
