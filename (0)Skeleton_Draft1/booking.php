@@ -2,17 +2,16 @@
 <html>
 <head>
     <meta charset="utf-8"></meta>
-    <!--    <link rel="stylesheet" href="css/main.css">     -->
-    <link type="text/css" rel="stylesheet" href="../css/stucture_Draft1.css">
+    <link type="text/css" rel="stylesheet" href="../css/stucture_Draft1.css"> <!-- href="css/main.css" -->
     <style><?php include 'css/stucture_Draft1.css'; ?></style>
     <script type="text/javascript" src="../js/mainScript.js"><?php include 'js/mainScript.js';?></script>
+    <Title>Movie Theater</Title>
 </head>
 <body>
-    <header class="navBar">    <!-- Contains: Site logo, 1 or 2 horizontal banners-->
-        <hgroup>
-            <Title>Azure Movie Theater</Title>      <!-- Title, subtitle, taglines -->
-        </hgroup>
-        <nav>                                       <!-- Horizontal Navigation Links -->
+    <!-- ____________ Top Navigation Bar ________________ -->
+    <!-- Can Contain: Horizontal Navigation Links, Site logo, 1 or 2 horizontal banners -->
+    <header>
+        <nav class="navBar">
             <ul>
                 <li>Home</li>
                 <li>Booking</li>
@@ -22,19 +21,15 @@
         </nav>
     </header>
 
-    <!--   ____________Title Block________________     -->
+    <!-- ____________ Title Block ________________ -->
     <div class="nestWithBackgroundImage" id="bImg_Home">
         <div class="outerRim">
             <div class="innerBlock">
-                <h1 class="innerBlockTitle">Booking</h1>
-                <br><p>
-                    Content ____Words wrap around lines _ _Dynamic-sizeing height expands_____ _________  <br>
-    <!--                    Test            <br>
-                    Out             <br>
-                    Background      <br>
-                    Image           <br>
-                    <adjust class=""></adjust>-->
-                    <br><br><br>
+                <h1 class="innerBlockTitle">Booking</h1><br>
+                <p>
+                    ___ Content ___ Words wrap around lines __
+                    __Dynamic-sizeing height expands__________
+                    <br><br><br><br>
                 </p> 
             </div>
         </div>
