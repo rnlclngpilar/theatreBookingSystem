@@ -1,27 +1,40 @@
+<?php   
+    session_start();
+
+    $invalidUser = $success = "";
+    if (!empty($_POST['email']) && !empty($_POST['pass'])) {
+        include "php/login.php";
+    }
+?>
+
 <!DOCTYPE html>
 <html>
     <head>
         <title>Movie Theater Booking | LOGIN</title>
-        <style>
-            a{ margin: 75pt;}
-            .error {color: #FF0000;}
-        </style>
+        <link rel="stylesheet" href="css/loginSignupStylesheet.css">
     </head>
-    <body align="center">
-        <br><br>
-        <h1 style="display:inline;">LOGIN</h1> <p style="display:inline;">to movie theater booking</p>
+    <body>
+        <p id="success"><?php echo "".$_SESSION['success']."";?></p>
         <br><br><br>
-        <div id="userLogin">
-            <form method="post" action="php/login.php">
-                Email: <input name="email" placeholder="email@abc.xyz" type="email" required>
-                <!-- <input name="password" placeholder="password" type="password"> -->
-                <input type="submit">
-                <span class="error">*</span>
+        <div id="box">
+            <a href="signupForm.php" id="signup" class="tab">Sign Up</a>
+            <a href="loginForm.php" id="login" class="tab active">Log In</a>
+            <br><br><br> 
+
+            <div id="title" align="center">
+                <h1 id="login">LOGIN</h1> 
+                <p id="login">to movie theater booking</p>
+            </div>       
+
+            <form method="post" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
+                <span class="error"><?php echo "".$invalidUser."";?></span>
+
+                Email:<br><input type="text" name="email" placeholder="example@email.ex" required><br><br>
+                Password:<br><input type="password" name="pass" placeholder="password" required><br><br>
+
+                <input type="submit" value="LOGIN" name="submitLogin">
+                <a id="guest" href="bookingForm.php">continue as GUEST...</a>
             </form>
         </div>
-        <br>
-        <!-- <a href="theaterInfo.php">continue as GUEST...</a> -->
-        <a href="bookingForm.php">continue as GUEST...</a>
-        <a href="registerForm.php">register NOW...</a>
     </body>
 </html> 
