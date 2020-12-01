@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Nov 18, 2020 at 11:45 PM
+-- Generation Time: Dec 01, 2020 at 11:40 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -31,9 +31,10 @@ DROP TABLE IF EXISTS `cinemadetail`;
 CREATE TABLE IF NOT EXISTS `cinemadetail` (
   `cinemaID` int(3) NOT NULL AUTO_INCREMENT,
   `theatreID` int(11) NOT NULL,
+  `theatreName` varchar(255) NOT NULL,
   `screenNum` int(2) NOT NULL,
-  `movieID` int(11) NOT NULL,
   `seatCapacity` int(3) NOT NULL,
+  `movieID` int(11) NOT NULL,
   `movieTitle` varchar(255) NOT NULL,
   `comingSoon` tinyint(1) NOT NULL,
   PRIMARY KEY (`cinemaID`)
@@ -43,37 +44,37 @@ CREATE TABLE IF NOT EXISTS `cinemadetail` (
 -- Dumping data for table `cinemadetail`
 --
 
-INSERT INTO `cinemadetail` (`cinemaID`, `theatreID`, `screenNum`, `movieID`, `seatCapacity`, `movieTitle`, `comingSoon`) VALUES
-(1, 1, 1, 9, 250, 'Star Wars:  Episode IX - The Rise of Skywalker', 0),
-(2, 1, 2, 3, 375, 'Shazam!', 0),
-(3, 1, 3, 15, 175, '100% Wolf', 0),
-(4, 1, 4, 19, 0, 'Ma Rainey’s Black Bottom', 1),
-(5, 1, 5, 21, 0, 'Death on the Nile', 1),
-(6, 2, 1, 11, 150, 'The Call of the Wild', 0),
-(7, 2, 2, 7, 275, 'Maleficent:  Mistress of Evil', 0),
-(8, 2, 3, 10, 400, 'Sonic the Hedgehog', 0),
-(9, 2, 4, 16, 225, 'The Kid Detective', 0),
-(10, 2, 5, 1, 310, 'The Polar Express', 0),
-(11, 2, 6, 19, 0, 'Ma Rainey’s Black Bottom', 1),
-(12, 2, 7, 20, 0, 'Chicago 10 (Impact Series)', 1),
-(13, 2, 8, 21, 0, 'Death on the Nile', 1),
-(14, 3, 1, 18, 130, 'Vanguard (English Dub)', 0),
-(15, 3, 2, 4, 290, 'Avengers: Endgame', 0),
-(16, 3, 3, 14, 175, 'Honest Thief', 0),
-(17, 3, 4, 8, 300, 'Ford v Ferrari', 0),
-(18, 3, 5, 19, 0, 'Ma Rainey’s Black Bottom', 1),
-(19, 4, 1, 17, 345, 'Freaky', 0),
-(20, 4, 2, 2, 210, 'Guardians of the Galaxy, Vol. 2', 0),
-(21, 4, 3, 12, 160, 'Tesla', 0),
-(22, 4, 4, 20, 0, 'Chicago 10 (Impact Series)', 1),
-(23, 4, 5, 21, 0, 'Death on the Nile', 1),
-(24, 5, 1, 1, 475, 'The Polar Express', 1),
-(25, 5, 2, 13, 370, 'Mulan', 1),
-(26, 5, 3, 6, 290, 'Joker', 1),
-(27, 5, 4, 5, 220, 'Rocketman', 1),
-(28, 5, 5, 20, 0, 'Chicago 10 (Impact Series)', 0),
-(29, 5, 6, 21, 0, 'Death on the Nile', 0),
-(30, 5, 7, 19, 0, 'Ma Rainey\'s Black Bottom', 0);
+INSERT INTO `cinemadetail` (`cinemaID`, `theatreID`, `theatreName`, `screenNum`, `seatCapacity`, `movieID`, `movieTitle`, `comingSoon`) VALUES
+(1, 1, 'Cineplex Odeon Ajax Cinemas', 1, 250, 9, 'Star Wars:  Episode IX - The Rise of Skywalker', 0),
+(2, 1, 'Cineplex Odeon Ajax Cinemas', 2, 375, 3, 'Shazam!', 0),
+(3, 1, 'Cineplex Odeon Ajax Cinemas', 3, 175, 15, '100% Wolf', 0),
+(4, 1, 'Cineplex Odeon Ajax Cinemas', 4, 0, 19, 'Ma Rainey’s Black Bottom', 1),
+(5, 1, 'Cineplex Odeon Ajax Cinemas', 5, 0, 21, 'Death on the Nile', 1),
+(6, 2, 'Cineplex Odeon Oshawa Cinemas', 1, 150, 11, 'The Call of the Wild', 0),
+(7, 2, 'Cineplex Odeon Oshawa Cinemas', 2, 275, 7, 'Maleficent:  Mistress of Evil', 0),
+(8, 2, 'Cineplex Odeon Oshawa Cinemas', 3, 400, 10, 'Sonic the Hedgehog', 0),
+(9, 2, 'Cineplex Odeon Oshawa Cinemas', 4, 225, 16, 'The Kid Detective', 0),
+(10, 2, 'Cineplex Odeon Oshawa Cinemas', 5, 310, 1, 'The Polar Express', 0),
+(11, 2, 'Cineplex Odeon Oshawa Cinemas', 6, 0, 19, 'Ma Rainey’s Black Bottom', 1),
+(12, 2, 'Cineplex Odeon Oshawa Cinemas', 7, 0, 20, 'Chicago 10 (Impact Series)', 1),
+(13, 2, 'Cineplex Odeon Oshawa Cinemas', 8, 0, 21, 'Death on the Nile', 1),
+(14, 3, 'Cineplex Cinemas Pickering and VIP', 1, 130, 18, 'Vanguard (English Dub)', 0),
+(15, 3, 'Cineplex Cinemas Pickering and VIP', 2, 290, 4, 'Avengers: Endgame', 0),
+(16, 3, 'Cineplex Cinemas Pickering and VIP', 3, 175, 14, 'Honest Thief', 0),
+(17, 3, 'Cineplex Cinemas Pickering and VIP', 4, 300, 8, 'Ford v Ferrari', 0),
+(18, 3, 'Cineplex Cinemas Pickering and VIP', 5, 0, 19, 'Ma Rainey’s Black Bottom', 1),
+(19, 4, 'Cineplex Cinemas Scarborough', 1, 345, 17, 'Freaky', 0),
+(20, 4, 'Cineplex Cinemas Scarborough', 2, 210, 2, 'Guardians of the Galaxy, Vol. 2', 0),
+(21, 4, 'Cineplex Cinemas Scarborough', 3, 160, 12, 'Tesla', 0),
+(22, 4, 'Cineplex Cinemas Scarborough', 4, 0, 20, 'Chicago 10 (Impact Series)', 1),
+(23, 4, 'Cineplex Cinemas Scarborough', 5, 0, 21, 'Death on the Nile', 1),
+(24, 5, 'Cineplex Cinemas Markham and VIP', 1, 475, 1, 'The Polar Express', 1),
+(25, 5, 'Cineplex Cinemas Markham and VIP', 2, 370, 13, 'Mulan', 1),
+(26, 5, '', 3, 290, 6, 'Joker', 1),
+(27, 5, '', 4, 220, 5, 'Rocketman', 1),
+(28, 5, '', 5, 0, 20, 'Chicago 10 (Impact Series)', 0),
+(29, 5, '', 6, 0, 21, 'Death on the Nile', 0),
+(30, 5, '', 7, 0, 19, 'Ma Rainey\'s Black Bottom', 0);
 
 -- --------------------------------------------------------
 
@@ -219,6 +220,7 @@ DROP TABLE IF EXISTS `useraccount`;
 CREATE TABLE IF NOT EXISTS `useraccount` (
   `userID` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
+  `password` varchar(128) NOT NULL,
   `favGenre` varchar(50) NOT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
@@ -227,18 +229,20 @@ CREATE TABLE IF NOT EXISTS `useraccount` (
 -- Dumping data for table `useraccount`
 --
 
-INSERT INTO `useraccount` (`userID`, `email`, `favGenre`) VALUES
-('2018-234599', 'Dave@ontariotechu.ca', 'Comedy'),
-('2018-378909', 'John@ontariotechu.ca', 'Biography'),
-('2019-100038', 'Ivy@gmail.ca', 'Science Fiction'),
-('2019-248890', 'Ian@yahoo.ca', 'Action'),
-('2019-319801', 'Carol@ontariotechu.ca', 'Drama'),
-('2019-500200', 'Julie@yahoo.ca', 'Animation'),
-('2020-118882', 'Mike@ontariotechu.ca', 'Comedy'),
-('2020-33007', 'Joanne@yahoo.ca', 'Animation'),
-('2020-377891', 'Crystal@gmail.ca', 'Fantasy'),
-('2020-412335', 'Gary@ontariotechu.ca', 'Action'),
-('2020-881155', 'Lynn@gmail.ca', 'Horror');
+INSERT INTO `useraccount` (`userID`, `email`, `password`, `favGenre`) VALUES
+('2018-234599', 'Dave@ontariotechu.ca', 'kVV!gq', 'Comedy'),
+('2018-378909', 'John@ontariotechu.ca', 'rY&8kE', 'Biography'),
+('2019-100038', 'Ivy@gmail.ca', 'M&qDrA', 'Science Fiction'),
+('2019-248890', 'Ian@yahoo.ca', 'zdFY%2', 'Action'),
+('2019-319801', 'Carol@ontariotechu.ca', 'dEZhU$', 'Drama'),
+('2019-500200', 'Julie@yahoo.ca', 'HyxT*P', 'Animation'),
+('2020-118882', 'Mike@ontariotechu.ca', '&5PbCD', 'Comedy'),
+('2020-330077', 'Joanne@yahoo.ca', 'p*!CBM', 'Animation'),
+('2020-377891', 'Crystal@gmail.ca', 'BSnA$c', 'Fantasy'),
+('2020-412335', 'Gary@ontariotechu.ca', '@!pYfH', 'Action'),
+('2020-881155', 'Lynn@gmail.ca', '@VupyS', 'Horror'),
+('0000-000000', 'admin@theatre.db', 'theatre', 'everything'),
+('2020-782517', 'admin@theatre.dbs', 'theatre', 'as');
 
 -- --------------------------------------------------------
 
