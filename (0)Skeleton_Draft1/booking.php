@@ -1,45 +1,16 @@
-<!DOCTYPE html>        <!-- Write: html -- OR -- html5 ??????? -->
+<!DOCTYPE html>
 <html>
 <head>
     <meta charset="utf-8"></meta>
-    <!--    <link rel="stylesheet" href="css/main.css">     -->
-    <link type="text/css" rel="stylesheet" href="../css/stucture_Draft1.css">
+    <link type="text/css" rel="stylesheet" href="../css/stucture_Draft1.css"> <!-- href="css/main.css" -->
     <style><?php include 'css/stucture_Draft1.css'; ?></style>
     <script type="text/javascript" src="../js/mainScript.js"><?php include 'js/mainScript.js';?></script>
+    <Title>Movie Theater</Title>
 </head>
 <body>
-    <header class="navBar">    <!-- Contains: Site logo, 1 or 2 horizontal banners-->
-        <hgroup>
-            <Title>Azure Movie Theater</Title>      <!-- Title, subtitle, taglines -->
-        </hgroup>
-        <nav>                                       <!-- Horizontal Navigation Links -->
-            <ul>
-                <li>Home</li>
-                <li>Booking</li>
-                <li>Trailers</li>
-                <li>Snacks</li>
-            </ul>
-        </nav>
-    </header>
-
-    <!--   ____________Title Block________________     -->
-    <div class="nestWithBackgroundImage" id="bImg_Home">
-        <div class="outerRim">
-            <div class="innerBlock">
-                <h1 class="innerBlockTitle">Booking</h1>
-                <br><p>
-                    Content ____Words wrap around lines _ _Dynamic-sizeing height expands_____ _________  <br>
-    <!--                    Test            <br>
-                    Out             <br>
-                    Background      <br>
-                    Image           <br>
-                    <adjust class=""></adjust>-->
-                    <br><br><br>
-                </p> 
-            </div>
-        </div>
-    </div>
-
+    <!-- ____________ Top Navigation Bar ________________ -->
+    <?php include("../TopNav_and_Header.html"); ?>
+    
     <!--   ____________________________     --> 
     <form action="" method="POST" id="ticketForm">
         <div class="content">
