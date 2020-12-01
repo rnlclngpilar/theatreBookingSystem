@@ -1,0 +1,100 @@
+
+<!-- need to connect to a file which checks
+if they use login and are not a user then return to signin
+if they signin with information in a field that is already in the database
+check that username matches password when found in database
+
+FOR THIS FILE:  ADD a way to toggle "required" or "disable" the input in signin when they login 
+                 -- or else they may be forced to do both login and signin input fields before submiting 
+                 can the width be set to "width:fit-content" on the input?  Issue: Selector Specificity
+rename title
+ -->
+
+<!DOCTYPE html>    
+<html>
+
+<head>
+    <title>Main</title>
+    <style>
+        body{background-color:lightblue;}
+        caption {font-weight: bold; text-decoration: darkred underline double; padding-bottom: 5px;}
+        tbody, td, th {
+            border-collapse:collapse;
+            padding: 1px 5px 1px 5px;
+        }
+        th {
+            border-radius:  10px 10px 0 0 ;
+        }
+        th, input, tbody>tr>td:first-of-type, tbody, tbody table, tbody table td:first-child  { border: solid black medium;}
+        tbody table td, input {  border-radius: 5px; row-gap: 3px;}
+        tbody table td:first-child {background: darkred; color:  white; }
+        .selected, tbody{
+            background-color:khaki;
+            color:black; 
+        }
+        .deselected{
+            background-color:darkred;  
+            color:white; 
+        }
+
+    </style>
+</head>
+
+<body>    
+<form method="POST">             
+        <table>
+            <thead>
+                <tr>
+                    <th id="login" class="deselected">Log In</th>
+                    <th id="signup" class="selected">Sign Up</th>
+                </tr>
+            </thead>
+            <tbody>
+            <tr colspan=2>    
+                <td colspan=2>
+                <form action="checkUser.php" method="POST" enctype="multipart/form-data">  
+                    <table>
+                        <caption><span id="page">Sign up</span> form</caption>
+                        <div id="signupDiv">
+                                <tr><td>First name:</td><td><input type="text"  name="f_name" id="f_name" required></td></tr>
+                                <tr><td>Last name:</td><td><input type="text"   name="l_name" id="l_name" required></td></tr>
+                                <tr><td>E-mail:</td><td><input   type="email"   name="email"  id="email"  required></td></tr>
+                        </div>
+                        <div id="loginDiv" style="display: none">
+                                <tr><td>Username:</td><td><input type="text"     name="user"   id="user" required></td></tr>
+                                <tr><td>Password:</td><td><input type="password" name="pass"   id="pass" required disabled></td></tr>  <!-- NEED TO disable/toggle required ? or else both forms needed?? -->
+                        </div>
+                    </table>
+                    <br>
+                    <input type="submit" value="Submit" id="submit">
+                    </form>
+                </td>
+            </tr>
+        </tbody>
+        </table>
+   
+        
+        <script>  // toggle tab display and form contents     	
+            var obj = document.getElementById("login");
+            var obj2 = document.getElementById("signup");
+            var objName = document.getElementById("page");
+            var frm = document.getElementById("formDiv");                   
+            obj.addEventListener("click", function() {                      
+                objName.innerHTML="Log In";
+                obj.className = "selected"; 
+                obj2.className = "deselected";
+                signupDiv.style.display="none";
+                loginDiv.style.display="block"; 
+            });
+            obj2.addEventListener("click", function() {
+                objName.innerHTML="Sign Up";
+                obj2.className = "selected"; 
+                obj.className = "deselected"; 
+                loginDiv.style.display="block";
+                signupDiv.style.display="none";
+            });
+        </script>
+
+    </form>  
+</body>
+</html>
