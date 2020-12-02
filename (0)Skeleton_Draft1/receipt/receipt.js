@@ -79,7 +79,7 @@
             var warningMessage = document.getElementById("errorMessage");
 
             warningMessage.innerHTML="<strong>Submission not accepted. Review the following:</strong> <br>";
-            //warningMessage.innerHTML+=invalidElements;   //list style print
+            //warningMessage.innerHTML+=invalidElements;      //list style print
             for(var i=0; i<invalidElements.length; i++){
              warningMessage.innerHTML+=" - "+invalidElements[i]+"<br>"; //bulleted print
             }
