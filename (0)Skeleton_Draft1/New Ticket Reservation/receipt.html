@@ -1,0 +1,78 @@
+<html>
+<head>
+	<title>Receipt</title>
+
+	<style>
+		table{
+			border-collapse: collapse;
+			font-size: x-large;
+		}
+
+		body{
+			font-size: x-large;
+		}
+
+		form{
+			width: 20%;
+		}
+	</style>
+
+</head>
+<body>
+	<form>
+		<fieldset>
+	<table border="0" cellpadding="10">
+		<tr>
+			<th colspan=3>Receipt</th>
+		</tr>
+		<tr>
+			<td></td>
+			<td>Price</td>
+			<td># of Tickets</td>
+		<tr>
+			<td>Adult Price:</td>
+			<td>$<span id="result1"></span></td> 
+			<td>x<span id="ticket1"></span></td>
+		</tr>
+		<tr>
+			<td>Senior Price: </td>
+			<td>$<span id="result2"></span></td>
+			<td>x<span id="ticket2"></span></td>
+		</tr>
+		<tr>
+			<td>Child Price: </td>
+			<td>$<span id="result3"></span></td>
+			<td>x<span id="ticket3"></span></td>
+		</tr>
+	</table>
+	------------------------------------------------------
+	<table cellpadding="10">
+		<tr>
+			<td>Subtotal: </td>
+			<td>$<span id="subtotal"></span></td>
+		</tr>
+
+		<tr>
+			<td>HST 13%: </td>
+			<td>$<span id="hst"></span></td>
+		</tr>
+		<tr>
+			<td>Total: </td>
+			<td>$<span id="total"></span></td>
+		</tr>
+	</table>
+	</fieldset>
+	</form>
+	<script>
+		document.getElementById("result1").innerHTML = localStorage.getItem("adultvalue");
+		document.getElementById("ticket1").innerHTML = localStorage.getItem("adultticketvalue");
+		document.getElementById("result2").innerHTML = localStorage.getItem("seniorvalue");
+		document.getElementById("ticket2").innerHTML = localStorage.getItem("seniorticketvalue");
+		document.getElementById("result3").innerHTML = localStorage.getItem("childvalue");
+		document.getElementById("ticket3").innerHTML = localStorage.getItem("childticketvalue");
+		document.getElementById("subtotal").innerHTML = localStorage.getItem("subtotalvalue");
+		document.getElementById("hst").innerHTML = localStorage.getItem("hstvalue");
+		document.getElementById("total").innerHTML = localStorage.getItem("totalvalue");
+	</script>
+</body>
+</html>
