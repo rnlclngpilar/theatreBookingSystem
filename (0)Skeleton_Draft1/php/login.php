@@ -1,6 +1,4 @@
 <?php
-   session_start();
-
    require 'connection.php';
 
    //get input from form

@@ -9,7 +9,7 @@
 </head>
 <body>
     <!-- ____________ Top Navigation Bar ________________ -->
-    <?php include("../TopNav_and_Header.html")(); ?>
+    <?php include("html/TopNav_and_Header.html"); ?>
 
     <!-- ____________ Quick Reservation Form ________________ -->
     <form action="" method="POST" id="ticketForm">
