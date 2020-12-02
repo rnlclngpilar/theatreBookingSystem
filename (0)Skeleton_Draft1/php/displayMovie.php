@@ -13,7 +13,8 @@
             $hour = date('h', strtotime($row['duration']));
             $min = date('m', strtotime($row['duration']));
             $duration = "$hour hour, $min minutes";
-            $releaseDate =($row['releaseDate']);
+            $releaseDate = ($row['releaseDate']);
+            $genre = ($row['genre']);
 
             //create table
             echo "<table class='poster'>";
@@ -23,6 +24,7 @@
             echo("<td>");
             echo("<p><strong>Title:</strong> ".$title."</p>");
             echo("<p><strong>Length:</strong> ".$duration."</p>");
+            echo("<p><strong>Genre:</strong> ".$genre."</p>");
             echo("<p><strong>Release Date:</strong> ".$releaseDate."</p>");
             echo("<p><strong>Image:</strong> ".$movieID."</p>");
             echo("</td>");
