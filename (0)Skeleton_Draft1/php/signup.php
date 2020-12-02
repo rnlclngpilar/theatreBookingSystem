@@ -1,14 +1,13 @@
 <?php
     require 'connection.php';
 
-    //declar variables
-    $email = $_POST['email'];
-    $pass = $_POST['pass'];
-    $reemail = $_POST['re-email'];
-    $repass = $_POST['re-pass'];
-    $genre = $_POST['genre'];
+    if (!empty($_POST['email']) && !empty($_POST['pass'])) {
+        //declar variables
+        $fName = $_POST['f_name'];
+        $lName = $_POST['l_name'];
+        $email = $_POST['email'];
+        $pass = $_POST['pass'];
 
-    if($email==$reemail && $pass==$repass){
         //sql
         $sql = "SELECT*FROM useraccount WHERE email='$email'";
         $result = mysqli_query($connection, $sql);
@@ -27,8 +26,6 @@
             //if successful
             if ($insert == true) {
                 session_start();
-                $success = "registration successful...";
-                $_SESSION['success'] = $success;
 
                 header("Location: loginForm.php");
             } else 
@@ -41,10 +38,8 @@
                 $invalidInput="* oh oh... something went wrong...<br><br>";
         }
 
-    }else if($email!=$reemail){
-        $invalidInput="* oh oh... email entered DOES NOT match...<br><br>";
-    }else if($pass!=$repass){
-        $invalidInput="* oh oh... password entered DOES NOT match...<br><br>";
+    }else{
+        echo("<p>* All field are required.<br></p>");
     }
 
     $connection->close(); //close connec
