@@ -15,6 +15,114 @@
     <form action="" method="POST" id="ticketForm">
         <div class="content">
             <div id="Location">
+                <!-- _______________ ~ Theater ~ (Start) __________________-->
+                <section>
+                <div class="outerRim">
+                <div class="innerBlock" >
+                    <fieldset>
+                        <legend><h1 class="innerBlockTitle">~ Theatre ~</h1></legend>
+                        <table class="formTable" align="center">
+                        <!-- theater -->
+                        <tr>
+                            <th><label for="theatre">Theatre:</label> </th>
+                            <td>
+                                <select id="theatre" name="theatre" onchange="calculateTotal()" onchange="setTheatre()">  <!-- put on recipt - no actual cost-->
+                                <option value="none" display="not(noSeatsOrMovieNotShownAtABCD())">Select a Theatre Location</option>
+                                <option value="invalid" display="noSeatsOrMovieNotShownAtABCD()">No Theatres Available</option>  <!-- call a function to change display -->
+                                <optgroup label="Cineplex" >    <!-- need proper function - Connect to database -->
+                                    <?php 
+                                        include 'php/connection.php';
+                                        $res = mysqli_query($connection, "SELECT * FROM theatrelocationinfo");
+                                        
+                                        while($row = mysqli_fetch_array($res)) {
+                                            echo("<option id='location'>".$row['name']."</option>");
+                                        }
+                                    ?>
+                                </optgroup>
+
+                                <!-- need proper function - Connect to database -->
+                                <optgroup label="Oshawa" >    
+                                    <option value="a" disabled="noSeatsOrMovieNotShownAtA()">theatre a  | <output for="a" value="proximityToA()">---</output>km</option>
+                                    <option value="b" disabled="noSeatsOrMovieNotShownAtB()">theatre b  | <output for="b" value="proximityToB()">---</output>km</option>
+                                    <option value="c" disabled="noSeatsOrMovieNotShownAtC()">theatre c  | <output for="c" value="proximityToC()">---</output>km</option>
+                                    <option value="d" disabled="noSeatsOrMovieNotShownAtD()">theatre d  | <output for="d" value="proximityToD()">---</output>km</option>
+                                </optgroup>
+
+                                </select>
+                            </td>
+                            <td style="text-align:right">Distance: <output for="theatre" name="proximity" value="proximityToTheatre()"> --- </output></td>
+                        </tr>
+                        <!-- list of titles (this filters the titles as you type) or you can use it as a dropdown-->
+                        <tr>
+                            <th><span><strong>Available Movie Title: </strong></span></th>
+                            <td colspan='2'><input type="text" name="movies" list="movieTitles" placeholder="Enter movie title"/></td>
+                            <datalist id="movieTitles">                         
+                                <!-- <option>movie title first</option>
+                                <option>movie title second</option> -->
+                                <?php 
+                                    function setTheatre(){
+                                        include 'php/connection.php';
+
+                                        (isset($_POST["theatre"])) ? $theaterName = $_POST["theatre"] : $theaterName=1;
+                                        $res = mysqli_query($connection, "SELECT * FROM cinemadetail WHERE theatreName='$theaterName'");
+
+                                        while($row = mysqli_fetch_array($res)) {
+                                            echo("<option >".$row['movieTitle']."</option>");
+                                        }
+                                    }
+
+                                    
+                                ?>
+                            </datalist>
+                        </tr>
+                        <!-- ------------------------------- -->
+                        </table>
+                    </fieldset>
+                </div>
+                </div>
+                </section>
+                <!-- ________________ ~ Theater ~ (End) ___________________-->
+                    
+
+                <!-- _______________ ~ Seats ~ (Start) __________________-->
+                <section>
+                <div class="outerRim">
+                <div class="innerBlock" >       <!-- NEED New ID-->
+                    <fieldset  class="nestedTable" align="center">
+                        <legend><h1 class="innerBlockTitle">~ Seats ~</h1></legend>
+                        <table class="formTable" align="center">
+                            <caption> Seats Available:</caption>
+                                <!-- number of seats available-->
+                                <tr>
+                                    <th><label for="availableSeats"><strong>Number of Seats Available: </strong></label></th>  
+                                    <td colspan='2'><output type="number" id="availableSeats" name="availableSeats" value="getRemainingSeats()">-----</output></td>
+                                </tr>
+                                <tr>
+                                    <th><label for="availableAcessibleSeats"><strong>Number of Wheelchair Accessible Seats Available: </strong></label></th>
+                                    <td colspan='2'><output type="number" id="availableAccessibleSeats" name="availableAccessibleSeats" value="getRemainingAcbessibleSeats()">-----</output></td>
+                                </tr>
+                                <!-- ------------------------------- -->
+                                <!-- Date and time - check if local?-->
+                                <tr>
+                                    <th><span><strong>Date/time: </strong></span><span style="color: rgb(185, 32, 109)"><br>(at a later date: will cleanup / provide clear options for when the movie is shown)<br><br>
+                                    </span></th>
+                                    <td colspan='2'>
+                                        <input type="date" /> 
+                                        <input type="time" /> 
+                                        <input type="datetime-local" /> <!-- NOTE: don't let them do both time and date at once, use one to update the other-->
+                                        <input type="datetime" />       <!-- ???  -->
+                                    </td>
+                                </tr>
+                                <!-- ------------------------------- -->
+                        </table>
+                    </fieldset>
+                </div>
+                </div>    
+            </section>
+            <!-- ________________ ~ Seats ~ (End) ___________________-->
+
+
+
             <!-- _________ ~ Ticket Reservation ~ (Start) ___________-->
             <section>
                 <div class="outerRim">
@@ -60,25 +168,7 @@
                                     </tr>
                                 </table>
                                 <!-- _______________________________ --> 
-                            </td></tr>
-                            <!-- ------------------------------- --> 
-                            <tr>
-                                <th><label for="theatre">Theatre:</label> </th>
-                                <td>
-                                    <select id="theatre" name="theatre" onchange="calculateTotal()">  <!-- put on recipt - no actual cost-->
-                                    <option value="invalid" display="noSeatsOrMovieNotShownAtABCD()">No Theatres Available</option>  <!-- call a function to change display -->
-                                    <option value="none" display="not(noSeatsOrMovieNotShownAtABCD())">Select a Theatre Location</option>
-                                    
-                                    <optgroup label="Oshawa" >    <!-- need proper function - Connect to database -->
-                                        <option value="a" disabled="noSeatsOrMovieNotShownAtA()">theatre a  | <output for="a" value="proximityToA()">---</output>km</option>
-                                        <option value="b" disabled="noSeatsOrMovieNotShownAtB()">theatre b  | <output for="b" value="proximityToB()">---</output>km</option>
-                                        <option value="c" disabled="noSeatsOrMovieNotShownAtC()">theatre c  | <output for="c" value="proximityToC()">---</output>km</option>
-                                        <option value="d" disabled="noSeatsOrMovieNotShownAtD()">theatre d  | <output for="d" value="proximityToD()">---</output>km</option>
-                                    </optgroup>
-                                    </select>
-                                </td>
-                                <td style="text-align:right">Distance: <output for="theatre" name="proximity" value="proximityToTheatre()"> --- </output></td>
-                            </tr>
+                            </td></tr>                            
                             <!-- ------------------------------- --> <!-- need function to set value=getUserEmail()-if user has an account-->
                             <tr>
                                 <th><label for="email">E-mail for Receipt: </label></th>
@@ -119,52 +209,7 @@
             </section>
             <!-- __________ ~ Ticket Reservation ~ (End) ____________-->
             
-            <!-- _______________ ~ Seats ~ (Start) __________________-->
-            <section>
-                <div class="outerRim">
-                <div class="innerBlock" >       <!-- NEED New ID-->
-                    <fieldset  class="nestedTable" align="center">
-                        <legend><h1 class="innerBlockTitle">~ Seats ~</h1></legend>
-                        <table class="formTable" align="center">
-                            <caption> Seats Available:</caption>
-                                <!-- number of seats available-->
-                                <tr>
-                                    <th><label for="availableSeats"><strong>Number of Seats Available: </strong></label></th>  
-                                    <td><output type="number" id="availableSeats" name="availableSeats" value="getRemainingSeats()">-----</output></td>
-                                </tr>
-                                <tr>
-                                    <th><label for="availableAcessibleSeats"><strong>Number of Wheelchair Accessible Seats Available: </strong></label></th>
-                                    <td><output type="number" id="availableAccessibleSeats" name="availableAccessibleSeats" value="getRemainingAcbessibleSeats()">-----</output></td>
-                                </tr>
-                                <!-- ------------------------------- -->
-                                <!-- list of titles (this filters the titles as you type) or you can use it as a dropdown-->
-                                <tr>
-                                    <th><span><strong>Movie Title: </strong></span></th>
-                                    <td><input type="text" name="movies" list="movieTitles" placeholder="Enter movie title"/></td>
-                                    <datalist id="movieTitles">                         
-                                        <option>movie title first</option>
-                                        <option>movie title second</option>
-                                    </datalist>
-                                </tr>
-                                <!-- ------------------------------- -->
-                                <!-- Date and time - check if local?-->
-                                <tr>
-                                    <th><span><strong>Date/time: </strong></span><span style="color: rgb(185, 32, 109)"><br>(at a later date: will cleanup / provide clear options for when the movie is shown)<br><br>
-                                    </span></th>
-                                    <td>
-                                        <input type="date" /> 
-                                        <input type="time" /> 
-                                        <input type="datetime-local" /> <!-- NOTE: don't let them do both time and date at once, use one to update the other-->
-                                        <input type="datetime" />       <!-- ???  -->
-                                    </td>
-                                </tr>
-                                <!-- ------------------------------- -->
-                        </table>
-                    </fieldset>
-                </div>
-                </div>    
-            </section>
-            <!-- ________________ ~ Seats ~ (End) ___________________-->
+            
 
 
 
