@@ -1,8 +1,8 @@
 <?php
     //1.Create a database connection
     $dbhost="localhost";
-    $dbuser="theatreAdmin";
-    $dbpass="adminPass";
+    $dbuser="root";
+    $dbpass="";
     $dbname="movietheatredb";
 
     //connect to server
