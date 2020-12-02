@@ -1,5 +1,5 @@
 function validation(){
-    var adult_ticket = document.getElementById("adult").value;
+    var adult_ticket = document.getElementById("adult").value; //get value from the adult textbox
     var senior_ticket = document.getElementById("senior").value;
     var child_ticket = document.getElementById("child").value
 
