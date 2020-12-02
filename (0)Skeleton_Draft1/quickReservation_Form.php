@@ -23,30 +23,34 @@
                         <legend><h1 class="innerBlockTitle">~ Theatre ~</h1></legend>
                         <table class="formTable" align="center">
                         <!-- theater -->
+                        <?php include 'php/connection.php'; ?>
                         <tr>
                             <th><label for="theatre">Theatre:</label> </th>
                             <td>
-                                <select id="theatre" name="theatre" onchange="calculateTotal()" onchange="setTheatre()">  <!-- put on recipt - no actual cost-->
-                                <option value="none" display="not(noSeatsOrMovieNotShownAtABCD())">Select a Theatre Location</option>
-                                <option value="invalid" display="noSeatsOrMovieNotShownAtABCD()">No Theatres Available</option>  <!-- call a function to change display -->
+                                <select id="theatre" name="theatre" onchange="calculateTotal()" onchange="myFunction()">  <!-- put on recipt - no actual cost-->
+                                <option value="none" display="not(noSeatsOrMovieNotShownAtABCD())">Select a Theatre Location</option> <!-- call a function to change display -->
                                 <optgroup label="Cineplex" >    <!-- need proper function - Connect to database -->
                                     <?php 
-                                        include 'php/connection.php';
-                                        $res = mysqli_query($connection, "SELECT * FROM theatrelocationinfo");
-                                        
-                                        while($row = mysqli_fetch_array($res)) {
-                                            echo("<option id='location'>".$row['name']."</option>");
+                                        $result = mysqli_query($connection, "SELECT * FROM theatrelocationinfo");
+                                        if (mysqli_num_rows($result) > 0) {
+                                            while ($row = mysqli_fetch_array($result)) {
+                                                $location = $row['name'];
+
+                                                echo('<option value="'.$location.'"> '.$location.' </option>');
+                                            }
+                                        }else{
+                                            echo("<option value='invalid' display='noSeatsOrMovieNotShownAtABCD()'>No Theatres Available</option>");
                                         }
                                     ?>
                                 </optgroup>
 
                                 <!-- need proper function - Connect to database -->
-                                <optgroup label="Oshawa" >    
+                                <!-- <optgroup label="Oshawa" >    
                                     <option value="a" disabled="noSeatsOrMovieNotShownAtA()">theatre a  | <output for="a" value="proximityToA()">---</output>km</option>
                                     <option value="b" disabled="noSeatsOrMovieNotShownAtB()">theatre b  | <output for="b" value="proximityToB()">---</output>km</option>
                                     <option value="c" disabled="noSeatsOrMovieNotShownAtC()">theatre c  | <output for="c" value="proximityToC()">---</output>km</option>
                                     <option value="d" disabled="noSeatsOrMovieNotShownAtD()">theatre d  | <output for="d" value="proximityToD()">---</output>km</option>
-                                </optgroup>
+                                </optgroup> -->
 
                                 </select>
                             </td>
@@ -56,21 +60,27 @@
                         <tr>
                             <th><span><strong>Available Movie Title: </strong></span></th>
                             <td colspan='2'><input type="text" name="movies" list="movieTitles" placeholder="Enter movie title"/></td>
-                            <datalist id="movieTitles">                         
-                                <?php 
-                                    function setTheatre(){
-                                        include 'php/connection.php';
+                            <datalist id="movieTitles">
 
-                                        (isset($_POST["theatre"])) ? $theaterName = $_POST["theatre"] : $theaterName=1;
-                                        $res = mysqli_query($connection, "SELECT * FROM cinemadetail WHERE theatreName='$theaterName'");
-
-                                        while($row = mysqli_fetch_array($res)) {
-                                            echo("<option >".$row['movieTitle']."</option>");
-                                        }
-                                    }
-
+                            <script>
+                                function myFunction(){
+                                    var x = document.getElementById("theatre").value;
+                                    document.getElementById("demo").innerHTML = "You selected: ";
                                     
-                                ?>
+                                    
+                                    <?php 
+                                        $location = "<script>document.getElementByID('theatre').value</script>";
+                                        echo("<option>$location</option>");
+
+                                        // $res = mysqli_query($connection, "SELECT * FROM cinemadetail WHERE theatreName='$location'");
+
+                                        // while($row = mysqli_fetch_array($res)) {
+                                        //     echo("<option >".$row['movieTitle']."</option>");
+                                        // }
+                                    ?>
+                                }
+                            </script>
+                               
                             </datalist>
                         </tr>
                         <!-- ------------------------------- -->
