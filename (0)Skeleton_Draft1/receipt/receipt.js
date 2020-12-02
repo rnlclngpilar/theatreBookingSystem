@@ -38,18 +38,18 @@
         "<tr><td>Tax: </td>         	   <td>$</td> <td>" + ((Math.round((tax)*100))/100) + "</td></tr>" +
         "<tr><td>Total Price: </td>        <td>$</td> <td>" + totalTaxed + "</td></tr>";
 
-   //     hideTotal();         // commented for debug
-   //     hideWarning();       // commented for debug
+    //      hideTotal();         // commented for debug
+    //      hideWarning();       // commented for debug
 
 
 
-   /*  emailAttemptSplitOff()  */
+   /*  emailAttemptSplitOff()  */    
 
         return total;
     }
 
 
-    function hideTotal(){                               // commented for debug
+    function hideTotal(){                               // comment this if you want to see output - for debug
      //   var  divobj = document.getElementById("receipt");
      //   divobj.style.display='none';						 
     }
