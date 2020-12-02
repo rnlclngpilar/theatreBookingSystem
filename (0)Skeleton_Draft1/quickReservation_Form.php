@@ -57,8 +57,6 @@
                             <th><span><strong>Available Movie Title: </strong></span></th>
                             <td colspan='2'><input type="text" name="movies" list="movieTitles" placeholder="Enter movie title"/></td>
                             <datalist id="movieTitles">                         
-                                <!-- <option>movie title first</option>
-                                <option>movie title second</option> -->
                                 <?php 
                                     function setTheatre(){
                                         include 'php/connection.php';
@@ -83,7 +81,7 @@
                 </section>
                 <!-- ________________ ~ Theater ~ (End) ___________________-->
                     
-
+                    
                 <!-- _______________ ~ Seats ~ (Start) __________________-->
                 <section>
                 <div class="outerRim">
