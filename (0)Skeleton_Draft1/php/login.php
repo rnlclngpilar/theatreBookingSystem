@@ -1,29 +1,33 @@
 <?php
    require 'connection.php';
 
-   //get input from form
-   $email=$_POST['email'];
-   $pass=$_POST["pass"];
-   $dbEmailAd=$dbPassword="";
+   if (!empty($_POST['email']) && !empty($_POST['pass'])) {
+      //get input from form
+      $user=$_POST['user'];
+      $pass=$_POST["pass"];
+      $dbEmailAd=$dbPassword="";
 
-   //sql
-   $sql = "SELECT*FROM useraccount 
-            WHERE email='$email'
-            AND password='$pass'";
-   $result = mysqli_query($connection, $sql);
-   $row = mysqli_fetch_assoc($result);
+      //sql
+      $sql = "SELECT*FROM useraccount 
+               WHERE (email='$user' or userID='$user')
+               AND password='$pass'";
+      $result = mysqli_query($connection, $sql);
 
-   //if user/pass matches data
-   if(mysqli_num_rows($result) == 1){
-      //start session
-      session_start();
-      $_SESSION['genre'] = $row['favGenre'];
+      //if user/pass matches data
+      if(mysqli_num_rows($result) == 1){
+         //start session
+         session_start();
+         header("Location: userAccountPage.html");    //redirect
 
-      header("Location: bookingForm.php");    //redirect
-   //invalid user
-   }else {
-      $invalidUser="* INVALID email and password!!<br><br>";
-   }  
+      //invalid user
+      }else {
+         echo("<p>* INVALID email and password.<br></p>");
+         //$invalidUser="* INVALID email and password!!<br><br>";
+      }  
 
+   }else{
+      echo("<p>* Both username and password is required.<br></p>");
+   }
+      
    $connection->close(); //close connec
 ?>
