@@ -104,11 +104,11 @@
 
         return receiptText;      
     }
-*/
-    void emailAttemptSplitOff(){
+
+    emailAttemptSplitOff(){
             var  emailObj = document.getElementById("submitEmail");
             emailObj.value=receiptText(); // this sends "[name attribute]=" BEFORE text in receiptText() function when email is sent
-            /*OUTPUT 
+             *//*OUTPUT 
                 Your Movie Receipt=Receipt
                 Number of Tickets    40
                 Number of Tickets    40
@@ -131,4 +131,5 @@
         /*OUTPUT 
                 Your Movie Receipt=Email Receipt
             */
-    }
+    //}
+   
