@@ -1,0 +1,23 @@
+/*Movie poster-image boxes*/
+.boxImg { 
+    position:float;
+    background-color: white;
+    float:left;
+    border-collapse: separate;
+    border: solid black medium;
+    
+    max-height:200px;
+    max-width:100px;
+    margin:5px;
+    border-radius: 2vw;
+}
+
+/* ----- Old -----
+.boxImg {
+    border: 1rem double red;
+    max-height:200px;
+    max-width:100px;
+    margin:5px;
+    border-radius: 2vw;
+}
+*/

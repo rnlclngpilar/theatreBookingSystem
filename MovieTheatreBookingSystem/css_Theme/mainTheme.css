@@ -1,0 +1,126 @@
+/*General and Background*/
+html, body{
+    box-sizing: border-box; 
+    padding:0; 
+    margin:0;
+}
+div, img { box-sizing: border-box; }
+
+/*Tables and Labels*/
+table, th, tr,td{ border-collapse: collapse;}
+label{ text-align: left; }
+
+/*Movie poster-image boxes*/
+.boxImg { 
+    position:float;
+    background-color: white;
+    float:left;
+    border-collapse: separate;
+    border: solid black medium;
+    
+    max-height:200px;
+    max-width:100px;
+    margin:5px;
+    border-radius: 2vw;
+}
+
+#divHeader{
+    background-color: darkgrey; 
+    border-radius: 15px;
+    width:100%; 
+    position:relative;
+    border: solid medium black; 
+    padding: 2px;
+}
+/*-----------*/
+.div2  table{width:max-content; margin:5px;}
+.div2  img{height:20vh; padding:5px; }
+
+img { max-height: 15rem; max-width: 10rem;}
+
+.div2{
+    overflow:auto;
+    height:70vh;
+    width:100%;
+    text-align: center ;			
+    background-color:darkred;
+    border-radius: 20px;
+}
+/*-----------*/
+.poster:hover{
+    background-blend-mode: multiply;
+    background-color:yellow;
+}
+
+.poster {
+    position:float;
+    background-color: white;
+    float:left;
+    border-collapse: separate;
+    border: solid black medium;
+}
+
+.outline{ background-color: grey; padding:5px;}
+
+body {	
+    background-image: url("https://img.freepik.com/free-vector/pattern-snacks-theme-popcorn_85534-194.jpg?size=338&ext=jpg");			
+    background-size: 20vw;
+    /*background-repeat: <!-- -------------- -->;*/
+    background-attachment: fixed;
+    background-color: grey; 
+    background-blend-mode: hard-light; }
+
+table {border-radius: 2vw;}
+
+
+#ticketImg {
+    background-color:white; 
+    border: double 4px black; 
+    padding:5px;	
+    border-radius: 15px;
+}
+#ticketImg:hover {
+    background-color: lightyellow; 
+    border: solid 4px black;
+}
+
+/* Filer menu (by theme) */
+#filterMenu {margin:5vw; background:lightgrey;}
+.menuContainer{
+	background:darkgrey; 
+	border-right: thick black solid; 
+	border-radius: 30px; 
+	padding:40px;
+	margin:30px;
+	width:100px;
+}
+
+/* Header block */
+.headerContainer {
+	background:darkred; 
+	border-bottom: thick black solid; 
+	border-radius:2vw; 
+	padding:5px;
+}
+h1 { width:max-content; padding: 5px;}
+
+/* Movie Options block */
+
+
+/* Drop down menu labels */
+.dropDownFunctionContainer {
+	background:darkgrey;
+	border-bottom: thick black solid; 
+	border-radius: 10px; 
+	padding:5px;
+	margin:20px; 
+}
+.dropDownButton { 
+	width:100%; 
+	position:relative;
+}
+.dropDownLabel {
+	background-color: ivory;
+}
+
+/* id="div2" class="div2" */
