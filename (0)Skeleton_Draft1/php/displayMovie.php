@@ -26,7 +26,7 @@
             echo("<p><strong>Length:</strong> ".$duration."</p>");
             echo("<p><strong>Genre:</strong> ".$genre."</p>");
             echo("<p><strong>Release Date:</strong> ".$releaseDate."</p>");
-            echo("<p><strong>Image:</strong> ".$movieID."</p>");
+            echo("<p><strong>Movie ID:</strong> ".$movieID."</p>");
             echo("</td>");
             echo("</table>");
         }
