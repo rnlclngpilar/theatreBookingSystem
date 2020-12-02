@@ -13,9 +13,6 @@
     function getTicketQuantity(){ return 40;}// PLACEHOLDER
     function getRelevantValue(){  return 0; }// PLACEHOLDER
 
-
-
-  
     function calculateTotal(){
         var ticketNo = 0; // initialize
         ticketNo = getTicketQuantity();  // will need to create a new multiplier for different ticket types...
@@ -26,7 +23,9 @@
         var tableObj = document.getElementById("receipt");		
         var multiplier =((ticketNo>0)?("<td>"+" X "+ ticketNo + "</td>"):"<td></td>"); 
 
-        // fix names, check if "$" is applicable, fix functions
+        // in first column of table - put real names of items corresponding to functions 
+        // check if "$" in second col is applicable for the item (dont use if it is a quantity), 
+        // create functions
         tableObj.innerHTML =  "<caption>Receipt</caption>" +
         "<tr><td>Number of Tickets:</td>    <td>  </td><td>" + getTicketQuantity()    + "</td> <td></td> </tr>" +
         "<tr><td>Form Element:</td>         <td>$</td> <td>" + getRelevantValue()     + "</td>"+ multiplier+"</tr>" +
@@ -39,55 +38,18 @@
         "<tr><td>Tax: </td>         	   <td>$</td> <td>" + ((Math.round((tax)*100))/100) + "</td></tr>" +
         "<tr><td>Total Price: </td>        <td>$</td> <td>" + totalTaxed + "</td></tr>";
 
-   //     hideTotal();         // commented for debug
-   //     hideWarning();       // commented for debug
+    //      hideTotal();         // commented for debug
+    //      hideWarning();       // commented for debug
 
 
 
-
-        var  emailObj = document.getElementById("submitEmail");
-        emailObj.value=receiptText(); // this sends "[name attribute]=" BEFORE text in receiptText() function when email is sent
-        /*OUTPUT 
-            Your Movie Receipt=Receipt
-            Number of Tickets    40
-            Number of Tickets    40
-            Form Element:        0
-        */
-
-        
-        //emailObj.name=receiptText(); // this sends "=[value attribute]" AFTER text in receiptText() function when email is sent
-        /* OUTPUT:
-            Receipt
-            Number of Tickets    40
-            Number of Tickets    40
-            Form Element:        0
-
-            =Email Receipt
-        */
-
-
-       //emailObj=receiptText(); //this sends "[name attribute]=[value attribute]"
-       /*OUTPUT 
-            Your Movie Receipt=Email Receipt
-        */
-
+   /*  emailAttemptSplitOff()  */    
 
         return total;
     }
 
 
-    function receiptText() {
-        //var  emailObj = document.getElementById("submitEmail");
-        var receiptText ="Receipt\n" +
-        "Number of Tickets    " + getTicketQuantity()    + "\n" +
-        "Number of Tickets    " + getTicketQuantity()    + "\n" +
-        "Form Element:        " + getRelevantValue() + "\n\n";
-
-        return receiptText;      
-    }
-
-
-    function hideTotal(){                               // commented for debug
+    function hideTotal(){                               // comment this if you want to see output - for debug
      //   var  divobj = document.getElementById("receipt");
      //   divobj.style.display='none';						 
     }
@@ -105,7 +67,7 @@
     function validation() {
         var invalidElements = new Array;
         if(getTicketQuantity()==0) 		    invalidElements.push("number of tickets");
-        if(getRelevantValue()==0) 	   		invalidElements.push("missing field description"); 
+        if(getRelevantValue()==0) 	   		invalidElements.push("missing field description");  // put discription here
         if(getRelevantValue()==0) 	   		invalidElements.push("missing field description"); 
         if(getRelevantValue()==0) 	   		invalidElements.push("missing field description"); 
 
@@ -117,10 +79,57 @@
             var warningMessage = document.getElementById("errorMessage");
 
             warningMessage.innerHTML="<strong>Submission not accepted. Review the following:</strong> <br>";
-            //warningMessage.innerHTML+=invalidElements;   //list style print
+            //warningMessage.innerHTML+=invalidElements;      //list style print
             for(var i=0; i<invalidElements.length; i++){
              warningMessage.innerHTML+=" - "+invalidElements[i]+"<br>"; //bulleted print
             }
             warningObj.style.display = "block"; 
         }
     }
+    
+    
+    
+    
+    
+    
+    
+/* // EMAIL ATTEMPT 
+
+    function receiptText() {
+        //var  emailObj = document.getElementById("submitEmail");
+        var receiptText ="Receipt\n" +
+        "Number of Tickets    " + getTicketQuantity()    + "\n" +
+        "Number of Tickets    " + getTicketQuantity()    + "\n" +
+        "Form Element:        " + getRelevantValue() + "\n\n";
+
+        return receiptText;      
+    }
+
+    emailAttemptSplitOff(){
+            var  emailObj = document.getElementById("submitEmail");
+            emailObj.value=receiptText(); // this sends "[name attribute]=" BEFORE text in receiptText() function when email is sent
+             *//*OUTPUT 
+                Your Movie Receipt=Receipt
+                Number of Tickets    40
+                Number of Tickets    40
+                Form Element:        0
+            */
+
+            
+            //emailObj.name=receiptText(); // this sends "=[value attribute]" AFTER text in receiptText() function when email is sent
+            /* OUTPUT:
+                Receipt
+                Number of Tickets    40
+                Number of Tickets    40
+                Form Element:        0
+
+                =Email Receipt
+            */
+
+
+        //emailObj=receiptText(); //this sends "[name attribute]=[value attribute]"
+        /*OUTPUT 
+                Your Movie Receipt=Email Receipt
+            */
+    //}
+   
