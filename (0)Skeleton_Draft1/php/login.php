@@ -1,32 +1,34 @@
 <?php
    require 'connection.php';
 
-   if (!empty($_POST['email']) && !empty($_POST['pass'])) {
+   if (!empty($_POST['user']) && !empty($_POST['pass'])) {
       //get input from form
       $user=$_POST['user'];
       $pass=$_POST["pass"];
-      $dbEmailAd=$dbPassword="";
 
       //sql
-      $sql = "SELECT*FROM useraccount 
+      $sqlLogin = "SELECT*FROM useraccount 
                WHERE (email='$user' or userID='$user')
                AND password='$pass'";
-      $result = mysqli_query($connection, $sql);
+      $resultLogin = mysqli_query($connection, $sqlLogin);
+      $rowLogin = mysqli_num_rows($resultLogin);
 
       //if user/pass matches data
-      if(mysqli_num_rows($result) == 1){
-         //start session
-         session_start();
+      if($rowLogin == 1){
+         $_SESSION['user_id'] = $rowLogin['userID'];
+         $_SESSION['user_email'] = $rowLogin['email'];
+
          header("Location: userAccountPage.html");    //redirect
 
       //invalid user
       }else {
-         echo("<p>* INVALID email and password.<br></p>");
-         //$invalidUser="* INVALID email and password!!<br><br>";
+         $_SESSION['invalidLogin'] = '<br><br>*INVALID username/password please try again.';
+         $_SESSION['isSuccessful'] = "Login Failed!";
       }  
 
    }else{
-      echo("<p>* Both username and password is required.<br></p>");
+      $_SESSION['invalidLogin'] = '<br><br>*Required Field';
+      $_SESSION['isSuccessful'] = "";
    }
       
    $connection->close(); //close connec
