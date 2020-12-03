@@ -29,7 +29,10 @@
             echo("<p><strong>Movie ID:</strong> ".$movieID."</p>");
             echo("</td>");
             echo("</table>");
-        }
+
+            //$result->eval($genre);
+            //for ($row.mysqli_fetch_lengths(0)->)if ($result->$genre != $result[i])
+        }   
     } 
     
     $connection->close();

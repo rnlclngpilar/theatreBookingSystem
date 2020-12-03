@@ -7,7 +7,7 @@
 <head>
     <title>Movies</title>
 	<meta charset="utf-8"></meta>
-	<link type="text/css" rel="stylesheet" href="../MovieTheatreBookingSystem/css_Theme/mainTheme.css">
+	<link type="text/css" rel="stylesheet" href="../css_Theme/mainTheme.css">
 </head>
 	
 <body>
@@ -17,25 +17,27 @@
 		<td id="filterMenu" rowspan=5> Menu 
 			<br><br>
 			<b>GENRE: </b><br>
-			<label>All</label><input type="checkbox" class="checkme"><br>
-			<label>Action</label><input type="checkbox" class="checkme1"><br>
-			<label>Adventure</label><input type="checkbox" class="checkme2"  ><br>
-			<label>Comedy</label><input type="checkbox"><br>
-			<label>Drama</label><input type="checkbox"><br>
-			<label>Fantasy</label><input type="checkbox"><br>
-			<label>Horror</label><input type="checkbox"><br>
-			<label>Mystery</label><input type="checkbox"><br>
-			<label>Romance</label><input type="checkbox"><br>
-			<label>Sci-Fi</label><input type="checkbox"><br>
-			<label>Thriller</label><input type="checkbox"><br>
+			<form action="LocateMovie_Functions.php" method="get">
+				<label>All</label>		<input type="radio" class="checkSelect[]" value="All"><br>
+				<label>Action</label>	<input type="radio" class="checkSelect[]" value="Action"><br>
+				<label>Adventure</label><input type="radio" class="checkSelect[]" value="Adventure"><br>
+				<label>Comedy</label>	<input type="radio" class="checkSelect[]" value="Comedy"><br>
+				<label>Drama</label>	<input type="radio" class="checkSelect[]" value="Drama"><br>
+				<label>Fantasy</label>	<input type="radio" class="checkSelect[]" value="Fantasy"><br>
+				<label>Horror</label>	<input type="radio" class="checkSelect[]" value="Horror"><br>
+				<label>Mystery</label>	<input type="radio" class="checkSelect[]" value="Mystery"><br>
+				<label>Romance</label>	<input type="radio" class="checkSelect[]" value="Romance"><br>
+				<label>Sci-Fi</label>	<input type="radio" class="checkSelect[]" value="Sci-Fi"><br>
+				<label>Thriller</label>	<input type="radio" class="checkSelect[]" value="Thriller"><br>
+
+				<div id="SelectedGenera"></div>
+			</form>
 		 </td>
     </tr>
 
-	<tr>
-		<td class="headerContainer">
-			<h1 id="divHeader">Browse Movies</h1>
-		</td>
-	</tr>
+	<tr><td class="headerContainer">
+		<h1 id="divHeader">Browse Movies</h1>
+	</td></tr>
 
 	<tr>
 		<td class="dropDownFunctionContainer">	
@@ -45,7 +47,11 @@
 			<div id="div2" class="div2" >
 				<legend class="dropDownLabel">Class Method</legend>
 				<script type="text/javascript" language="javascript" src="js/consoleUserInfo_and_outputMovieOptions.js"></script>
-				<!-- php require 'php/displayMovie.php';		 For displaying movie database -->
+				<?php require '../LocateMovie_db.php'; ?>
+				<?php
+					echo "selection " . count($_GET['checkSelect']) . "values";
+					foreach ($_GET['checkSelect'] as $genreFilter) { echo $genreFilter . ",";}
+				?>
 			</div>
 			<br>
 			
