@@ -17,10 +17,17 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                         input:optional{background-color: aquamarine;}
                         input:in-range{background-color: grey;}
                 -->
+
+                <?php 
+                    session_start();
+                    include 'php/updateUserInfo.php';
+                    include 'php/getMovieHistory.php';
+                ?>
+
                 <!DOCTYPE html>    
                 <html>
                     <h1>Menu</h1>
-
+                    <span><?php echo ("Logged-in as: ");?></span><br><br>
                 <head>
                     <title>Account</title> <!-- changed border-radius under th - compared to user file - many css changes      (visibility in listener changed ***  capitalization changes in sign up)-->
                     <style>                
@@ -210,7 +217,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                 <h3>Please select a tab</h3>
                                         </div>                                       
 <!-- user account section -->           <div id="Account" class="tabcontent">      <!-- if a seperate html page has the content for signin/login fields they can be used here too - using a php include statement (may need to change file type)  -->
-                                                <form>             <!-- form element here  ////////////////////////////////////////////////// -->
+                                                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
                                                     <table class="innerContentTable">
                                                         <caption>Update Account Information</caption>
                                                         <tr><td>First name:</td><td><input type="text"     name="f_name"  id="f_name"  required></td></tr> 

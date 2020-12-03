@@ -62,7 +62,6 @@
         }
     </style>
     <?php 
-        session_start();
         include "php/login.php";
         include "php/signup.php";
     ?>

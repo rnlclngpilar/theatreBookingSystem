@@ -33,7 +33,7 @@
             } else 
                 $_SESSION['invalidSubmit']="* oh oh... something went wrong...<br><br>";
 
-            
+        //if similar user/email found    
         }else{
             $_SESSION['isSuccessful'] = "Registration FAILED!";
 
@@ -47,7 +47,7 @@
 
     }else{
         $_SESSION['invalidSubmit'] = '<br><br>*Required Field';
-        //$_SESSION['isSuccessful'] = "";
+        $_SESSION['isSuccessful'] = "";
     }
 
     $connection->close(); //close connec
