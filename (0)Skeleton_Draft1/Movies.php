@@ -86,7 +86,7 @@
 			border: solid 4px black;
 		}
 
-		#mainTableStyle {margin:5vw; background:lightgrey;}
+		#mainPageTable {margin:5vw; background:lightgrey;}
 		#menuStyle{background:darkgrey; border-radius: 30px; margin:30px; border-right: thick black solid; padding:40px; width:100px;}
 	
 	</style>
@@ -94,7 +94,7 @@
 
 <body>
 <div class="included">
-<table id="mainTableStyle">
+<table id="mainPageTable">
 	<tr>
 		<td id="menuStyle" rowspan=5> Menu 
 			<br><br> 
