@@ -1,53 +1,78 @@
 <?php
+    session_start();
     require 'connection.php';
+    $fullname = $_SESSION['full_name'];
 
-    if (!empty($_POST['f_name']) && !empty($_POST['l_name']) && !empty($_POST['email'])
-        && !empty($_POST['user']) && !empty($_POST['pass'])) {
-        //declar variables
-        $fName = $_POST['f_name'];
-        $lName = $_POST['l_name'];
-        $emailS = $_POST['email'];
-        $userS = $_POST['user'];
-        $passS = $_POST['pass'];
+    if ($_SESSION['loggedin'] == true) {
+        $sessUser=$_SESSION['user_id'];
 
-        //sql
-        $sqlSignUp = "SELECT*FROM useraccount WHERE (email='$emailS' OR userID='$userS')";
-        $resultSignUp = mysqli_query($connection, $sqlSignUp);
-        $rowSignUp = mysqli_fetch_assoc($resultSignUp);
+        if (!empty($_POST['f_name']) && !empty($_POST['l_name']) && !empty($_POST['email'])
+            && !empty($_POST['user']) && !empty($_POST['pass'])) {
+            //declar variables
+            $fName = $_POST['f_name'];
+            $lName = $_POST['l_name'];
+            $email = $_POST['email'];
+            $user = $_POST['user'];
+            $pass = $_POST['pass'];
 
-        // $year=date("Y");
-        // $sixDigit=mt_rand(100000,999999);;
-        // $ID="".$year."-".$sixDigit."";
+            $sqlUpdate = "SELECT*FROM useraccount 
+                            WHERE email='$sessUser'";
+            $resultUpdate = mysqli_query($connection, $sqlUpdate);
+            $rowUpdate = mysqli_fetch_assoc($resultUpdate);
 
-        //if no similar user/email found
-        if ($rowSignUp == 0) {
-            $sqlSignUp = "INSERT INTO useraccount (userID, firstN, lastN, email, password, favGenre) 
-                    VALUES ('$userS','$fName','$lName','$emailS','$passS', 'TBD')";
-            $insert = $connection->query($sqlSignUp);
+            //if USER IS FOUND and user/email is available
+            if (!($email == $rowUpdate['email']) || !($user == $rowUpdate['userID'])) {
+                $sqlUpdate = "UPDATE useraccount 
+                                SET userID='$user',
+                                    firstN='$fName',
+                                    lastN='$lName',
+                                    email='$email',
+                                    password='$pass' 
+                                WHERE userID='$sessUser'";
+                
+                $insert = $connection->query($sqlUpdate);
 
-            //if successful
-            if ($insert == true) {
-                $_SESSION['isSuccessful'] = "Registration Successful!";
-                $_SESSION['invalidSubmit'] = '<br><br>*Required Field';
+                //if successful
+                if ($insert == true) {
+                    //update session
+                    $_SESSION['user_id'] = $rowUpdate['userID'];
+                    $_SESSION['user_email'] = $rowUpdate['email'];
+                    $_SESSION['f_name'] = $rowUpdate['firstN'];
+                    $_SESSION['l_name'] = $rowUpdate['lastN'];
+                    $_SESSION['full_name'] = $rowUpdate['firstN']. ' ' .$rowUpdate['lastN'];
+                    
 
-            } else 
-                $_SESSION['invalidSubmit']="* oh oh... something went wrong...<br><br>";
+                    $_SESSION['isSuccessful'] = "Account Update Successful!<br>".$_SESSION['full_name'];
+                    $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
 
-        //if similar user/email found    
+
+                //failed
+                } else {
+                    $_SESSION['isSuccessful'] = "*Account Update FAILED!";
+
+                    if ($email==$rowUpdate['email'])
+                        $_SESSION['invalidUpdate']="<br><br>* EMAIL already exist! Try again with another<br><br>";
+                    else if ($user==$rowUpdate['userID'])
+                        $_SESSION['invalidUpdate']="<br><br>* USERNAME already exist! Try again with another<br><br>"; 
+                }
+            
+            //user already exist
+            }else {
+                $_SESSION['isSuccessful'] = "*Account Update FAILED!";
+
+                if ($email==$rowUpdate['email'])
+                    $_SESSION['invalidUpdate']="<br><br>* EMAIL already exist! Try again with another<br><br>";
+                else if ($user==$rowUpdate['userID'])
+                    $_SESSION['invalidUpdate']="<br><br>* USERNAME already exist! Try again with another<br><br>"; 
+            }
+            
         }else{
-            $_SESSION['isSuccessful'] = "Registration FAILED!";
-
-            if ($emailS==$rowSignUp['email'])
-                $_SESSION['invalidSubmit']="<br><br>* EMAIL already exist! Try again with another<br><br>";
-            else if ($userS==$rowSignUp['userID'])
-                $_SESSION['invalidSubmit']="<br><br>* USERNAME already exist! Try again with another<br><br>"; 
-            else 
-                $_SESSION['invalidSubmit']="<br><br>* BOTH EMAIL and USER already exist! Try again with another<br><br>"; 
+            $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
+            $_SESSION['isSuccessful'] = "";
         }
-
-    }else{
-        $_SESSION['invalidSubmit'] = '<br><br>*Required Field';
-        $_SESSION['isSuccessful'] = "";
+    } else{
+        $_SESSION['isSuccessful'] = "Please log in first to see the page.";
+        header("Location: enterUser.php");   //redirect
     }
 
     $connection->close(); //close connec

@@ -19,15 +19,14 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                 -->
 
                 <?php 
-                    session_start();
                     include 'php/updateUserInfo.php';
-                    include 'php/getMovieHistory.php';
+                    //include 'php/getMovieHistory.php';
                 ?>
 
                 <!DOCTYPE html>    
                 <html>
-                    <h1>Menu</h1>
-                    <span><?php echo ("Logged-in as: ");?></span><br><br>
+                    <h1>Menu | User Account</h1>   
+                    <span><?php echo "".$_SESSION['isSuccessful']."<br><br>";?></span>
                 <head>
                     <title>Account</title> <!-- changed border-radius under th - compared to user file - many css changes      (visibility in listener changed ***  capitalization changes in sign up)-->
                     <style>                
@@ -212,7 +211,9 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                             <tr>
                                 <td class="internalTableSideBar">
                                     <table>
-                                    <tr><td>User Account</td></tr>
+                                    <tr><td><?php 
+                                        echo "<br>Logged-in as: ".$fullname."<br><br>";
+                                    ?></span></td></tr>
         <!-- welcome tab -->   <!--  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Welcome')">Welcome</button></th>        </tr></div> -->
         <!-- movie history tab -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Account')">Update Account</button></th> </tr></div>       
         <!-- user account tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'MovieHist')">Movie History</button></th></tr></div>
@@ -233,14 +234,15 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
                                                     <table class="innerContentTable">
                                                         <caption>Update Account Information</caption>
-                                                        <tr><td>First name:</td><td><input type="text"     name="f_name"  id="f_name"  required></td></tr> 
-                                                        <tr><td>Last name:</td> <td><input type="text"     name="l_name"  id="l_name"  required></td></tr> 
-                                                        <tr><td>E-mail:</td>    <td><input type="email"    name="email"   id="email"   required></td></tr>
-                                                        <tr><td>Address:</td>   <td><input type="text"     name="address" id="address" required></td></tr>
-                                                        <tr><td>Username:</td>  <td><input type="text"     name="user"    id="user"    required></td></tr>
-                                                        <tr><td>Password:</td>  <td><input type="password" name="pass"    id="pass"    required></td></tr>
+                                                        <tr><td>First name:</td><td><input type="text"     name="f_name"  id="f_name"  required><span class="error"> *</span></td></tr> 
+                                                        <tr><td>Last name:</td> <td><input type="text"     name="l_name"  id="l_name"  required><span class="error"> *</span></td></tr> 
+                                                        <tr><td>E-mail:</td>    <td><input type="email"    name="email"   id="email"   required><span class="error"> *</span></td></tr>
+                                                        <tr><td>Address:</td>   <td><input type="text"     name="address" id="address" required><span class="error"> *</span></td></tr>
+                                                        <tr><td>Username:</td>  <td><input type="text"     name="user"    id="user"    required><span class="error"> *</span></td></tr>
+                                                        <tr><td>Password:</td>  <td><input type="password" name="pass"    id="pass"    required><span class="error"> *</span></td></tr>
                                                     </table>
                                                     <input type="submit" id="submit" name="submit" value="submit">
+                                                    <span class="error"><?php echo "".$_SESSION['invalidUpdate']."";?></span>
                                                 </form>  
                                                             <!--  signup page contents here  (import/include) -->
                                         </div>

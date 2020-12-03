@@ -1,6 +1,6 @@
 <?php
-   require 'connection.php';
    session_start();
+   require 'connection.php';
 
    if (!empty($_POST['user']) && !empty($_POST['pass'])) {
       //get input from form
@@ -12,15 +12,18 @@
                WHERE (email='$user' or userID='$user')
                AND password='$pass'";
       $resultLogin = mysqli_query($connection, $sqlLogin);
-      $rowLogin = mysqli_num_rows($resultLogin);
 
       //if user/pass matches data
-      if ($rowLogin == 1) {
+      if (mysqli_num_rows($resultLogin) == 1) {
          $_SESSION['loggedin'] = true;
-         $_SESSION['user_id'] = $rowLogin['userID'];
-         $_SESSION['user_email'] = $rowLogin['email'];
-         $_SESSION['f_name'] = $rowLogin['firstN'];
-         $_SESSION['l_name'] = $rowLogin['lastN'];
+
+         while ($rowLogin = mysqli_fetch_assoc($resultLogin)){
+            $_SESSION['user_id'] = $rowLogin['userID'];
+            $_SESSION['user_email'] = $rowLogin['email'];
+            $_SESSION['f_name'] = $rowLogin['firstN'];
+            $_SESSION['l_name'] = $rowLogin['lastN'];
+            $_SESSION['full_name'] = $rowLogin['firstN']. ' ' .$rowLogin['lastN'];
+         }
 
          header("Location: userAccountPage-NEW-DEC3.php");    //redirect
       }
