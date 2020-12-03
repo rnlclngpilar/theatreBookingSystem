@@ -144,48 +144,61 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
 
                     </style>
 
+
 <!-- movie table css below-->
                 <style>
-                    table[id="movieTable"], table[id="movieTable"]> {
-                        border-style:unset;
-                        border-radius: unset unset unset unset;
+                    /* remove styles to be redefined */
+                    #movieTable,
+                    #movieTable th, 
+                    #movieTable td,
+                    #movieTable tr,
+                    #movieTable tbody,
+                    #movieTable thead,
+                    #movieTable tfoot {
+                        border-radius: 0;
                         background-color: unset;
                         color: unset;
                     }
-                    
 
-                    table[id="movieTable"]{border: black double thick; padding:3px; border-spacing: 0;}
-                    table[id="movieTable"] caption{font-weight: bold;}
-                    #movieTable th, #movieTable tr, #movieTable td {
+                    table #movieTable thead, 
+                    table #movieTable tfoot { 
+                        color: black; background-color: rgb(192, 108, 108); 
+                    }
+
+                    table #movieTable {border: black double thick; padding:3px; border-spacing: 0;}
+                    table #movieTable caption{font-weight: bold;}
+                    table #movieTable th, 
+                    table #movieTable tr, 
+                    table #movieTable td {
                         padding: 0px  5px ;
                         border-color: black oldlace black oldlace;
                         border-style: ridge groove ridge none ;
                     }
 
-                    #movieTable thead, #movieTable tfoot {             color: black; background-color: rgb(192, 108, 108); }
-                    #movieTable tbody tr td:nth-child(1){  color: black; background-color: white;}
-                    #movieTable tbody tr:nth-child(even){  color: white; background-color: darkred;}
-                    #movieTable tbody tr:nth-child(odd){   color: black; background-color: oldlace;}
-                    #movieTable tbody tr:hover{            color: black; background-color: khaki;}
+                    table #movieTable tbody tr td:nth-child(1){  color: black; background-color: white;}
+                    table #movieTable tbody tr:nth-child(even){  color: white; background-color: darkred;}
+                    table #movieTable tbody tr:nth-child(odd){   color: black; background-color: oldlace;}
+                    table #movieTable tbody tr:hover{            color: black; background-color: khaki;}
 
-                    #movieTable th:first-child, 
-                    #movieTable td:first-child, 
-                    #movieTable tbody td:nth-child(2) { 
+                    table #movieTable th:first-child, 
+                    table #movieTable td:first-child, 
+                    table #movieTable tbody td:nth-child(2) { 
                         border-top-left-radius: 10px;
                         border-bottom-left-radius: 10px;
                         border-left: black ridge;
                     }
-                    #movieTable th:last-child, 
-                    #movieTable td:last-child,
-                    #movieTable tbody td:first-child { 
+                    
+                    table #movieTable th:last-child, 
+                    table #movieTable td:last-child,
+                    table #movieTable tbody td:first-child { 
                         border-top-right-radius: 10px;
                         border-bottom-right-radius: 10px;
                         border-right: black ridge;
                     }
-                    #movieTable tbody td:first-child{
+                    table #movieTable tbody td:first-child{
                         border-color: darkgoldenrod;
                     }
-                    #movieTable tbody td:first-child image {width:50px;}
+                    table #movieTable tbody td:first-child image {width:50px;}
 
                     
                 </style>
@@ -237,7 +250,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                 <caption>Movie History</caption>
                                                     <tr>
                                                         <td>
-                                                    <table id="movieTable">
+                                                    <table id="movieTable" >
                                                        <!-- <caption>Movie History</caption> --> 
                                                         <thead>
                                                             <tr>
