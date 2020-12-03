@@ -4,18 +4,18 @@
 <head>
     <title>Movies</title>
 	<meta charset="utf-8"></meta>
-	<link type="text/css" rel="stylesheet" href="../css_Theme/mainTheme.css">
+	<link type="text/css" rel="stylesheet" href="css_Theme/mainTheme.css">
 </head>
 	
 <body>
 <div class="included">
 
 <!-- ___ Display on Webpage _________________________________________________________________________________________ -->
-	<table id="mainPageTable">
+	<table class="mainPageTable">
 		
 	<!-- Genre Menu -->
-		<tr class="menuContainer">
-			<td id="filterMenu" rowspan=5> Menu 
+		<tr class="menu">
+			<td id="filterMenu" rowspan=5>
 				<br><br>
 				<b>GENRE: </b><br>
 				<form method="POST" action="">
@@ -43,18 +43,16 @@
 
 	<!-- Browse Movies Header -->
 		<tr>
-			<td class="headerContainer">
-				<h1 id="divHeader">Browse Movies</h1>
-			</td>
+			<th><h1>Browse Movies</h1></th>
 		</tr>
 
 	<!-- Output Movie Poster & Information Block -->
 		<tr>
-			<td class="dropDownFunctionContainer">
-				<div id="div2" class="div2">
-					<legend class="dropDownLabel">Movies</legend>
+			<td class="movieBlock">
+				<div>
 					<?php require "../LocateMovies/LocateMovie_db.php"; ?>
-				</div><br>
+				</div>
+				<br>
 			</td>
 		</tr>
 
