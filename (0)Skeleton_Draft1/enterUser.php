@@ -56,7 +56,16 @@
             display: none;
             padding: 5px;
         }
+
+        .error {
+            color: green;
+        }
     </style>
+    <?php 
+        session_start();
+        include "php/login.php";
+        include "php/signup.php";
+    ?>
 </head>
 
 <body>
@@ -69,6 +78,7 @@
                         <th><button class="tablinks" onclick="openTab(event, 'Login')">Login</button></th>
                         <th><button class="tablinks" onclick="openTab(event, 'SignUp')">SignUp</button></th>
                         <th style="width:100%"></th>
+                        <th><span class="error"><?php echo "".$_SESSION['isSuccessful']."";?></span></th>
                     </tr>
                 </thead>
         </thead>
@@ -82,29 +92,30 @@
 
                     <div id="Login" class="tabcontent">
                         <h2>Login</h2>
-                        <form>             <!-- form element here  ////////////////////////////////////////////////// -->
+                        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
                             <table>
                                 <caption>Log-in to an existing account.</caption>
-                                <tr><td>Username:</td><td><input type="text"     name="user"   id="user" required></td></tr>
-                                <tr><td>Password:</td><td><input type="password" name="pass"   id="pass" required></td></tr> 
+                                <tr><td>Username:</td><td><input type="text"     name="user"   id="user" required><span class="error"> *</span></td></tr>
+                                <tr><td>Password:</td><td><input type="password" name="pass"   id="pass" required><span class="error"> *</span></td></tr> 
                             </table>
-                            <input type="submit" id="submit" name="submit" value="submit">
+                            <input style="width:295px" type="submit" id="submitLogin" name="submitLogin" value="SUBMIT">
+                            <span class="error"><?php echo "".$_SESSION['invalidLogin']."";?></span>
                         </form>
                     </div>
 
                     <div id="SignUp" class="tabcontent">
                         <h2>SignUp</h2>
-                        <form>             <!-- form element here  ////////////////////////////////////////////////// -->
+                        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
                             <table>
                                 <caption>Sign-up for a new user account.</caption>
-                                <tr><td>First name:</td><td><input type="text"   name="f_name" id="f_name" required></td></tr> 
-                                <tr><td>Last name:</td><td><input type="text"    name="l_name" id="l_name" required></td></tr> 
-                                <tr><td>E-mail:</td><td><input   type="email"    name="email"  id="email" required></td></tr>
-                                <tr><td>Address:</td><td><input type="text"      name="address" id="address" required></td></tr>
-                                <tr><td>Username:</td><td><input type="text"     name="user"   id="user" required></td></tr>
-                                <tr><td>Password:</td><td><input type="password" name="pass"   id="pass" required></td></tr>
+                                <tr><td>First name:</td><td><input type="text"  name="f_name" id="f_name" required><span class="error"> *</span></td></tr> 
+                                <tr><td>Last name:</td><td><input type="text"   name="l_name" id="l_name" required><span class="error"> *</span></td></tr> 
+                                <tr><td>E-mail:</td><td><input   type="email"   name="email"  id="email" required><span class="error"> *</span></td></tr>
+                                <tr><td>Username:</td><td><input type="text"     name="user"   id="user" required><span class="error"> *</span></td></tr>
+                                <tr><td>Password:</td><td><input type="password" name="pass"   id="pass" required><span class="error"> *</span></td></tr>
                             </table>
-                            <input type="submit" id="submit" name="submit" value="submit">
+                            <input style="width:295px" type="submit" id="submitSignUp" name="submitSignUp" value="SUBMIT">
+                            <span class="error"><?php echo "".$_SESSION['invalidSubmit']."";?></span>
                         </form>
                     </div>
                 </td>
