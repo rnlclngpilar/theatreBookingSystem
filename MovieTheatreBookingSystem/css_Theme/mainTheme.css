@@ -1,8 +1,10 @@
 body            { background-color: white;   margin: 1rem; padding: .5rem; font-family: comic;}
 .mainPageTable  { background-color: darkred; width: 100%; height: 100%; border-collapse: collapse; outline: black solid .25rem;}
-th, tr {  border: white ridge .25rem; }
-th { background-color:lightgray }     /* rgb(218, 160, 160);*/
-.menu, .menu>td{ background-color: papayawhip; width: 100px;}
+th, tr          { border: white ridge .25rem; }
+th              { background-color:lightgray }     /* rgb(218, 160, 160);*/
+.menu, .menu>td { background-color: papayawhip; width: 100px;}
+
+#SelectedGenera { border: solid black medium; }
 
 /*Movie poster-image boxes*/
 .movieBlock~table, .boxImg, .poster{ 
@@ -17,7 +19,6 @@ th { background-color:lightgray }     /* rgb(218, 160, 160);*/
     max-width: 80vw;
     text-overflow: auto;
     margin:5px;
-    
 }
 
 .poster:hover {
@@ -25,6 +26,4 @@ th { background-color:lightgray }     /* rgb(218, 160, 160);*/
     background-color:rgb(245, 204, 139);
 }
 
-img { min-height: 15rem; max-height: min-content; min-width: 10rem;}
-
-#SelectedGenera { border: solid black medium; }
+img { min-height: 15rem; max-height: min-content; min-width: 10rem; }

@@ -34,7 +34,7 @@
 				</form></br>
 				
 				<!-- Genre Menu (Selection Output Text)-->
-				<div id="SelectedGenera" style="border: solid black medium;">
+				<div id="SelectedGenera">
 					<?php include "../LocateMovies/LocateMovie_Functions.php"?>
 				</div>
 
