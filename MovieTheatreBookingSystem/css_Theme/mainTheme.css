@@ -1,8 +1,10 @@
 /*General and Background*/
+.included {margin: .01rem; padding: .01rem; border: solid black medium; background-color: white;}
+#mainPageTable {margin: auto; /*5px*/}
 html, body{
     box-sizing: border-box; 
     padding:0; 
-    margin:0;
+    margin:2rem;
 }
 div, img { box-sizing: border-box; }
 
@@ -18,8 +20,8 @@ label{ text-align: left; }
     border-collapse: separate;
     border: solid black medium;
     
-    max-height:200px;
-    max-width:100px;
+    min-height:200px;
+    min-width:100px;
     margin:5px;
     border-radius: 2vw;
 }
@@ -27,10 +29,13 @@ label{ text-align: left; }
 #divHeader{
     background-color: darkgrey; 
     border-radius: 15px;
-    width:100%; 
-    position:relative;
+    width:95%; 
+    position: center;
     border: solid medium black; 
-    padding: 2px;
+    padding: 5pt;
+    margin: 5pt;
+    box-align: center;
+    align-content: center;
 }
 /*-----------*/
 .div2  table{width:max-content; margin:5px;}
@@ -58,6 +63,9 @@ img { max-height: 15rem; max-width: 10rem;}
     float:left;
     border-collapse: separate;
     border: solid black medium;
+    width: 20%;
+    height: auto;
+    text-overflow: auto;
 }
 
 .outline{ background-color: grey; padding:5px;}
@@ -85,14 +93,12 @@ table {border-radius: 2vw;}
 }
 
 /* Filer menu (by theme) */
-#filterMenu {margin:5vw; background:lightgrey;}
+#filterMenu {margin:5vw; background:lightgrey; min-width: 70pt; max-width: 80pt; text-overflow: auto;}
 .menuContainer{
 	background:darkgrey; 
 	border-right: thick black solid; 
-	border-radius: 30px; 
-	padding:40px;
-	margin:30px;
-	width:100px;
+	border-radius: 30px;
+	width:150px;
 }
 
 /* Header block */
@@ -102,7 +108,7 @@ table {border-radius: 2vw;}
 	border-radius:2vw; 
 	padding:5px;
 }
-h1 { width:max-content; padding: 5px;}
+h1 { box-sizing:border-box; width:100%; padding: 5px; margin: 0pt 50pt 0pt 5pt;}
 
 /* Movie Options block */
 

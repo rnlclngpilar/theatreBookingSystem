@@ -53,7 +53,7 @@
 			<td class="dropDownFunctionContainer">
 				<div id="div2" class="div2">
 					<legend class="dropDownLabel">Movies</legend>
-					<?php require '../LocateMovies/LocateMovie_db.php'; ?>
+					<?php require "../LocateMovies/LocateMovie_db.php"; ?>
 				</div><br>
 			</td>
 		</tr>
