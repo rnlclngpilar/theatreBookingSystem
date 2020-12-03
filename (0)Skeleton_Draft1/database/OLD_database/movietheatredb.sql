@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 03, 2020 at 08:20 AM
+-- Generation Time: Dec 01, 2020 at 11:40 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -20,8 +20,6 @@ SET time_zone = "+00:00";
 --
 -- Database: `movietheatredb`
 --
-CREATE DATABASE IF NOT EXISTS `movietheatredb` DEFAULT CHARACTER SET latin1 COLLATE latin1_swedish_ci;
-USE `movietheatredb`;
 
 -- --------------------------------------------------------
 
@@ -42,11 +40,6 @@ CREATE TABLE IF NOT EXISTS `cinemadetail` (
   PRIMARY KEY (`cinemaID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `cinemadetail`
---
-
-TRUNCATE TABLE `cinemadetail`;
 --
 -- Dumping data for table `cinemadetail`
 --
@@ -75,14 +68,13 @@ INSERT INTO `cinemadetail` (`cinemaID`, `theatreID`, `theatreName`, `screenNum`,
 (21, 4, 'Cineplex Cinemas Scarborough', 3, 160, 12, 'Tesla', 0),
 (22, 4, 'Cineplex Cinemas Scarborough', 4, 0, 20, 'Chicago 10 (Impact Series)', 1),
 (23, 4, 'Cineplex Cinemas Scarborough', 5, 0, 21, 'Death on the Nile', 1),
-(24, 5, 'Cineplex Cinemas Markham and VIP', 1, 475, 1, 'The Polar Express', 0),
-(25, 5, 'Cineplex Cinemas Markham and VIP', 2, 370, 13, 'Mulan', 0),
-(26, 5, 'Cineplex Cinemas Markham and VIP', 3, 290, 6, 'Joker', 0),
-(27, 5, 'Cineplex Cinemas Markham and VIP', 4, 220, 5, 'Rocketman', 0),
-(28, 5, 'Cineplex Cinemas Markham and VIP', 5, 0, 20, 'Chicago 10 (Impact Series)', 1),
-(29, 5, 'Cineplex Cinemas Markham and VIP', 6, 0, 21, 'Death on the Nile', 1),
-(30, 5, 'Cineplex Cinemas Markham and VIP', 7, 0, 19, 'Ma Rainey\'s Black Bottom', 1),
-(0, 0, '0', 0, 0, 0, 'please select a theatre first!', 0);
+(24, 5, 'Cineplex Cinemas Markham and VIP', 1, 475, 1, 'The Polar Express', 1),
+(25, 5, 'Cineplex Cinemas Markham and VIP', 2, 370, 13, 'Mulan', 1),
+(26, 5, '', 3, 290, 6, 'Joker', 1),
+(27, 5, '', 4, 220, 5, 'Rocketman', 1),
+(28, 5, '', 5, 0, 20, 'Chicago 10 (Impact Series)', 0),
+(29, 5, '', 6, 0, 21, 'Death on the Nile', 0),
+(30, 5, '', 7, 0, 19, 'Ma Rainey\'s Black Bottom', 0);
 
 -- --------------------------------------------------------
 
@@ -105,11 +97,6 @@ CREATE TABLE IF NOT EXISTS `movieinformation` (
   PRIMARY KEY (`movieID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `movieinformation`
---
-
-TRUNCATE TABLE `movieinformation`;
 --
 -- Dumping data for table `movieinformation`
 --
@@ -163,11 +150,6 @@ CREATE TABLE IF NOT EXISTS `theatrefeatures` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Truncate table before insert `theatrefeatures`
---
-
-TRUNCATE TABLE `theatrefeatures`;
---
 -- Dumping data for table `theatrefeatures`
 --
 
@@ -192,13 +174,8 @@ CREATE TABLE IF NOT EXISTS `theatrelocationinfo` (
   `phoneNumber` char(10) NOT NULL,
   `gpsCoord` int(125) NOT NULL,
   PRIMARY KEY (`theatreID`)
-) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `theatrelocationinfo`
---
-
-TRUNCATE TABLE `theatrelocationinfo`;
 --
 -- Dumping data for table `theatrelocationinfo`
 --
@@ -208,7 +185,9 @@ INSERT INTO `theatrelocationinfo` (`theatreID`, `name`, `address`, `phoneNumber`
 (2, 'Cineplex Odeon Oshawa Cinemas', '1351 Grandview Street North\r\nWhitby, Ontario\r\nL1K 0G1\r\n', '9054323486', 1),
 (3, 'Cineplex Cinemas Pickering and VIP', '1355 Kingston Road\r\nPickering Town Centre\r\nPickering, Ontario\r\nL1V 1B8\r\n', '2893410630', 1),
 (4, 'Cineplex Cinemas Scarborough ', '300 Borough Drive\r\nScarborough Town Centre Scarborough, Ontario\r\nM1P 4P5', '4162905217', 1),
-(5, 'Cineplex Cinemas Markham and VIP', '179 Enterprise Blvd., Suite 169\r\nMarkham, Ontario\r\nL6G 0E7', '9054791778', 1);
+(5, 'Cineplex Cinemas Pickering and VIP', '1355 Kingston Road\r\nPickering Town Centre\r\nPickering, Ontario\r\nL1V 1B8\r\n', '2893410630', 1),
+(6, 'Cineplex Cinemas Scarborough ', '300 Borough Drive\r\nScarborough Town Centre Scarborough, Ontario\r\nM1P 4P5', '4162905217', 1),
+(7, 'Cineplex Cinemas Markham and VIP', '179 Enterprise Blvd., Suite 169\r\nMarkham, Ontario\r\nL6G 0E7', '9054791778', 1);
 
 -- --------------------------------------------------------
 
@@ -231,11 +210,6 @@ CREATE TABLE IF NOT EXISTS `ticketreservation` (
   PRIMARY KEY (`ticketID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `ticketreservation`
---
-
-TRUNCATE TABLE `ticketreservation`;
 -- --------------------------------------------------------
 
 --
@@ -244,37 +218,31 @@ TRUNCATE TABLE `ticketreservation`;
 
 DROP TABLE IF EXISTS `useraccount`;
 CREATE TABLE IF NOT EXISTS `useraccount` (
-  `userID` varchar(128) NOT NULL,
-  `firstN` varchar(255) NOT NULL,
-  `lastN` varchar(255) NOT NULL,
+  `userID` varchar(11) NOT NULL,
   `email` varchar(255) NOT NULL,
   `password` varchar(128) NOT NULL,
   `favGenre` varchar(50) NOT NULL,
   PRIMARY KEY (`userID`)
-) ENGINE=MyISAM DEFAULT CHARSET=latin1;
+) ENGINE=MyISAM AUTO_INCREMENT=2 DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `useraccount`
---
-
-TRUNCATE TABLE `useraccount`;
 --
 -- Dumping data for table `useraccount`
 --
 
-INSERT INTO `useraccount` (`userID`, `firstN`, `lastN`, `email`, `password`, `favGenre`) VALUES
-('2018-234599', 'Dave', 'A', 'Dave@ontariotechu.ca', 'kVV!gq', 'Comedy'),
-('2018-378909', 'John', 'B', 'John@ontariotechu.ca', 'rY&8kE', 'Biography'),
-('2019-100038', 'Ivy', 'C', 'Ivy@gmail.ca', 'M&qDrA', 'Science Fiction'),
-('2019-248890', 'Ian', 'D', 'Ian@yahoo.ca', 'zdFY%2', 'Action'),
-('2019-319801', 'Carol', 'E', 'Carol@ontariotechu.ca', 'dEZhU$', 'Drama'),
-('2019-500200', 'Julie', 'F', 'Julie@yahoo.ca', 'HyxT*P', 'Animation'),
-('2020-118882', 'Mike', 'G', 'Mike@ontariotechu.ca', '&5PbCD', 'Comedy'),
-('2020-330077', 'Joanne', 'H', 'Joanne@yahoo.ca', 'p*!CBM', 'Animation'),
-('2020-377891', 'Crystal', 'I', 'Crystal@gmail.ca', 'BSnA$c', 'Fantasy'),
-('2020-412335', 'Gary', 'J', 'Gary@ontariotechu.ca', '@!pYfH', 'Action'),
-('2020-881155', 'Lynn', 'K', 'Lynn@gmail.ca', '@VupyS', 'Horror'),
-('0000-000000', 'Admin', 'Theatre', 'admin@theatre.db', 'theatre', 'everything');
+INSERT INTO `useraccount` (`userID`, `email`, `password`, `favGenre`) VALUES
+('2018-234599', 'Dave@ontariotechu.ca', 'kVV!gq', 'Comedy'),
+('2018-378909', 'John@ontariotechu.ca', 'rY&8kE', 'Biography'),
+('2019-100038', 'Ivy@gmail.ca', 'M&qDrA', 'Science Fiction'),
+('2019-248890', 'Ian@yahoo.ca', 'zdFY%2', 'Action'),
+('2019-319801', 'Carol@ontariotechu.ca', 'dEZhU$', 'Drama'),
+('2019-500200', 'Julie@yahoo.ca', 'HyxT*P', 'Animation'),
+('2020-118882', 'Mike@ontariotechu.ca', '&5PbCD', 'Comedy'),
+('2020-330077', 'Joanne@yahoo.ca', 'p*!CBM', 'Animation'),
+('2020-377891', 'Crystal@gmail.ca', 'BSnA$c', 'Fantasy'),
+('2020-412335', 'Gary@ontariotechu.ca', '@!pYfH', 'Action'),
+('2020-881155', 'Lynn@gmail.ca', '@VupyS', 'Horror'),
+('0000-000000', 'admin@theatre.db', 'theatre', 'everything'),
+('2020-782517', 'admin@theatre.dbs', 'theatre', 'as');
 
 -- --------------------------------------------------------
 
@@ -289,11 +257,6 @@ CREATE TABLE IF NOT EXISTS `userhistory` (
   `theatreAttended` varchar(255) NOT NULL
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `userhistory`
---
-
-TRUNCATE TABLE `userhistory`;
 --
 -- Dumping data for table `userhistory`
 --
