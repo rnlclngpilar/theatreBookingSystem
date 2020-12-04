@@ -93,6 +93,9 @@
            
         }
 
+
+        document.getElementById("display_time").innerHTML = localStorage.getItem("movie_time");
+
 		return false;
 
 	}
@@ -282,7 +285,7 @@
     <th>Seats</th>
   </tr>
   <tr>
-    <td><textarea id="nameDisplay"></textarea></td>
+    <td><span id="display_time"></span></td>
     <td><textarea id="NumberDisplay"></textarea></td>
     <td><textarea id="seatsDisplay"></textarea></td>
   </tr>
