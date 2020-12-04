@@ -1,17 +1,17 @@
-  //Ticket Reservation
-  //-------------------
-
 //Seat Reservation
 function onLoaderFunc()
+
+
 {
   $(".seatStructure *").prop("disabled", true);
   $(".displayerBoxes *").prop("disabled", true);
 }
 function takeData()
+
 {
-  if (($("#Numseats").val().length == 0 ))
+  if (($("#adult").val() == 0 ) && ($("#senior").val() == 0 ) && ($("#child").val() == 0 ))
   {
-  alert("Please Enter Number of Seats");
+  alert("Please enter at least one ticket");
   }
   else
   {

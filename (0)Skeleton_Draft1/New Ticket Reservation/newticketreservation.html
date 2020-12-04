@@ -5,12 +5,24 @@
 	<link rel="stylesheet" href="./style.css">
 
 <style>
+
+    body
+    {
+        color: white;
+        background-color: #1C1A18;
+    }
 	form
     {
 		width: 10%;
 		margin-left: auto;
 		margin-right: auto;
 	}
+
+    h2
+    {
+        margin-top: 12.5%;
+    }
+
 </style>
 
 <script >
@@ -92,9 +104,6 @@
            
         }
 
-
-        document.getElementById("display_time").innerHTML = localStorage.getItem("movie_time");
-
     return false;
 
   }
@@ -103,16 +112,18 @@
 </head>
 <body onload="onLoaderFunc()">
 <!-- partial:index.partial.html -->
-<h2 align="center">Seat Reservation</h2>
+<h2 align="center">Seat Reservation & Ticket Reservation</h2>
+
 <div class="inputForm">
 <center>
-  Number of Seats *: <input type="number" id="Numseats" required>
+<label># of Adult Ticket(s): </label> <input type="number" id="adult" required/><br>
+<label># of Senior Ticket(s): </label> <input type="number" id="senior" required/><br>
+<label># of Child Ticket(s): </label> <input type="number" id="child" required/><br>
   <br/><br/>
   <button onclick="takeData()">Start Selecting</button>
 </center>
 </div>
   
-
 <div class="seatStructure">
 <center>
   
@@ -188,36 +199,36 @@
   
 <tr>
     <td>D</td>
-    <td><input type="checkbox" class="seats" value="D1"></td>
-    <td><input type="checkbox" class="seats" value="D2"></td>
-    <td><input type="checkbox" class="seats" value="D3"></td>
-    <td><input type="checkbox" class="seats" value="D4"></td>
-    <td><input type="checkbox" class="seats" value="D5"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D1"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D2"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D3"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D4"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D5"></td>
     <td></td>
-    <td><input type="checkbox" class="seats" value="D6"></td>
-    <td><input type="checkbox" class="seats" value="D7"></td>
-    <td><input type="checkbox" class="seats" value="D8"></td>
-    <td><input type="checkbox" class="seats" value="D9"></td>
-    <td><input type="checkbox" class="seats" value="D10"></td>
-    <td><input type="checkbox" class="seats" value="D11"></td>
-    <td><input type="checkbox" class="seats" value="D12"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D6"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D7"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D8"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D9"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D10"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D11"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="D12"></td>
 </tr>
   
 <tr>
     <td>E</td>
-    <td><input type="checkbox" class="seats" value="E1"></td>
-    <td><input type="checkbox" class="seats" value="E2"></td>
-    <td><input type="checkbox" class="seats" value="E3"></td>
-    <td><input type="checkbox" class="seats" value="E4"></td>
-    <td><input type="checkbox" class="seats" value="E5"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E1"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E2"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E3"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E4"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E5"></td>
     <td></td>
-    <td><input type="checkbox" class="seats" value="E6"></td>
-    <td><input type="checkbox" class="seats" value="E7"></td>
-    <td><input type="checkbox" class="seats" value="E8"></td>
-    <td><input type="checkbox" class="seats" value="E9"></td>
-    <td><input type="checkbox" class="seats" value="E10"></td>
-    <td><input type="checkbox" class="seats" value="E11"></td>
-    <td><input type="checkbox" class="seats" value="E12"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E6"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E7"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E8"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E9"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E10"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E11"></td>
+    <td><input type="checkbox" name="seats" class="seats" value="E12"></td>
 </tr>
   
 <tr class="seatVGap"></tr>
@@ -258,38 +269,17 @@
     
 </table>
   
-<br/><button onclick="updateTextArea()">Confirm Selection</button>
 </center>
 </div>
       
 <br/><br/>
 
-<div class="displayerBoxes">
-<center>
-  <table class="Displaytable">
-  <tr>
-    <th>Theatre Name</th>
-    <th>Number of Seats</th>
-    <th>Seats</th>
-  </tr>
-  <tr>
-    <td><span id="display_time"></span></td>
-    <td><textarea id="NumberDisplay"></textarea></td>
-    <td><textarea id="seatsDisplay"></textarea></td>
-  </tr>
-</table>
+<center><form action="receipt.html">
+
+<input type="submit" value="Submit" onclick="passvalues()" />
+
+</form>
 </center>
-</div>
-	<br><br>
-	<h2 align="center">Ticket Reservation </h2>
-	<form align="center" action="receipt.html">
-	<fieldset>
-	<label># of Adult</label> <input type="text" id="adult" /><br><br>
-	<label># of Senior </label> <input type="text" id="senior" /><br><br>
-	<label># of Child </label> <input type="text" id="child" /><br><br>
-	<input type="submit" value="Submit" onclick="passvalues()" />
-	</fieldset>
-	</form>
 
 <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
 <script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
