@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Host: 127.0.0.1:3306
--- Generation Time: Dec 04, 2020 at 06:00 PM
+-- Generation Time: Dec 04, 2020 at 10:48 PM
 -- Server version: 5.7.31
 -- PHP Version: 7.3.21
 
@@ -40,11 +40,6 @@ CREATE TABLE IF NOT EXISTS `cinemadetail` (
   PRIMARY KEY (`cinemaID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=31 DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `cinemadetail`
---
-
-TRUNCATE TABLE `cinemadetail`;
 --
 -- Dumping data for table `cinemadetail`
 --
@@ -104,11 +99,6 @@ CREATE TABLE IF NOT EXISTS `movieinformation` (
 ) ENGINE=MyISAM AUTO_INCREMENT=22 DEFAULT CHARSET=latin1;
 
 --
--- Truncate table before insert `movieinformation`
---
-
-TRUNCATE TABLE `movieinformation`;
---
 -- Dumping data for table `movieinformation`
 --
 
@@ -161,11 +151,6 @@ CREATE TABLE IF NOT EXISTS `theatrefeatures` (
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Truncate table before insert `theatrefeatures`
---
-
-TRUNCATE TABLE `theatrefeatures`;
---
 -- Dumping data for table `theatrefeatures`
 --
 
@@ -193,11 +178,6 @@ CREATE TABLE IF NOT EXISTS `theatrelocationinfo` (
 ) ENGINE=MyISAM AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
 
 --
--- Truncate table before insert `theatrelocationinfo`
---
-
-TRUNCATE TABLE `theatrelocationinfo`;
---
 -- Dumping data for table `theatrelocationinfo`
 --
 
@@ -217,23 +197,18 @@ INSERT INTO `theatrelocationinfo` (`theatreID`, `name`, `address`, `phoneNumber`
 DROP TABLE IF EXISTS `ticketreservation`;
 CREATE TABLE IF NOT EXISTS `ticketreservation` (
   `ticketID` int(11) NOT NULL AUTO_INCREMENT,
+  `userID` varchar(255) NOT NULL,
   `movieID` int(11) DEFAULT NULL,
   `cinemaID` int(11) DEFAULT NULL,
+  `theatre` varchar(25) NOT NULL,
+  `seats` varchar(255) NOT NULL,
   `adult` int(2) NOT NULL,
   `senior` int(2) NOT NULL,
   `child` int(2) NOT NULL,
-  `wheelchair` tinyint(1) NOT NULL,
-  `support` tinyint(1) NOT NULL,
-  `theatre` varchar(25) NOT NULL,
-  `email` varchar(255) NOT NULL,
+  `totalCost` double NOT NULL,
   PRIMARY KEY (`ticketID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `ticketreservation`
---
-
-TRUNCATE TABLE `ticketreservation`;
 -- --------------------------------------------------------
 
 --
@@ -243,39 +218,33 @@ TRUNCATE TABLE `ticketreservation`;
 DROP TABLE IF EXISTS `useraccount`;
 CREATE TABLE IF NOT EXISTS `useraccount` (
   `userID` varchar(128) NOT NULL,
+  `password` varchar(128) NOT NULL,
   `firstN` varchar(255) NOT NULL,
   `lastN` varchar(255) NOT NULL,
   `email` varchar(255) NOT NULL,
-  `password` varchar(128) NOT NULL,
   `address` varchar(255) NOT NULL,
   `favGenre` varchar(50) NOT NULL,
   PRIMARY KEY (`userID`)
 ) ENGINE=MyISAM DEFAULT CHARSET=latin1;
 
 --
--- Truncate table before insert `useraccount`
---
-
-TRUNCATE TABLE `useraccount`;
---
 -- Dumping data for table `useraccount`
 --
 
-INSERT INTO `useraccount` (`userID`, `firstN`, `lastN`, `email`, `password`, `address`, `favGenre`) VALUES
-('2018-234599', 'Dave', 'A', 'Dave@ontariotechu.ca', 'kVV!gq', '268 Manitoba Street', 'Comedy'),
-('2018-378909', 'John', 'B', 'John@ontariotechu.ca', 'rY&8kE', '3720 Alaska Hwy', 'Biography'),
-('2019-100038', 'Ivy', 'C', 'Ivy@gmail.ca', 'M&qDrA', '4927 Yonge Street', 'Science Fiction'),
-('2019-248890', 'Ian', 'D', 'Ian@yahoo.ca', 'zdFY%2', '4995 West River Station Rd', 'Action'),
-('2019-319801', 'Carol', 'E', 'Carol@ontariotechu.ca', 'dEZhU$', '1886 Wallbridge Loyalist Rd', 'Drama'),
-('2019-500200', 'Julie', 'F', 'Julie@yahoo.ca', 'HyxT*P', '319 Sherbrooke Ouest', 'Animation'),
-('2020-118882', 'Mike', 'G', 'Mike@ontariotechu.ca', '&5PbCD', '2402 49th Avenue', 'Comedy'),
-('2020-330077', 'Joanne', 'H', 'Joanne@yahoo.ca', 'p*!CBM', '750 Fallon Drive', 'Animation'),
-('2020-377891', 'Crystal', 'I', 'Crystal@gmail.ca', 'BSnA$c', '3830 43rd Avenue', 'Fantasy'),
-('2020-412335', 'Gary', 'J', 'Gary@ontariotechu.ca', '@!pYfH', '3004 90th Avenue', 'Action'),
-('2020-881155', 'Lynn', 'K', 'Lynn@gmail.ca', '@VupyS', '1202 90th Avenue', 'Horror'),
-('0000-000000', 'Admin', 'Theatre', 'admin@theatre.db', 'theatre', '000 Theatre Address', 'everything'),
-('1111-111111', 'Test', 'User', 'test@user.abc', '123', '123 Test Adress', 'none'),
-('a', 'Roniel', 'Casaclang', 'ronielc920@gmail.com', 'a', '4848 Tanner Street', 'TBD');
+INSERT INTO `useraccount` (`userID`, `password`, `firstN`, `lastN`, `email`, `address`, `favGenre`) VALUES
+('2018-234599', 'kVV!gq', 'Dave', 'A', 'Dave@ontariotechu.ca', '268 Manitoba Street', 'Comedy'),
+('2018-378909', 'rY&8kE', 'John', 'B', 'John@ontariotechu.ca', '3720 Alaska Hwy', 'Biography'),
+('2019-100038', 'M&qDrA', 'Ivy', 'C', 'Ivy@gmail.ca', '4927 Yonge Street', 'Science Fiction'),
+('2019-248890', 'zdFY%2', 'Ian', 'D', 'Ian@yahoo.ca', '4995 West River Station Rd', 'Action'),
+('2019-319801', 'dEZhU$', 'Carol', 'E', 'Carol@ontariotechu.ca', '1886 Wallbridge Loyalist Rd', 'Drama'),
+('2019-500200', 'HyxT*P', 'Julie', 'F', 'Julie@yahoo.ca', '319 Sherbrooke Ouest', 'Animation'),
+('2020-118882', '&5PbCD', 'Mike', 'G', 'Mike@ontariotechu.ca', '2402 49th Avenue', 'Comedy'),
+('2020-330077', 'p*!CBM', 'Joanne', 'H', 'Joanne@yahoo.ca', '750 Fallon Drive', 'Animation'),
+('2020-377891', 'BSnA$c', 'Crystal', 'I', 'Crystal@gmail.ca', '3830 43rd Avenue', 'Fantasy'),
+('2020-412335', '@!pYfH', 'Gary', 'J', 'Gary@ontariotechu.ca', '3004 90th Avenue', 'Action'),
+('2020-881155', '@VupyS', 'Lynn', 'K', 'Lynn@gmail.ca', '1202 90th Avenue', 'Horror'),
+('0000-000000', 'theatre', 'Admin', 'Theatre', 'admin@theatre.db', '000 Theatre Address', 'everything'),
+('1111-111111', '123', 'Test', 'User', 'test@user.abc', '123 Test Adress', 'none');
 
 -- --------------------------------------------------------
 
@@ -292,11 +261,6 @@ CREATE TABLE IF NOT EXISTS `userhistory` (
   PRIMARY KEY (`historyID`)
 ) ENGINE=MyISAM AUTO_INCREMENT=32 DEFAULT CHARSET=latin1;
 
---
--- Truncate table before insert `userhistory`
---
-
-TRUNCATE TABLE `userhistory`;
 --
 -- Dumping data for table `userhistory`
 --
