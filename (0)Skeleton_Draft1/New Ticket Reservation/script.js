@@ -1,3 +1,7 @@
+  //Ticket Reservation
+  //-------------------
+
+//Seat Reservation
 function onLoaderFunc()
 {
   $(".seatStructure *").prop("disabled", true);
@@ -28,14 +32,14 @@ function updateTextArea() {
      var allNumberVals = [];
      var allSeatsVals = [];
   
-     //Storing in Array
+     //Storing in array
      allNameVals.push($("#Username").val());
      allNumberVals.push($("#Numseats").val());
      $('#seatsBlock :checked').each(function() {
        allSeatsVals.push($(this).val());
      });
     
-     //Displaying 
+     //Output
      $('#nameDisplay').val(allNameVals);
      $('#NumberDisplay').val(allNumberVals);
      $('#seatsDisplay').val(allSeatsVals);
@@ -50,24 +54,6 @@ function updateTextArea() {
 function myFunction() {
   alert($("input:checked").length);
 }
-
-/*
-function getCookie(cname) {
-    var name = cname + "=";
-    var ca = document.cookie.split(';');
-    for(var i = 0; i < ca.length; i++) {
-        var c = ca[i];
-        while (c.charAt(0) == ' ') {
-            c = c.substring(1);
-        }
-        if (c.indexOf(name) == 0) {
-            return c.substring(name.length, c.length);
-        }
-    }
-    return "";
-}
-*/
-
 
 $(":checkbox").click(function() {
   if ($("input:checked").length == ($("#Numseats").val())) {

@@ -63,46 +63,49 @@
 	</table>
 	</fieldset>
 	</form>
-	<script>
-		document.getElementById("result1").innerHTML = localStorage.getItem("adultvalue");
-		document.getElementById("ticket1").innerHTML = localStorage.getItem("adultticketvalue");
-		document.getElementById("result2").innerHTML = localStorage.getItem("seniorvalue");
-		document.getElementById("ticket2").innerHTML = localStorage.getItem("seniorticketvalue");
-		document.getElementById("result3").innerHTML = localStorage.getItem("childvalue");
-		document.getElementById("ticket3").innerHTML = localStorage.getItem("childticketvalue");
-		document.getElementById("subtotal").innerHTML = localStorage.getItem("subtotalvalue");
-		document.getElementById("hst").innerHTML = localStorage.getItem("hstvalue");
-		document.getElementById("total").innerHTML = localStorage.getItem("totalvalue");
-		document.getElementById("seat").innerHTML = localStorage.getItem("seatvalue");
-
-
-		if(localStorage.getItem("childticketvalue") == 0)
-		{
-			document.getElementById("result3").innerHTML = "";
-			document.getElementById("ticket3").innerHTML = "";
-			document.getElementById("child_td").innerHTML = "";
-			document.getElementById("child_$").innerHTML = "";
-			document.getElementById("child_x").innerHTML = "";
-		}
-
-		if(localStorage.getItem("adultticketvalue") == 0)
-		{
-			document.getElementById("result1").innerHTML = "";
-			document.getElementById("ticket1").innerHTML = "";
-			document.getElementById("adult_td").innerHTML = "";
-			document.getElementById("adult_$").innerHTML = "";
-			document.getElementById("adult_x").innerHTML = "";
-		}
-
-		if(localStorage.getItem("seniorticketvalue") == 0)
-		{
-			document.getElementById("result2").innerHTML = "";
-			document.getElementById("ticket2").innerHTML = "";
-			document.getElementById("senior_td").innerHTML = "";
-			document.getElementById("senior_$").innerHTML = "";
-			document.getElementById("senior_x").innerHTML = "";
-		}
-
-	</script>
 </body>
+
+<script>
+	//using the localStorage.getItem() method, the values of tickets and prices are taken to be displayed in the inner HTML
+	document.getElementById("result1").innerHTML = localStorage.getItem("adultvalue");
+    document.getElementById("ticket1").innerHTML = localStorage.getItem("adultticketvalue");
+    document.getElementById("result2").innerHTML = localStorage.getItem("seniorvalue");
+    document.getElementById("ticket2").innerHTML = localStorage.getItem("seniorticketvalue");
+    document.getElementById("result3").innerHTML = localStorage.getItem("childvalue");
+    document.getElementById("ticket3").innerHTML = localStorage.getItem("childticketvalue");
+    document.getElementById("subtotal").innerHTML = localStorage.getItem("subtotalvalue");
+    document.getElementById("hst").innerHTML = localStorage.getItem("hstvalue");
+    document.getElementById("total").innerHTML = localStorage.getItem("totalvalue");
+    document.getElementById("seat").innerHTML = localStorage.getItem("seatvalue");
+
+
+    //if statements if the value of the tickets are 0, will produced a blank output in the receipt
+    if(localStorage.getItem("childticketvalue") == 0)
+    {
+      document.getElementById("result3").innerHTML = "";
+      document.getElementById("ticket3").innerHTML = "";
+      document.getElementById("child_td").innerHTML = "";
+      document.getElementById("child_$").innerHTML = "";
+      document.getElementById("child_x").innerHTML = "";
+    }
+
+    if(localStorage.getItem("adultticketvalue") == 0)
+    {
+      document.getElementById("result1").innerHTML = "";
+      document.getElementById("ticket1").innerHTML = "";
+      document.getElementById("adult_td").innerHTML = "";
+      document.getElementById("adult_$").innerHTML = "";
+      document.getElementById("adult_x").innerHTML = "";
+    }
+
+    if(localStorage.getItem("seniorticketvalue") == 0)
+    {
+      document.getElementById("result2").innerHTML = "";
+      document.getElementById("ticket2").innerHTML = "";
+      document.getElementById("senior_td").innerHTML = "";
+      document.getElementById("senior_$").innerHTML = "";
+      document.getElementById("senior_x").innerHTML = "";
+    }
+</script>
+
 </html>

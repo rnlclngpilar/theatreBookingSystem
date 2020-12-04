@@ -5,55 +5,54 @@
 	<link rel="stylesheet" href="./style.css">
 
 <style>
-	form{
+	form
+    {
 		width: 10%;
 		margin-left: auto;
 		margin-right: auto;
 	}
-
 </style>
 
-
-<script>
-	function passvalues()
-	{
+<script >
+      function passvalues()
+  {
 
         /* 
         - initializes adult_ticket with the number inputted on the textbox with the id="adult."
         - calculates the total price of the # of adult tickets.
         - localStorage.setItem holds the value of adult_ticket which will be assigned to a string"
          */
-		var adult_ticket = Number(document.getElementById("adult").value);
-		var adult_price_total= 14.95 * adult_ticket;
-		localStorage.setItem("adultticketvalue",adult_ticket);
-		localStorage.setItem("adultvalue",adult_price_total.toFixed(2));
+    var adult_ticket = Number(document.getElementById("adult").value);
+    var adult_price_total= 14.95 * adult_ticket;
+    localStorage.setItem("adultticketvalue",adult_ticket);
+    localStorage.setItem("adultvalue",adult_price_total.toFixed(2));
 
         /*
           localStorage.setItem basically assigns the variable being held to a string, which can then be used later
           anywhere to get value of that string using localStorage.getItem method.
         */
-		var senior_ticket = Number(document.getElementById("senior").value);
-		var senior_price_total = 13.95 * senior_ticket;
-		localStorage.setItem("seniorticketvalue",senior_ticket);
-		localStorage.setItem("seniorvalue",senior_price_total.toFixed(2));
+    var senior_ticket = Number(document.getElementById("senior").value);
+    var senior_price_total = 13.95 * senior_ticket;
+    localStorage.setItem("seniorticketvalue",senior_ticket);
+    localStorage.setItem("seniorvalue",senior_price_total.toFixed(2));
 
 
-		var child_ticket = Number(document.getElementById("child").value);
-		var child_price_total = 12.95 * child_ticket;
-		localStorage.setItem("childticketvalue",child_ticket);
-		localStorage.setItem("childvalue",child_price_total.toFixed(2));
+    var child_ticket = Number(document.getElementById("child").value);
+    var child_price_total = 12.95 * child_ticket;
+    localStorage.setItem("childticketvalue",child_ticket);
+    localStorage.setItem("childvalue",child_price_total.toFixed(2));
 
-		var subtotal, hst, total;
+    var subtotal, hst, total;
 
         /* toFixed() method is used to set numbers to 2 decimal places */
-		subtotal = adult_price_total + senior_price_total + child_price_total;
-		localStorage.setItem("subtotalvalue", subtotal.toFixed(2));
+    subtotal = adult_price_total + senior_price_total + child_price_total;
+    localStorage.setItem("subtotalvalue", subtotal.toFixed(2));
 
-		hst = subtotal * 0.13;
-		localStorage.setItem("hstvalue", hst.toFixed(2));
-		
-		total = subtotal * 1.13;
-		localStorage.setItem("totalvalue", total.toFixed(2));
+    hst = subtotal * 0.13;
+    localStorage.setItem("hstvalue", hst.toFixed(2));
+    
+    total = subtotal * 1.13;
+    localStorage.setItem("totalvalue", total.toFixed(2));
 
 
 
@@ -96,9 +95,9 @@
 
         document.getElementById("display_time").innerHTML = localStorage.getItem("movie_time");
 
-		return false;
+    return false;
 
-	}
+  }
 </script>
 
 </head>
@@ -118,18 +117,7 @@
 <center>
   
 <table id="seatsBlock">
- <p id="notification"></p>
-  <tr>
-    <td colspan="14"><div class="screen">SCREEN</div></td>
-    <td rowspan="20">
-      <div class="smallBox greenBox">Selected Seat</div> <br/>
-      <div class="smallBox redBox">Reserved Seat</div><br/>
-      <div class="smallBox emptyBox">Empty Seat</div><br/>
-    </td>
-    
-    <br/>
-  </tr>
-  
+ <p id="notification"></p>  
   <tr>
     <td></td>
     <td>1</td>
@@ -292,11 +280,7 @@
 </table>
 </center>
 </div>
-<!-- partial -->
-	
 	<br><br>
-
-
 	<h2 align="center">Ticket Reservation </h2>
 	<form align="center" action="receipt.html">
 	<fieldset>
@@ -307,10 +291,8 @@
 	</fieldset>
 	</form>
 
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
-<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script><script  src="./script.js"></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js'></script>
+<script src='https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js'></script>
+<script  src="script.js"></script>
 </body>
-
-
-
 </html>

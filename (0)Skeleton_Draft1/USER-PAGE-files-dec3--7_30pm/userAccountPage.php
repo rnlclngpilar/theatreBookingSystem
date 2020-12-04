@@ -81,13 +81,14 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                        <!-- <caption>Movie History</caption> --> 
                                                         <thead>
                                                             <tr>
-                                                                <th>Poster</th>
+                                                                <th>Movie Poster</th>
                                                                 <th>Title</th>
                                                                 <th>Genre</th> 
-                                                                <th>Date(s) Watched</th> <!-- note: changed this column (compared to form file)  --> 
-                                                                <th>Rating</th>
-                                                                <th>Reviews</th>
                                                                 <th>Description</th> 
+                                                                <!-- <th>Date(s) Watched</th> note: changed this column (compared to form file)   -->
+                                                                <th>Rating</th>
+                                                                <th>Theatre Attended</th>
+                                                                <!-- <th>Reviews</th> -->
                                                             </tr>
                                                         </thead>
                                                         <tfoot>
