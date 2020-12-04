@@ -42,7 +42,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                     </td></tr>
         <!-- movie history tab -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Account')">Update Account</button></th> </tr></div>       
         <!-- user account tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'MovieHist')">Movie History</button></th></tr></div>
-        <!-- statistics tab    -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Stats')">Statistics</button></th>       </tr></div>
+        <!-- statistics tab     <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Stats')">Statistics</button></th>       </tr></div> -->
         <!-- logouts user tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Logout')">Logout</button></th>       </tr></div>
 
                                     
