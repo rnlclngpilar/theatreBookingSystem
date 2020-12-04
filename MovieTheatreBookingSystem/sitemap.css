@@ -1,0 +1,18 @@
+
+    
+nav {
+    border: black double thick; 
+    border-radius:5px;
+    padding:3px; 
+    border-spacing: 0; 
+    background-color:oldlace;
+}
+#content {
+    width: fit-content;
+    border-radius: 10px;
+}
+
+legend {
+    border: black ridge;
+    background-color: rgb(209, 37, 37);
+}

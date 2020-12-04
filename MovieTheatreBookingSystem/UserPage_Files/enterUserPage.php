@@ -1,10 +1,8 @@
 <!DOCTYPE html>
 <html>
 <head>
-            <meta>
 
-
-    <link href="Resources/css_Theme/login_signup_styles.css" rel="stylesheet" type="text/css" />  <!-- some of content in other css should be added to this to fix it -->
+    <link href="Resources/css_Theme/login_signup_styles.css" rel="stylesheet" type="text/css" /> 
     <script src = "Resources/js/tab_button.js" type="text/javascript" ></script>
 
     <?php 
