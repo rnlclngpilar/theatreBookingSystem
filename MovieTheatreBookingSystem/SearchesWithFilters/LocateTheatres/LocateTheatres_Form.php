@@ -11,6 +11,11 @@
 <body>
 <div class="included">
 
+	<form action="../../HomePage/homePage.html">
+        <input type="submit" value="< go back">
+	</form>
+	<br>
+
 <!-- ___ Display on Webpage _________________________________________________________________________________________ -->
 	<table class="mainPageTable">
 

@@ -7,8 +7,8 @@
 
 
     <script>
-        function openPage() {
-            
+        function openPage(page) {
+            window.location.replace(page);
         }
     </script>
 
@@ -37,10 +37,10 @@
                             <!-- onclick, the value passed to the function is the same as the php page, without the extention-->
 
                             <caption>Quick Links</caption>
-                            <tr><td><input type="button" value="Movies"          onclick="openPage('   ')"></td></tr>  
-                            <tr><td><input type="button" value="Theatres"        onclick="openPage('   ')"></td></tr>  
-                            <tr><td><input type="button" value="Login / Signup"  onclick="openPage('   ')"></td></tr>  
-                            <tr><td><input type="button" value="Site Map "       onclick="openPage('sitemap')"></td></tr>  
+                            <tr><td><input type="button" value="Movies"          onclick="openPage('../SearchesWithFilters/LocateMovies/LocateMovie.php')"></td></tr>  
+                            <tr><td><input type="button" value="Theatres"        onclick="openPage('../SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php')"></td></tr>  
+                            <tr><td><input type="button" value="Login / Signup"  onclick="openPage('../UserPage_Files/enterUserPage.php')"></td></tr>  
+                            <tr><td><input type="button" value="Site Map "       onclick="openPage('../SiteMap.php')"></td></tr>  
 
                             
                         </table>
@@ -49,6 +49,7 @@
                 <td id="content">
                     <p>content here</p>
                 </td>
+         
             </tr>
         </table>
         </div>
