@@ -91,7 +91,7 @@
 
                     <div id="Login" class="tabcontent">
                         <h2>Login</h2>
-                        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
+                        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             
                             <table>
                                 <caption>Log-in to an existing account.</caption>
                                 <tr><td>Username:</td><td><input type="text"     name="user"   id="user" required><span class="error"> *</span></td></tr>
@@ -104,7 +104,7 @@
 
                     <div id="SignUp" class="tabcontent">
                         <h2>SignUp</h2>
-                        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
+                        <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">            
                             <table>
                                 <caption>Sign-up for a new user account.</caption>
                                 <tr><td>First name:</td><td><input type="text"  name="f_name" id="f_name" required><span class="error"> *</span></td></tr> 
