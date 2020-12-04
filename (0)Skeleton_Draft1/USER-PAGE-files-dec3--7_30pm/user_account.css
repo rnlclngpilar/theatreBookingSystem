@@ -1,0 +1,103 @@
+/*CSS for user account page */ 
+
+    /*  Setup Page Display*/             
+        th, td, tbody table,input{ 
+            border: solid black medium;
+        }
+        table, th, td, tbody table  {
+            border-spacing: 0; 
+            padding:0;
+        } 
+        .innerContentTable{
+            padding:5px;
+            margin:5px; 
+            background-color: darkgoldenrod; 
+            border-radius: 0px;
+            border: solid black medium;
+        }
+        /* Tab content display */
+        tbody td { border-width: 1px 4px 4px 1px;}
+        tbody, .tabColor {
+            background-color:lemonchiffon;
+            color:black; 
+        }
+        input[type="submit"]{border-radius: 10px;}
+
+    /*Side Menu Tabs */   
+       /* setup side menu items */
+       .internalTableSideBar, .internalTableSideBar table, .internalTableSideBar div{
+            border: none;  
+            vertical-align: text-top;  
+        }
+        /* side menu title */
+        body, tbody tr td.internalTableSideBar:first-child  {
+             background-color: lightgrey;
+        }                       
+        
+        /* title display */
+            tbody td.internalTableSideBar td:first-child{
+            color: black; 
+            background-color: oldlace;
+            padding: 1px 5px;
+        }
+        /* tab display */
+        .tab button{  width: 100%;  height: 100%;}
+        .tab th, .tab th:hover,.tab th.active{  padding:0; }
+        .tab th:hover{  background-color:rgb(175, 75, 75); }
+        .tab th.active{ background-color:rgb(173, 48, 48); }
+        .tab th{
+            color:black; 
+            overflow: hidden;
+            background-color:khaki; 
+            border-width: 1px 4px 4px 1px; /* effect */
+        }
+
+    /*Account Tab Content Styling*/
+        /* colour of first column of table inside div with id="Account" */
+        tbody   #Account  td:first-child{  color: black; background-color: khaki;}
+
+        /* remove and redefine last table column styles that were set in login/signup page */
+        tbody .tabcontent tr td:last-child{  color: unset; background-color: unset;} 
+        tbody  #Account   tr td:last-child{  color: white; background-color: darkred;}
+        
+
+                           
+   /*Movie History Tab Content Styling*/
+        /* remove styles to be redefined */
+        #movieTable td {border-radius: 0;} 
+        
+        #MovieHist tbody {background-color: mintcream}
+        table #movieTable {border:none; padding:3px; border-spacing: 0;}
+        table #movieTable thead, 
+        table #movieTable tfoot { 
+            color: black; background-color: rgb(192, 108, 108); 
+        }
+
+        table #movieTable th, 
+        table #movieTable tr, 
+        table #movieTable td {
+            padding: 0px  5px ;
+            border-color: black oldlace black oldlace;
+            border-style: ridge groove ridge none ;
+        }
+
+        table #movieTable th:first-child, 
+        table #movieTable td:first-child, 
+        table #movieTable tbody td:nth-child(2) { 
+            border-top-left-radius: 10px;
+            border-bottom-left-radius: 10px;
+            border-left: black ridge;
+        }
+        
+        table #movieTable th:last-child, 
+        table #movieTable td:last-child,
+        table #movieTable tbody td:first-child { 
+            border-top-right-radius: 10px;
+            border-bottom-right-radius: 10px;
+            border-right: black ridge;
+        }
+        table #movieTable tbody td:first-child image {width:50px;}
+        table #movieTable tbody tr td:first-child{   color: black; background-color: white; border-color: darkgoldenrod;} /* first column */
+        table #movieTable tbody tr:nth-child(even){  color: white; background-color: darkred;}
+        table #movieTable tbody tr:nth-child(odd){   color: black; background-color: oldlace;}
+        table #movieTable tbody tr:hover{            color: black; background-color: khaki;}

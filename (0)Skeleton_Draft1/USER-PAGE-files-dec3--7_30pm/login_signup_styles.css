@@ -1,0 +1,51 @@
+/* CSS for login/signup forms */
+
+    caption {font-weight: bold; text-decoration: darkred underline double; padding-bottom: 5px;}
+
+    html {background-color: white;}
+    body {background-color: lightgray; font-family: Georgia,serif;}
+    .tableOutline{border: black double thick; padding:5px; border-spacing: 0; margin:5px}
+    .tabcontent td {
+        padding: 0px  5px  0px  5px;
+        border: black medium;
+        border-style: ridge ;
+    }
+
+    thead, tfoot {             color: black; background-color: rgb(192, 108, 108); }
+    tbody tr td:first-child{  color: black; background-color: oldlace;}
+    tbody .tabcontent tr td:first-child{ color: black; background-color: khaki; }
+    tbody .tabcontent tr td:last-child{  color: white; background-color: darkred;} 
+
+
+    th:first-child, td{ 
+        border-top-left-radius: 10px;
+        border-bottom-left-radius: 10px;
+    }
+    th:last-child, 
+    td:last-child,
+    tbody td:first-child { 
+        border-top-right-radius: 10px;
+        border-bottom-right-radius: 10px;
+    }
+
+    .tab button {
+        background-color: inherit;
+        border: none;
+        outline: none;
+        padding: 10px 20px;
+        font-size: 18px;
+    }
+
+    .tab button:hover {
+        background-color:  rgb(175, 75, 75);
+    }
+
+    .tab button.active {
+        background-color: rgb(173, 48, 48);;
+    }
+
+    .tabcontent{
+        display: none;
+        padding: 5px;
+    }
+    
