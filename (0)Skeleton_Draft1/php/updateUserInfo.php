@@ -61,7 +61,8 @@
             $_SESSION['isSuccessful'] = "";
         }
     } else if (!$_SESSION['loggedin']){
-        $_SESSION['isSuccessful'] = "Please log in first to see the page.";
+        //$_SESSION['isSuccessful'] = "Please log in first to see the page.";
+        session_destroy();
         header("Location: enterUser.php");   //redirect
     }
 

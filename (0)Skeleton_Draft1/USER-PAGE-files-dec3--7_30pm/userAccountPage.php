@@ -43,6 +43,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
         <!-- movie history tab -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Account')">Update Account</button></th> </tr></div>       
         <!-- user account tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'MovieHist')">Movie History</button></th></tr></div>
         <!-- statistics tab    -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Stats')">Statistics</button></th>       </tr></div>
+        <!-- logouts user tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Logout')">Logout</button></th>       </tr></div>
 
                                     
                                     </table>
@@ -120,6 +121,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                         </div>
 
 <!-- statistics section -->             <div id="Stats" class="tabcontent">
+
                                             <!--  general statistics... 
                                                     favorite genre  ( calculated based on tally of movies watched of each type (can have multiple if ties)  )
                                                     favorite theatre location 
@@ -143,6 +145,12 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                             •can you add fields for favorite genre & favorite theatre 
                                                 (based on a count of the largest number of entries of a particular genre)
                                             -->
+                                        </div>
+
+                                        <div id="Logout" class="tabcontent">
+                                            <form action="<?php $_SESSION['loggedin'] = false;?>">
+                                                <input type="submit">
+                                            </form>
                                         </div>
 
   
