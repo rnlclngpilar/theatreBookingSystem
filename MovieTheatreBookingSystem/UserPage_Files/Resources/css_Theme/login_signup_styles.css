@@ -51,6 +51,8 @@
     
     .error {
         color: green;
-        text-align: center;
+    }
+    .tab .error {        
+        justify-content: center;
     }
   
