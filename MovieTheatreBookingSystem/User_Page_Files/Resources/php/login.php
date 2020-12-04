@@ -25,7 +25,7 @@
             $_SESSION['full_name'] = $rowLogin['firstN']. ' ' .$rowLogin['lastN'];
          }
 
-         header("Location: ../USER-PAGE-files-dec3--7_30pm/userAccountPage.php");    //redirect
+         header("Location: userAccountPage.php");    //redirect
       }
 
       //invalid user

@@ -22,10 +22,10 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                 <head>
                     <title>Account</title>
                    
-                    <link href="login_signup_styles.css" rel="stylesheet" type="text/css" />  <!-- some of content in other css should be added to this to fix it -->
-                    <link href="user_account.css" rel="stylesheet" type="text/css" />  <!-- far more detailed -->
-                    <script src = "tab_button.js" type="text/javascript" ></script>
-                    <?php include '../php/updateUserInfo.php'; ?>      
+                    <link href="Resources/css_Theme/login_signup_styles.css" rel="stylesheet" type="text/css" />  <!-- some of content in other css should be added to this to fix it -->
+                    <link href="Resources/css_Theme/user_account.css" rel="stylesheet" type="text/css" />  <!-- far more detailed -->
+                    <script src = "Resources/js/tab_button.js" type="text/javascript" ></script>
+                    <?php include 'Resources/php/updateUserInfo.php'; ?>      
                 </head>
 
                 <body>    
@@ -101,7 +101,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                             </tr>
                                                         </tfoot>
                                                         <tbody>
-                                                            <?php require '../php/getMovieHistory.php'; ?>  <!--  -->
+                                                            <?php require 'Resources/php/getMovieHistory.php'; ?>  <!--  -->
                                                         </tbody>
                                                     </table>
                                                 </td>

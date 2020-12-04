@@ -29,7 +29,7 @@
             //create table
             echo("
                 <tr>
-                    <td><img src='../movieImgs/movies/".$movieID.".jpg' class='boxImg'></td>
+                    <td><img src='Resources/movieImgs/movies/".$movieID.".jpg' class='boxImg'></td>
                     <td>".$movieTitle."</td>
                     <td>".$genre."</td>
                     <td>".$description."</td>
