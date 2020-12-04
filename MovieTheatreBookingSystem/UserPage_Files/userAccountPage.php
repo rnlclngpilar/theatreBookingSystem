@@ -148,7 +148,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                         </div>
 
                                         <div id="Logout" class="tabcontent">
-                                            <form action="<?php $_SESSION['loggedin'] = false;?>">
+                                            <form action="enterUserPage.php">
                                                 <input type="submit">
                                             </form>
                                         </div>

@@ -28,7 +28,8 @@
             //if successful
             if ($insert == true) {
                 $_SESSION['isSuccessful'] = "Registration Successful!";
-                $_SESSION['invalidSubmit'] = '<br><br>*Required Field';
+                $_SESSION['invalidLogin'] = '<br><br>*All fields required';
+
 
             } else 
                 $_SESSION['invalidSubmit']="* oh oh... something went wrong...<br><br>";
@@ -46,7 +47,7 @@
         }
 
     }else{
-        $_SESSION['invalidSubmit'] = '<br><br>*Required Field';
+        $_SESSION['invalidSubmit'] = '<br><br>*All fields required';
         //$_SESSION['isSuccessful'] = "";
     }
 
