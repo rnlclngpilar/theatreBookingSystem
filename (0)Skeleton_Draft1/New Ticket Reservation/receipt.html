@@ -25,24 +25,24 @@
 		<tr>
 			<th colspan=3>Receipt</th>
 		</tr>
-		<tr>
-			<td></td>
-			<td>Price</td>
-			<td># of Tickets</td>
-		<tr>
-			<td>Adult Price:</td>
-			<td>$<span id="result1"></span></td> 
-			<td>x<span id="ticket1"></span></td>
+		</tr>
+			<tr>
+			<td>Seat: </td>
+			<td><span id="seat"></span></td>
+		</tr>
+			<td id="adult_td">Adult Price:</td>
+			<td id="adult_$">$<span id="result1"></span></td> 
+			<td id="adult_x">x<span id="ticket1"></span></td>
 		</tr>
 		<tr>
-			<td>Senior Price: </td>
-			<td>$<span id="result2"></span></td>
-			<td>x<span id="ticket2"></span></td>
+			<td id="senior_td">Senior Price: </td>
+			<td id="senior_$">$<span id="result2"></span></td>
+			<td id="senior_x">x<span id="ticket2"></span></td>
 		</tr>
 		<tr>
-			<td>Child Price: </td>
-			<td>$<span id="result3"></span></td>
-			<td>x<span id="ticket3"></span></td>
+			<td id="child_td">Child Price: </td>
+			<td id="child_$">$<span id="result3"></span></td>
+			<td id="child_x">x<span id="ticket3"></span></td>
 		</tr>
 	</table>
 	------------------------------------------------------
@@ -73,6 +73,36 @@
 		document.getElementById("subtotal").innerHTML = localStorage.getItem("subtotalvalue");
 		document.getElementById("hst").innerHTML = localStorage.getItem("hstvalue");
 		document.getElementById("total").innerHTML = localStorage.getItem("totalvalue");
+		document.getElementById("seat").innerHTML = localStorage.getItem("seatvalue");
+
+
+		if(localStorage.getItem("childticketvalue") == 0)
+		{
+			document.getElementById("result3").innerHTML = "";
+			document.getElementById("ticket3").innerHTML = "";
+			document.getElementById("child_td").innerHTML = "";
+			document.getElementById("child_$").innerHTML = "";
+			document.getElementById("child_x").innerHTML = "";
+		}
+
+		if(localStorage.getItem("adultticketvalue") == 0)
+		{
+			document.getElementById("result1").innerHTML = "";
+			document.getElementById("ticket1").innerHTML = "";
+			document.getElementById("adult_td").innerHTML = "";
+			document.getElementById("adult_$").innerHTML = "";
+			document.getElementById("adult_x").innerHTML = "";
+		}
+
+		if(localStorage.getItem("seniorticketvalue") == 0)
+		{
+			document.getElementById("result2").innerHTML = "";
+			document.getElementById("ticket2").innerHTML = "";
+			document.getElementById("senior_td").innerHTML = "";
+			document.getElementById("senior_$").innerHTML = "";
+			document.getElementById("senior_x").innerHTML = "";
+		}
+
 	</script>
 </body>
 </html>

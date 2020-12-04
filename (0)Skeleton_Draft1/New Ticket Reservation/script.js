@@ -5,9 +5,9 @@ function onLoaderFunc()
 }
 function takeData()
 {
-  if (( $("#Username").val().length == 0 ) || ( $("#Numseats").val().length == 0 ))
+  if (($("#Numseats").val().length == 0 ))
   {
-  alert("Please Enter your Name and Number of Seats");
+  alert("Please Enter Number of Seats");
   }
   else
   {
