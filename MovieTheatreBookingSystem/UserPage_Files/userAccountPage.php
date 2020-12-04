@@ -1,29 +1,10 @@
-
-
-<!-- need to connect to a file which checks
-need to account for case: if not a user then .... (Ex.)
-      display a warning when they try to enter this page, 
-      or give option to redirect to login/signin, 
-      ... something
-(same checks as if they were on signup/login page)
-
-FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue: Selector Specificity
-                -->
-                <!--  a few checks for debugging
-                        input:disabled{background:navy; border:medium red solid}
-                        input:invalid{background-color: greenyellow;}
-                        input:indeterminate{background-color: orchid;}
-                        input:optional{background-color: aquamarine;}
-                        input:in-range{background-color: grey;}
-                -->
-
                 <!DOCTYPE html>    
                 <html>
                 <head>
                     <title>Account</title>
                    
-                    <link href="Resources/css_Theme/login_signup_styles.css" rel="stylesheet" type="text/css" />  <!-- some of content in other css should be added to this to fix it -->
-                    <link href="Resources/css_Theme/user_account.css" rel="stylesheet" type="text/css" />  <!-- far more detailed -->
+                    <link href="Resources/css_Theme/login_signup_styles.css" rel="stylesheet" type="text/css" /> 
+                    <link href="Resources/css_Theme/user_account.css" rel="stylesheet" type="text/css" />
                     <script src = "Resources/js/tab_button.js" type="text/javascript" ></script>
                     <?php include 'Resources/php/updateUserInfo.php'; ?>      
                 </head>
@@ -70,8 +51,8 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                             </table>
                                         </div>
 
-<!-- user account section -->           <div id="Update" class="tabcontent">      <!-- if a seperate html page has the content for signin/login fields they can be used here too - using a php include statement (may need to change file type)  -->
-                                                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
+<!-- user account section -->           <div id="Update" class="tabcontent">
+                                                <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">
                                                     <table class="innerContentTable">
                                                         <caption>Update Account Information</caption>
                                                         <tr><td>First name:</td><td><input type="text"     name="f_name"  id="f_name"  required><span class="error"> *</span></td></tr> 
@@ -107,7 +88,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                             </tr>
                                                         </thead>
                                                         
-                                                        <?php include 'Resources/php/getMovieHistory.php'; ?>  <!--  -->
+                                                        <?php include 'Resources/php/getMovieHistory.php'; ?>
                                                         
                                                     </table>
                                                 </td>
@@ -115,11 +96,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                             </tr>
                                                     <br>
                                             </table>
-                                            <!--  should include / get from database:  [suggestions - add/change them]
-                                                    import/include movie history table page
-                                                    past theatres visited 
-                                                        (also link directing to relivant section of the theatres page (not yet created) ) 
-                                            --> 
+
 
 
 
@@ -128,29 +105,6 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
 
 <!-- statistics section -->             <div id="Stats" class="tabcontent">
 
-                                            <!--  general statistics... 
-                                                    favorite genre  ( calculated based on tally of movies watched of each type (can have multiple if ties)  )
-                                                    favorite theatre location 
-                                                    time, day....
-                                                    movies (if they re-watch them? - only count if different movie times (ex. not group tickets)?)
-                                                    
-                                                    ****************
-                                                        idea: show information that can be pulled from the database [as long as it is relivant] - especially if not able to show elsewhere. 
-                                                        Create new sections where needed for reasonable page length / neatness 
-                                                    *****************
-                                            -->
-                                            
-                                            <!-- chat note
-                                            for statistics I was thinking of using that to display relevant user content that we don’t show elsewhere, for now it can be left blank 
-                                            - when we are done we can delete the statistics tab if we don’t use it. 
-
-                                            For the movie history table:
-                                            •If it is faster, you can change the “date(s) watched” column to “most recent viewing” so that there would only be one entry for the date they watched the movie. 
-                                            •Can you add a column for “theatre location” where they watched the movie  (proposal mentions history of past theatres)
-                                            •In the table footer or under the table, 
-                                            •can you add fields for favorite genre & favorite theatre 
-                                                (based on a count of the largest number of entries of a particular genre)
-                                            -->
                                         </div>
 
                                         <div id="Logout" class="tabcontent">
