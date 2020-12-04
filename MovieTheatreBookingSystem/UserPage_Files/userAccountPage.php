@@ -28,7 +28,10 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                     <?php include 'Resources/php/updateUserInfo.php'; ?>      
                 </head>
 
-                <body>    
+                <body> 
+                <form action="../HomePage/homePage.html">
+                    <input type="submit" value="< go back">
+                </form>                
                 <h1>Menu | User Account</h1>   
                     <span class="error"><?php echo "".$_SESSION['isSuccessful']."<br><br>";?></span>
                 <form method="POST">             

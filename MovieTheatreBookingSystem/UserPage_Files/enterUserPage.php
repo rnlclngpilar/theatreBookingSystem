@@ -14,6 +14,9 @@
 </head>
 
 <body>
+    <form action="../HomePage/homePage.html">
+        <input type="submit" value="< go back">
+    </form>
     <h1>Menu</h1>
     <table class="tableOutline">
         <thead>

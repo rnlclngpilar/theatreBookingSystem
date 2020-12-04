@@ -27,10 +27,6 @@
             //create table
             echo("
                 <tr>
-                    <td>Username: </td>
-                    <td>$userID</td>
-                </tr>
-                <tr>
                     <td>First Name: </td>
                     <td>$firstN</td>
                 </tr>
@@ -43,13 +39,18 @@
                     <td>$email</td>
                 </tr>
                 <tr>
-                    <td>Password: </td>
-                    <td>$password</td>
-                </tr>
-                <tr>
                     <td>Street Address: </td>
                     <td>$address</td>
                 </tr>
+                <tr>
+                    <td>Username: </td>
+                    <td>$userID</td>
+                </tr>
+                <tr>
+                    <td>Password: </td>
+                    <td>$password</td>
+                </tr>
+
             ");
         }
 

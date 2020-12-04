@@ -5,13 +5,14 @@
 
     if ($_SESSION['loggedin'] == true) {
         if (!empty($_POST['f_name']) && !empty($_POST['l_name']) && !empty($_POST['email'])
-            && !empty($_POST['user']) && !empty($_POST['pass'])) {
+            && !empty($_POST['user']) && !empty($_POST['pass']) && !empty($_POST['address'])) {
             //declar variables
             $fName = $_POST['f_name'];
             $lName = $_POST['l_name'];
             $email = $_POST['email'];
             $user = $_POST['user'];
             $pass = $_POST['pass'];
+            $address = $_POST['address'];
             $sessionID = $_SESSION['user_id'];
 
             $sql=mysqli_query($connection, "SELECT* FROM useraccount
@@ -31,10 +32,11 @@
             }else{
                 $insert = mysqli_query($connection, "UPDATE useraccount 
                                                         SET userID='$user',
+                                                            password='$pass',
                                                             firstN='$fName',
                                                             lastN='$lName',
                                                             email='$email',
-                                                            password='$pass',
+                                                            address='$address,
                                                             favgenre='TBD' 
                                                         WHERE userID='$sessionID'
                                                     ");
