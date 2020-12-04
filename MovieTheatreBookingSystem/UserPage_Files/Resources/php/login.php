@@ -36,7 +36,7 @@
       }  
 
    }else{
-      $_SESSION['invalidLogin'] = '<br><br>*Required Field';
+      $_SESSION['invalidLogin'] = '<br><br>*All fields required';
       $_SESSION['isSuccessful'] = "";
       $_SESSION['loggedin'] = false;
    }

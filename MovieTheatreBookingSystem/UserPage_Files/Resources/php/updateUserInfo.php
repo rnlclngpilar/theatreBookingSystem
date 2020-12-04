@@ -19,13 +19,13 @@
             
             //IF USERNAME AND EMAIL ALREADY EXIST IN DATABASE
             if($sql->num_rows>0){
-                $_SESSION['isSuccessful'] = "*Account Update FAILED!";
-                $row = mysqli_fetch_array($sql);
+                $_SESSION['isSuccessful'] = "*Account Update FAILED! EMAIL or USERNAME already exist. try again with another...";
+                // $row = mysqli_fetch_array($sql);
 
-                if ($email==$row['email'])
-                    $_SESSION['invalidUpdate']="<br><br>* EMAIL already exist! Try again with another<br><br>";
-                else if ($user==$row['userID'])
-                    $_SESSION['invalidUpdate']="<br><br>* USERNAME already exist! Try again with another<br><br>";
+                // if ($email==$row['email'])
+                //     $_SESSION['invalidUpdate']="<br><br>* EMAIL already exist! Try again with another<br><br>";
+                // else if ($user==$row['userID'])
+                //     $_SESSION['invalidUpdate']="<br><br>* USERNAME already exist! Try again with another<br><br>";
             
             //IF AVAILABLE
             }else{
@@ -49,21 +49,21 @@
                     $_SESSION['full_name'] = $fName.' '.$lName;
 
                     $_SESSION['isSuccessful'] = "*Account Update SUCCESSFUL!";
-                    $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
+                    $_SESSION['invalidUpdate'] = '<br><br>*All Fields Required';
                 }else{
                     //echo("Error description: " . mysqli_error($connection));
-                    $_SESSION['isSuccessful'] = "*Account Update FAILED! Could not update information. try again later...";
+                    $_SESSION['isSuccessful'] = "*Account Update FAILED! EMAIL or USERNAME already exist. try again with another...";
                 }
             }
 
         }else{
-            $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
+            $_SESSION['invalidUpdate'] = '<br><br>*All Fields Required';
             $_SESSION['isSuccessful'] = "";
         }
     } else if (!$_SESSION['loggedin']){
         session_destroy();
         session_start();
-        $_SESSION['isSuccessful'] = "Please log in first to see the page.";
+        $_SESSION['isSuccessful'] = 'Please log in first to see the page.';
         header("Location: enterUserPage.php");   //redirect
     }
 
