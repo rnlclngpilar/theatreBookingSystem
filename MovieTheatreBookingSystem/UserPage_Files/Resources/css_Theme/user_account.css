@@ -30,7 +30,7 @@
             vertical-align: text-top;  
         }
         /* side menu title */
-        body, tbody tr td.internalTableSideBar:first-child  {
+        html, tbody tr td.internalTableSideBar:first-child  {
              background-color: lightgrey;
         }                       
         
