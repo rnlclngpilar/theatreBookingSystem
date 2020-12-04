@@ -9,7 +9,7 @@
 	<style> 
 		/* Align the side bar, the div element for containing multiple movie information tables, 
 		and the text inside each of those tables,  vertically to the top of the element */
-    	.menu, .movieBlock, /*table tbody td:last-child*/{
+    	.menu, .movieBlock /*table tbody td:last-child*/{
 			vertical-align: top;
 		}
 
