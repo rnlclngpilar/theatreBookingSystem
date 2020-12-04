@@ -1,0 +1,200 @@
+<!-- Header and Footer - Start -->
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <!-- <link type="text/css" rel="stylesheet" href="../Resources/css_Theme/mainTheme.css"> -->
+    <Title>Movie Theater</Title> 
+
+    <style>
+        /* header & footer navigation bars*/
+ /*           header{ position: top; top: 0px}
+            footer{ position: fixed; place-self: bottom, fixed;  bottom: 0px;}
+            header, footer{ 
+                box-sizing: border-box;
+                position: relative; width: 100%;
+                scroll-behavior: smooth; nav-down: auto; 
+           }
+*/
+        /* Padding above and under navs*/
+ /*           .navBar>nav>ul{ padding: 5px; margin: 0rem 0.70rem 0rem 0.70rem; }    
+        /* Seperation between nav options*/
+/*            .navBar>nav>ul>li{ 
+                padding: 0.25rem; margin: 0rem 5% 0rem 5%; 
+                list-style: none; list-style-position: inside; display: inline-block; font-variant-ligatures: none;
+            }
+*/
+/*            header  { position: fixed; right: 0px; left: 0px; top: 5px; align-items: center; }
+            header li { margin: 5px;}
+            header *{ background-color: darkred; list-style: none; display: inline; font-variant-ligatures: none;}
+            ul      { background-color: lightgrey;}
+            .navBar { background-color: lightblue;}
+            a{ display: block; }
+*/
+/*
+            header { background-color: lightgrey;  }
+            header li { list-style: none; display: inline;  }
+            header a {
+                float: left; 
+                overflow: hidden; 
+                color: black; 
+                text-decoration: none; 
+                padding: 2px;
+                text-align: center;
+            }
+            header li :vertical{ nav-down: root;}
+*/
+/*.dropdownNav*/
+/*
+        header              { background-color: rgb(175, 130, 130); top: 0pt; width:fit-content; margin:2px; padding: 10px;}
+        .drowdownNav, a     { position: relative; display: block; }
+        .dropdownNav_button, button { background-color: rgb(181, 207, 243); width: 80px;}
+        .dropdownNav_content{ display: none; position: relative; display: none; width: 80px; /*z-index: 1;*//* background-color: lightgrey; }
+        .dropdownNav_content a { display: block; padding: 1px 2px 1px 2px;}
+        .dropdownNav:hover .dropdownNav_content { color: black; display: block;}
+*/
+
+        header, header a { background-color: rgb(175, 130, 130); top: 0px; width: 100%; margin:2px; padding: 10px; overflow: hidden; float: left;} 
+        .drowdownNav, a      { position: relative; display: inline-block; }
+        .dropdownNav_button, button { background-color: rgb(181, 207, 243); min-width: 80px;}
+        .dropdownNav_content{ display: none; position: relative; display: none; max-width: 80px; /*z-index: 1;*/ background-color: lightgrey; }
+        .dropdownNav_content a { display: block; padding: 1px 2px 1px 2px;}
+        .dropdownNav:hover .dropdownNav_content { color: black; display: block;}
+
+    </style>
+
+</head>
+<body>
+
+
+    <header>
+        <a href="Home.php"><button>Home</button></a>
+        <a href="TicketReservation_Files/ticketReservationForm.html"><button>Ticket Reservation</button></a>
+
+        <div class="dropdownNav">
+            <button class="dropdownNav_button">Search Movies by:</button>
+                <div class="dropdownNav_content">
+                    <a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a>
+                    <a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a>
+                </div>
+        </div>
+        
+            <a href="UserPage_Files/userAccountPage.php"><button>User Account</button></a>
+        </div>
+    </header>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<!--
+    <header>
+        <div class="navBar">
+            <ul>
+                <li><a href="Home.php">Home</a></li>
+                <li><a href="TicketReservation_Files/ticketReservationForm.html">Ticket Reservation</a></li>
+                
+                    
+                <li><label>Search Movies</label>
+                    <ul :vertical>
+                        <li><a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a></li>
+                        <li><a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a></li>
+                    </ul>
+                </li>
+                <li><a href="UserPage_Files/userAccountPage.php">User Account</a></li>
+            </ul>
+        </div>
+    </header>
+
+
+
+<header>
+    <nav class="navBar">
+        <ul>
+            <li><a href="Home.php">Home</a></li>
+            <li><a href="TicketReservation_Files/ticketReservationForm.html">Ticket Reservation</a></li>
+            <li>
+                <ul>
+                <label>Search Movies</label>
+                <li><a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a></li>
+                <li><a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a></li>
+                </ul>
+            </li>
+            <li><a href="UserPage_Files/userAccountPage.php">User Account</a></li>
+        </ul>
+    </nav>
+</header>
+
+
+
+
+
+    <nav class="navBar">
+        <optgroup>
+            <option href="Home.php">Home</option>
+            <option href="TicketReservation_Files/ticketReservationForm.html">Ticket Reservation</option>
+            <optgroup>
+                <label>Search Movies</label>
+                <option><a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a></option>
+                <option><a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a></option>
+                </optgroup>
+            <option><a href="UserPage_Files/userAccountPage.php">User Account</a></option>
+            </optgroup>
+    </nav>
+    
+
+<nav class="navBar">
+    <ul>
+        <li><a href="Home.php">Home</a></li>
+        <li><a href="TicketReservation_Files/ticketReservationForm.html">Ticket Reservation</a></li>
+        <ul>
+            <label>Search Movies</label>
+            <li><a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a></li>
+            <li><a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a></li>
+        </ul>
+        <li><a href="UserPage_Files/userAccountPage.php">User Account</a></li>
+    </ul>
+</nav>
+
+
+-->
+
+
+<!-- ____________ Top Navigation Bar ________________ -->
+    <!-- Can Contain: Horizontal Navigation Links, Site logo, 1 or 2 horizontal banners 
+    <header class="navBar">
+        <nav>
+            <ul>
+                <li>Home</li>
+                <li>Booking</li>
+                <li>Trailers</li>
+                <li>Snacks</li>
+            </ul>
+        </nav>
+    </header>
+    -->
+
+<!-- ____________ Bottom Navigation Bar ________________ -->
+    <!-- Horizontal Navigation Links -->
+    <footer  class="navBar">
+        <nav>                   
+            <ul>
+                <li>Back to Top</li>
+                <li>Site Map</li>
+                <li>Contact</li>
+                <li>About</li>
+            </ul>
+        </nav>
+    </footer>
+<!--______________________________________________________________________________________________-->
+</body>
+</html>

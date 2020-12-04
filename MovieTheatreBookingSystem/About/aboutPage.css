@@ -1,0 +1,15 @@
+
+table{border: black double thick; padding:3px; border-spacing: 0; background-color:oldlace}
+table caption{font-weight: bold;}
+th, tr, td {
+    padding: 0px  5px;
+    border-color: black;
+    border-style: ridge;
+}
+
+thead {                    background-color: rgb(192, 108, 108); }
+tbody tr:nth-child(even){  background-color: darkred; color: white; }
+tbody tr:nth-child(odd){   background-color: oldlace;}
+td {padding-left:10px; max-width:100vw; width:50vw; box-sizing: content-box;}
+table {border-radius:5px;}
+
