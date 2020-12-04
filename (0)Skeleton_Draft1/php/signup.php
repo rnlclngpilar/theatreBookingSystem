@@ -47,7 +47,7 @@
 
     }else{
         $_SESSION['invalidSubmit'] = '<br><br>*Required Field';
-        $_SESSION['isSuccessful'] = "";
+        //$_SESSION['isSuccessful'] = "";
     }
 
     $connection->close(); //close connec
