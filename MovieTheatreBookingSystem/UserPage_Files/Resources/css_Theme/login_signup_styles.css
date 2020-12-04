@@ -51,7 +51,6 @@
     
     .error {
         color: green;
+        text-align: center;
     }
-    .error::backdrop {
-        color: white;
-    }
+  
