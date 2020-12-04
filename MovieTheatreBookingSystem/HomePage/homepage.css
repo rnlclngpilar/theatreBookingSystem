@@ -1,0 +1,56 @@
+
+
+        /* page arrangement and styling */      
+        body, html,#page {box-sizing: border-box; padding:0; margin:0;} 
+        #page{
+            background: oldlace; 
+            border:black solid thin; 
+            margin: 0 10vw; 
+            height:100vh; 
+            width: 80vw;
+        }
+        h1,h2{
+            font-family: 'Permanent Marker', cursive; 
+            text-align:center;
+        }       
+
+        /* background styling */
+        html, body, .bg,.fadedBg {
+            background-image: url("https://img.freepik.com/free-vector/pattern-snacks-theme-popcorn_85534-194.jpg?size=338&ext=jpg");
+			background-size: 20vh;
+			background-attachment: fixed;
+		}
+		html, .bg { background-color: grey;  background-blend-mode: screen;}
+		.innerTable{background-color:darkred; padding:5px;  width:min-content}
+
+		/* general table styles */
+		table, th, tr,td{
+            border:groove black 5px;
+			border-collapse: separate;
+			border-radius: 2vh;
+			padding: 10px;
+			margin:0 5vw;	
+		}	
+        table { background-color:darkkhaki}
+		th{     background-color:lightgrey;}
+        td{     background-color:darkred;   color:white;  vertical-align: text-top; }
+
+        /* interior table styles */
+        .fadedBg td{background-color:khaki; color:black}
+        .fadedBg th{background-color:lightgrey; color:black;}
+		.fadedBg  {
+            margin:0;
+            background-color: lightgrey;
+            background-blend-mode: darken;
+            padding:10px;
+            border-radius:0;
+        }
+        #content{width:100%;}
+
+        input[type="button"]{
+            width:100%;
+            height:100%;
+            background-color: darkred;
+            color:lightyellow;
+
+        }
