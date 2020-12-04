@@ -2,16 +2,15 @@
 <html>
 <head>
     <meta charset="utf-8"></meta>
-    <!-- <link type="text/css" rel="stylesheet" href="../Resources/css_Theme/mainTheme.css"> -->
     <Title>Movie Theater</Title> 
 
-    <style>
-        header, header a { background-color: rgb(175, 130, 130); top: 0px; width: 100%; margin:2px; padding: 10px; overflow: hidden; float: left;} 
-        .drowdownNav, a      { position: relative; display: inline-block; }
-        .dropdownNav_button, button { background-color: rgb(181, 207, 243); min-width: 80px;}
-        .dropdownNav_content{ display: none; position: relative; display: none; max-width: 80px; /*z-index: 1;*/ background-color: lightgrey; }
-        .dropdownNav_content a { display: block; padding: 1px 2px 1px 2px;}
-        .dropdownNav:hover .dropdownNav_content { color: black; display: block;}
+    <style type="text/css">
+    div { display: inline;}
+/*
+    .contain_nav {}
+    .nav_dropdown {}
+*/
+
     </style>
 
 </head>
@@ -19,17 +18,22 @@
 
 
     <header>
-        <a href="Home.php"><button>Home</button></a>
-        <a href="TicketReservation_Files/ticketReservationForm.html"><button>Ticket Reservation</button></a>
+        <button href="Home.php">Home</button>
+        <button href="TicketReservation_Files/ticketReservationForm.html">Ticket Reservation</button>
 
-        <div class="dropdownNav">
-            <button class="dropdownNav_button">Search Movies by:</button>
-                <div class="dropdownNav_content">
+        <div class="contain_nav">
+        <div class="nav_dropdown">
+            <button class="dropdown_btn">Search Movies by:</button>
+                <div class="btn_content">
                     <a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a>
                     <a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a>
                 </div>
         </div>
-        
-            <a href="UserPage_Files/userAccountPage.php"><button>User Account</button></a>
         </div>
+        <button href="UserPage_Files/userAccountPage.php">User Account</button>
     </header>
+</body>
+</html>
+
+
+

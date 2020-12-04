@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8"></meta>
+    <!-- <link type="text/css" rel="stylesheet" href="../Resources/css_Theme/mainTheme.css"> -->
+    <Title>Movie Theater</Title> 
+
+    <style type="text/css">
+    
+        header {
+            background-color: rgb(175, 130, 130);
+            width: 100%;
+            position:absolute;
+            top: 0rem; right: 0rem; left: 0rem;
+            height: 2rem;
+            align-items: center;
+            padding: 10px;
+        }
+        header *  { display: inline; margin-left: 1rem; padding: 0.4rem;}
+        header li { list-style: none;  }
+        header a  { color: black; text-decoration: none; /*float: left;*/}
+
+        .dropdownContainer { overflow: hidden;}
+        .dropdownContainer { /*float: left;*/ text-align: center; text-decoration: none; }
+
+        .dropdownNav    { /*float: left;*/ overflow: hidden; }
+        .dropdownNav, .dropdownNav_button { margin: 0;}
+        .dropdownNav_button, button { float: none; background-color: rgb(181, 207, 243); }
+
+        .dropdownNav_content{ display: none; position: absolute; min-width: 80px; background-color: lightgrey; z-index:1;}
+        .dropdownNav_content a { float: none; padding: 1rem; text-decoration: none; display:block; text-align: left;}
+
+        
+        .dropdownNav_content{ display: none; position: absolute; max-width: 80px; background-color: lightgrey; }
+        .dropdownNav_content a { display: block; position: relative; float: none; padding: 1px 2px 1px 2px;}
+        .dropdownNav:hover .dropdownNav_content { display: block;}
+
+
+/*
+       header {
+            background-color: rgb(175, 130, 130);
+            width: 100%;
+            position:absolute;
+            top: 0rem; right: 0rem; left: 0rem;
+            height: 2rem;
+            align-items: center;
+            padding: 10px;
+        }
+        header *  { display: inline; margin-left: 1rem; padding: 0.4rem;}
+        header li { list-style: none;  }
+        header a  { color: black; text-decoration: none; float: left; overflow: hidden;}
+
+        .dropdownContainer { position: relative; overflow: hidden;}
+
+        .dropdownNav_button, button { float: left; background-color: rgb(181, 207, 243);}
+
+        .dropdownNav_content{ display: none; position: absolute; max-width: 80px; background-color: lightgrey; }
+        .dropdownNav_content a { display: block; position: relative; float: none; padding: 1px 2px 1px 2px;}
+        .dropdownNav:hover .dropdownNav_content { display: block;}
+
+*/
+
+
+        /*
+         header, header a   { background-color: rgb(175, 130, 130); top: 0px; width: 100%; margin:2px; padding: 10px; overflow: hidden; float: left;} 
+        .drowdownNav, a      { position: relative; display: inline-block; }
+        .dropdownNav_button, button { background-color: rgb(181, 207, 243); min-width: 80px;}
+        .dropdownNav_content{ display: none; position: relative; display: none; max-width: 80px; background-color: lightgrey; }
+        .dropdownNav_content a { display: block; padding: 1px 2px 1px 2px;}
+        .dropdownNav:hover .dropdownNav_content { color: black; display: block;} */
+
+
+
+
+    </style>
+
+</head>
+<body>
+
+    <nav>
+        <ul>
+            <li>
+                <a href ="#"></a>
+            </li>
+        </ul>
+    </nav>
+
+
+    <header>
+        <button href="Home.php">Home</button>
+        <button href="TicketReservation_Files/ticketReservationForm.html">Ticket Reservation</button>
+
+        <div class="dropdownContainer">
+        <div class="dropdownNav">
+            <button class="dropdownNav_button">Search Movies by:</button>
+                <div class="dropdownNav_content">
+                    <a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a>
+                    <a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a>
+                </div>
+        </div>
+        </div>
+        <button href="UserPage_Files/userAccountPage.php">User Account</button>
+    </header>
+
+
+
+
+
+<!--
+    <header>
+        <a href="Home.php"><button>Home</button></a>
+        <a href="TicketReservation_Files/ticketReservationForm.html"><button>Ticket Reservation</button></a>
+
+        <div class="dropdownNav">
+            <button class="dropdownNav_button">Search Movies by:</button>
+                <div class="dropdownNav_content">
+                    <a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Genre</a>
+                    <a href="SearchesWithFilters/LocateTheatres/LocateTheatres_Form.php">Theatre</a>
+                </div>
+        </div>
+        
+            <a href="UserPage_Files/userAccountPage.php"><button>User Account</button></a>
+        </div>
+    </header>
+-->
