@@ -17,7 +17,7 @@
 
     //for movie history
     if (mysqli_num_rows($resultHis) > 0) {
-        while ($row_MovHis = mysqli_fetch_array($resultHis)){
+        while ($row_MovHis = mysqli_fetch_array($resultHis)) {
             $movieTitle = $row_MovHis['title'];
             $movieID = $row_MovHis['movieID'];
             $genre = $row_MovHis['genre'];
@@ -28,17 +28,18 @@
 
             //create table
             echo("
-                <tr>
-                    <td><img src='Resources/movieImgs/movies/".$movieID.".jpg' class='boxImg'></td>
-                    <td>".$movieTitle."</td>
-                    <td>".$genre."</td>
-                    <td>".$description."</td>
-                    <td>".$rating."</td>
-                    <td>".$theatre."</td>
-                </tr>
+                <tbody>
+                    <tr>
+                        <td><img src='Resources/movieImgs/movies/".$movieID.".jpg' class='boxImg'></td>
+                        <td>".$movieTitle."</td>
+                        <td>".$genre."</td>
+                        <td>".$description."</td>
+                        <td>".$rating."</td>
+                        <td>".$theatre."</td>
+                    </tr>
+                </tbody>
             ");
         }
-
     } 
 
 
