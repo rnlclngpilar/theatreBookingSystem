@@ -4,12 +4,13 @@
 <head>
     <meta charset="utf-8"></meta>
     <Title>Site Map</Title>
-    <style type="text/css"> legend, label { font-weight: bolder; } </style>
+    <link rel="stylesheet" href="sitemap.css">
 </head>
 
 <body>
     <nav>
         <ul>
+        <div id="content">
             <legend>Site Map:</legend>
             <li>About</li>
             <li><a href="HomePage/homePage.html">Home</a></li>
@@ -20,6 +21,7 @@
             <li>Contact</li>
         </ul>
     </nav>
+    </div>
 </body>
 
 </html>
