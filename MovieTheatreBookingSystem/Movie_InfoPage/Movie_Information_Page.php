@@ -9,19 +9,14 @@
 
    <table class="mainPageTable">
 	<!-- ~ Movie Information ~ Header -->
-    <tr>
+        <tr>
 			<th><h1> ~ Movie Information ~ </h1></th>
-		</tr>
+	    </tr>
 
     <!-- Output Movie Poster & Information Block -->
 		<tr>
 			<td class="movieBlock">
 				<?php include './getMovieInfo.php'; ?>
-                    <!-- add image-database? -->
-                    <!-- possibly link theater contact info here-->
-                    <script>
-                        function onClick($movieID) { /* Send them to ticket form and pass to it MovieID */};
-                    </script>
 			</td>
 		</tr>
 </body>
