@@ -50,9 +50,9 @@
     }
     
     .error {
-        color: green;
+        color: blue;
     }
-    .th {        
+    .tab th {        
         text-align: center;
     }
   
