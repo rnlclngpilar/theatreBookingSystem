@@ -1,0 +1,8 @@
+		
+    /* Set column width values in horizontal menu */
+    .menu td:first-child{  width:15rem;}
+    .menu td:nth-child(2){ width:max-content;}
+
+    /* adjust table height */
+    .menu {height:fit-content;}
+    .movieBlock{height: 70vh;}

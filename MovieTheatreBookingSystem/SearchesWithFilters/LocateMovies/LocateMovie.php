@@ -6,38 +6,6 @@
 	<meta charset="utf-8"></meta>
 	<link type="text/css" rel="stylesheet" href="../Resources/css_Theme/mainTheme.css">
 	
-	<style> 
-		/* Align the side bar, the div element for containing multiple movie information tables, 
-		and the text inside each of those tables,  vertically to the top of the element */
-    	.menu, .movieBlock /*table tbody td:last-child*/{
-			vertical-align: top;
-		}
-
-		/* setup display of the div element containing multiple movie information tables (content div) */
-		.movieBlock{ 
-			overflow:auto;
-			height:75vh;
-			width:100%;
-			margin:0;
-		}
-
-		/* setup display of each movie information table */
-		.poster{
-			text-align: left;
-			width: 44%; 
-			min-width: 320px;
-			max-width: 400px;
-			height: 310px;
-			float:left;			
-		}
-
-		/* redefine style set in stylesheet, for the width of the image in each movie information table  */
-		.boxImg{ width:100px; }
-
-		/* Force minimum width of menu */
-		.menu td{ min-width:6rem; }
-	
-		</style>
 </head>
 
 <body>
@@ -55,7 +23,7 @@
 
 		<tbody>
 	<!-- Genre Menu -->
-		<tr class="menu" >      <!-- ------------------------------------------------ -->
+		<tr class="menu" >
 			<td id="filterMenu" rowspan="2">
 				<br><br>
 				<b>GENRE: </b><br>

@@ -14,9 +14,6 @@ th              { background-color:lightgray }     /* rgb(218, 160, 160);*/
     border-collapse: separate;
     border: solid black medium;
     border-radius: 2vw;
-
-    max-height: 20vw;
-    max-width: 80vw;
     text-overflow: auto;
     margin:5px;
 }
@@ -26,4 +23,36 @@ th              { background-color:lightgray }     /* rgb(218, 160, 160);*/
     background-color:rgb(245, 204, 139);
 }
 
-img { min-height: 15rem; max-height: min-content; min-width: 10rem; }
+/* Align the side bar, the div element for containing multiple movie information tables, 
+and the text inside each of those tables,  vertically to the top of the element */
+.menu, .movieBlock {
+    vertical-align: top;
+}
+/*, table tbody td:last-child*/
+
+/* setup display of the div element containing multiple movie information tables */
+.movieBlock{ 
+    overflow-x: hidden;
+    overflow-y: auto;
+    height:75vh;   
+    width: 100%;
+    margin:0;
+}
+
+/* setup display of each movie information table */
+.poster{
+    text-align: left;
+    width: 44%; 
+    min-width: 325px;
+    max-width: 400px;
+    height: 310px;
+    float:left;			
+}
+
+/* redefine style set in stylesheet, for the width of the image in each movie information table  */
+.boxImg,  img { height:180px; width: 110px} 
+.poster:first-of-type(td) {width: min-content}
+
+/* Force minimum width of menu */
+.menu td{ min-width:6em; }           
+	
