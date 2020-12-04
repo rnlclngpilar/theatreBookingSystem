@@ -2,8 +2,8 @@
 <html>
 <head>
 
-    <link href="/Resources/css_Theme/login_signup_styles.css" rel="stylesheet" type="text/css" /> 
-    <script src = "/Resources/js/tab_button.js" type="text/javascript" ></script>
+    <link href="Resources/css_Theme/login_signup_styles.css" rel="stylesheet" type="text/css" /> 
+    <script src = "Resources/js/tab_button.js" type="text/javascript" ></script>
 
     <?php 
         include "Resources/php/login.php"; // NEED TO BE RECONNECTED
