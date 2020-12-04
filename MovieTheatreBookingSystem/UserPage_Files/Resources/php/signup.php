@@ -15,24 +15,21 @@
         $resultSignUp = mysqli_query($connection, $sqlSignUp);
         $rowSignUp = mysqli_fetch_assoc($resultSignUp);
 
-        // $year=date("Y");
-        // $sixDigit=mt_rand(100000,999999);;
-        // $ID="".$year."-".$sixDigit."";
 
         //if no similar user/email found
         if ($rowSignUp == 0) {
-            $sqlSignUp = "INSERT INTO useraccount (userID, firstN, lastN, email, password, favGenre) 
-                    VALUES ('$userS','$fName','$lName','$emailS','$passS', 'TBD')";
+            $sqlSignUp = "INSERT INTO useraccount (userID, password, firstN, lastN, email, address, favGenre) 
+                    VALUES ('$userS','$pass','$fName','$lName','$emailS', ' ', 'TBD')";
             $insert = $connection->query($sqlSignUp);
 
             //if successful
             if ($insert == true) {
                 $_SESSION['isSuccessful'] = "Registration Successful!";
-                $_SESSION['invalidLogin'] = '<br><br>*All fields required';
+                $_SESSION['loggedin'] = false;
 
-
-            } else 
-                $_SESSION['invalidSubmit']="* oh oh... something went wrong...<br><br>";
+            } //else 
+                //echo "Error: " . $sql . "<br>" . $db->error;
+                //$_SESSION['invalidSubmit']="* something went wrong...Try again later.<br><br>";
 
             
         }else{
