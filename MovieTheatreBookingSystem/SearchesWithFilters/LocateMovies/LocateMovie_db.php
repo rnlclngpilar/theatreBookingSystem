@@ -20,18 +20,24 @@
             //create table
             if($genre_Selected == $genre || $genre_Selected == "All" || $genre_Selected == null)
             {
-                echo "<table class='poster'>";
-                echo("<td>");
-                echo("<img src='../Resources/movieImgs/movies/".$movieID.".jpg' class='boxImg'>");
-                echo("</td>");
-                echo("<td>");
-                echo("<p><strong>Title:</strong> ".$title."</p>");
-                echo("<p><strong>Length:</strong> ".$duration."</p>");
-                echo("<p><strong>Genre:</strong> ".$genre."</p>");
-                echo("<p><strong>Release Date:</strong> ".$releaseDate."</p>");
-                echo("<p><strong>Movie ID:</strong> ".$movieID."</p>");
-                echo("</td>");
-                echo("</table>");
+                echo("
+                <a href='../../TicketReservation_Files/ticketReservationForm.html'>
+                    <table class='poster'>
+                    <td>
+                        
+                        <img src='../Resources/movieImgs/movies/".$movieID.".jpg' class='boxImg'>
+                        
+                    </td>
+                    <td>
+                        <p><strong>Title:</strong> ".$title."</p> 
+                        <p><strong>Length:</strong> ".$duration."</p> 
+                        <p><strong>Genre:</strong> ".$genre."</p>  
+                        <p><strong>Release Date:</strong> ".$releaseDate."</p> 
+                        <p><strong>Movie ID:</strong> ".$movieID."</p>             
+                    </td>
+                    </table>
+                </a>
+                ");
                 $count++;
             }
         }
