@@ -49,12 +49,15 @@ function myFunction()
 //disables the checkbox after selection has reached the amount of tickets entered
 $(":checkbox").click(function() 
 {
-  if ($("input:checked").length == ($("#adult").val()) + ($("#child").val()) + ($("#senior").val())) {
-    $(":checkbox").prop('disabled', true);
-    $(':checked').prop('disabled', false);
+  if ($("input:checked").length == ($("#adult").val()))
+  {
+      $(":checkbox").prop('disabled', true);
+      $(':checked').prop('disabled', false);
   }
+
+
   else
-    {
+  {
       $(":checkbox").prop('disabled', false);
-    }
+  }
 });
