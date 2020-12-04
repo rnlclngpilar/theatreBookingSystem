@@ -42,7 +42,7 @@
                     $_SESSION['full_name'] = $rowUpdate['firstN']. ' ' .$rowUpdate['lastN'];
                     
 
-                    $_SESSION['isSuccessful'] = "Account Update Successful!<br>";
+                    $_SESSION['isSuccessful'] = "Account Update Successful!<br>".$_SESSION['full_name'];
                     $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
 
 
@@ -70,10 +70,10 @@
             $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
             $_SESSION['isSuccessful'] = "";
         }
-    } 
-
-    $_SESSION['isSuccessful'] = "Please log in first to see the page.";
-    header("Location: enterUser.php");   //redirect
+    } else{
+        $_SESSION['isSuccessful'] = "Please log in first to see the page.";
+        header("Location: enterUser.php");   //redirect
+    }
 
     $connection->close(); //close connec
 ?>

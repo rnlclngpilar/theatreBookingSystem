@@ -32,12 +32,13 @@
       else {
          $_SESSION['isSuccessful'] = "Login Failed!";
          $_SESSION['invalidLogin'] = '<br><br>*INVALID username/password please try again.';
-
+         $_SESSION['loggedin'] = false;
       }  
 
    }else{
       $_SESSION['invalidLogin'] = '<br><br>*Required Field';
       $_SESSION['isSuccessful'] = "";
+      $_SESSION['loggedin'] = false;
    }
       
    $connection->close(); //close connec
