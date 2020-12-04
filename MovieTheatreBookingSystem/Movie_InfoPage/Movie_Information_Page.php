@@ -9,7 +9,7 @@
 
    <table class="mainPageTable">
 	<!-- ~ Movie Information ~ Header -->
-        <tr>
+    <tr>
 			<th><h1> ~ Movie Information ~ </h1></th>
 		</tr>
 
