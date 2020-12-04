@@ -18,17 +18,22 @@
             //create table
             if($theatre_Selected == $theatreID && !($theatre_Selected == null || $theatre_Selected == "" ))
             {
-                echo "<table class='poster'>";
-                echo("<td>");
-                echo("<img src='../Resources/movieImgs/movies/".$movieID.".jpg' class='boxImg'>");
-                echo("</td>");
-                echo("<td>");
-                echo("<p><strong>Theater:</strong> ".$theatreName."</p>");
-                //echo("<p><strong>Theatre ID:</strong> ".$theatreID."</p>");
-                echo("<p><strong>Title:</strong> ".$movieTitle."</p>");
-                //echo("<p><strong>Movie ID:</strong> ".$movieID."</p>");
-                echo("</td>");
-                echo("</table>");
+                echo("
+                    <a href='../../TicketReservation_Files/ticketReservationForm.html'>
+                        <table class='poster'>
+                        <td>
+                            
+                            <img src='../Resources/movieImgs/movies/".$movieID.".jpg' class='boxImg'>
+                            
+                        </td>
+                        <td>
+                            <p><strong>Theater:</strong> ".$theatreName."</p>
+                            <p><strong>Title:</strong> ".$movieTitle."</p>
+                        </td>
+                        </table>
+                    </a>
+                ");
+               
                 $count++;
             }
         }
