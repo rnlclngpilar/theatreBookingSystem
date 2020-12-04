@@ -30,7 +30,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
 
                 <body> 
                 <form action="../HomePage/homePage.html">
-                    <input type="submit" value="< go back">
+                    <input type="submit" value="< go HOME">
                 </form>                
                 <h1>Menu | User Account</h1>   
                     <span class="error"><?php echo "".$_SESSION['isSuccessful']."<br><br>";?></span>

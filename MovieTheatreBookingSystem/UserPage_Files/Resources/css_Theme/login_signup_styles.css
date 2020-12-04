@@ -2,8 +2,8 @@
 
     caption {font-weight: bold; text-decoration: darkred underline double; padding-bottom: 5px;}
 
-    html {background-color: white;}
-    body {background-color: lightgray; font-family: Georgia,serif;}
+    html {background-color: lightgray;}
+    body {font-family: Georgia,serif;}
     .tableOutline{border: black double thick; padding:5px; border-spacing: 0; margin:5px}
     .tabcontent td {
         padding: 0px  5px  0px  5px;
