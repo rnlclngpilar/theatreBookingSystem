@@ -1,11 +1,9 @@
 <?php
+    error_reporting(0);
     session_start();
     require 'connection.php';
-    $fullname = $_SESSION['full_name'];
 
     if ($_SESSION['loggedin'] == true) {
-        $sessUser=$_SESSION['user_id'];
-
         if (!empty($_POST['f_name']) && !empty($_POST['l_name']) && !empty($_POST['email'])
             && !empty($_POST['user']) && !empty($_POST['pass'])) {
             //declar variables
@@ -14,63 +12,55 @@
             $email = $_POST['email'];
             $user = $_POST['user'];
             $pass = $_POST['pass'];
+            $sessionID = $_SESSION['user_id'];
 
-            $sqlUpdate = "SELECT*FROM useraccount 
-                            WHERE email='$sessUser'";
-            $resultUpdate = mysqli_query($connection, $sqlUpdate);
-            $rowUpdate = mysqli_fetch_assoc($resultUpdate);
-
-            //if USER IS FOUND and user/email is available
-            if (!($email == $rowUpdate['email']) || !($user == $rowUpdate['userID'])) {
-                $sqlUpdate = "UPDATE useraccount 
-                                SET userID='$user',
-                                    firstN='$fName',
-                                    lastN='$lName',
-                                    email='$email',
-                                    password='$pass' 
-                                WHERE userID='$sessUser'";
-                
-                $insert = $connection->query($sqlUpdate);
-
-                //if successful
-                if ($insert == true) {
-                    //update session
-                    $_SESSION['user_id'] = $rowUpdate['userID'];
-                    $_SESSION['user_email'] = $rowUpdate['email'];
-                    $_SESSION['f_name'] = $rowUpdate['firstN'];
-                    $_SESSION['l_name'] = $rowUpdate['lastN'];
-                    $_SESSION['full_name'] = $rowUpdate['firstN']. ' ' .$rowUpdate['lastN'];
-                    
-
-                    $_SESSION['isSuccessful'] = "Account Update Successful!<br>".$_SESSION['full_name'];
-                    $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
-
-
-                //failed
-                } else {
-                    $_SESSION['isSuccessful'] = "*Account Update FAILED!";
-
-                    if ($email==$rowUpdate['email'])
-                        $_SESSION['invalidUpdate']="<br><br>* EMAIL already exist! Try again with another<br><br>";
-                    else if ($user==$rowUpdate['userID'])
-                        $_SESSION['invalidUpdate']="<br><br>* USERNAME already exist! Try again with another<br><br>"; 
-                }
+            $sql=mysqli_query($connection, "SELECT* FROM useraccount
+                                            WHERE userID=$user OR email=$email");
             
-            //user already exist
-            }else {
+            //IF USERNAME AND EMAIL ALREADY EXIST IN DATABASE
+            if($sql->num_rows>0){
                 $_SESSION['isSuccessful'] = "*Account Update FAILED!";
+                $row = mysqli_fetch_array($sql);
 
-                if ($email==$rowUpdate['email'])
+                if ($email==$row['email'])
                     $_SESSION['invalidUpdate']="<br><br>* EMAIL already exist! Try again with another<br><br>";
-                else if ($user==$rowUpdate['userID'])
-                    $_SESSION['invalidUpdate']="<br><br>* USERNAME already exist! Try again with another<br><br>"; 
-            }
+                else if ($user==$row['userID'])
+                    $_SESSION['invalidUpdate']="<br><br>* USERNAME already exist! Try again with another<br><br>";
             
+            //IF AVAILABLE
+            }else{
+                $insert = mysqli_query($connection, "UPDATE useraccount 
+                                                        SET userID='$user',
+                                                            firstN='$fName',
+                                                            lastN='$lName',
+                                                            email='$email',
+                                                            password='$pass',
+                                                            favgenre='TBD' 
+                                                        WHERE userID='$sessionID'
+                                                    ");
+
+                if($insert==true){
+                    session_destroy();
+                    session_start();
+                    
+                    // update session
+                    $_SESSION['loggedin'] = true;
+                    $_SESSION['user_id'] = $user;
+                    $_SESSION['full_name'] = $fName.' '.$lName;
+
+                    $_SESSION['isSuccessful'] = "*Account Update SUCCESSFUL!";
+                    $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
+                }else{
+                    //echo("Error description: " . mysqli_error($connection));
+                    $_SESSION['isSuccessful'] = "*Account Update FAILED! Could not update information. try again later...";
+                }
+            }
+
         }else{
             $_SESSION['invalidUpdate'] = '<br><br>*Required Field';
             $_SESSION['isSuccessful'] = "";
         }
-    } else{
+    } else if (!$_SESSION['loggedin']){
         $_SESSION['isSuccessful'] = "Please log in first to see the page.";
         header("Location: enterUser.php");   //redirect
     }

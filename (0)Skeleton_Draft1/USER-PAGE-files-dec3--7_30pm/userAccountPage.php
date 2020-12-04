@@ -30,19 +30,20 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
 
                 <body>    
                 <h1>Menu | User Account</h1>   
-                    <span><?php echo "".$_SESSION['isSuccessful']."<br><br>";?></span>
+                    <span class="error"><?php echo "".$_SESSION['isSuccessful']."<br><br>";?></span>
                 <form method="POST">             
                         <table>
                             <tbody>
                             <tr>
                                 <td class="internalTableSideBar">
                                     <table>
-                                    <tr><td><?php 
-                                        echo "<br>Logged-in as: ".$fullname."<br><br>";             //NEED TO BE FIXED
-                                    ?></span></td></tr>
+                                    <tr><td>
+                                        <span><?php echo "<br>Logged-in as: ".$_SESSION['full_name']."<br><br>";?>  </span>
+                                    </td></tr>
         <!-- movie history tab -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Account')">Update Account</button></th> </tr></div>       
         <!-- user account tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'MovieHist')">Movie History</button></th></tr></div>
         <!-- statistics tab    -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Stats')">Statistics</button></th>       </tr></div>
+
                                     
                                     </table>
                                 </td>
@@ -117,6 +118,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
 
                                             
                                         </div>
+
 <!-- statistics section -->             <div id="Stats" class="tabcontent">
                                             <!--  general statistics... 
                                                     favorite genre  ( calculated based on tally of movies watched of each type (can have multiple if ties)  )
