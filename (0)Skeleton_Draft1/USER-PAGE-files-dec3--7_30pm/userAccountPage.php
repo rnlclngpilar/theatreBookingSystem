@@ -85,9 +85,9 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                                 <th>Title</th>
                                                                 <th>Genre</th> 
                                                                 <th>Description</th> 
-                                                                <!-- <th>Date(s) Watched</th> note: changed this column (compared to form file)   -->
                                                                 <th>Rating</th>
                                                                 <th>Theatre Attended</th>
+                                                                <!-- <th>Date Watched</th> note: changed this column (compared to form file)  -->
                                                                 <!-- <th>Reviews</th> -->
                                                             </tr>
                                                         </thead>
@@ -99,7 +99,7 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                             </tr>
                                                         </tfoot>
                                                         <tbody>
-                                                            <?php require '../php/getMovieHistory.php'; ?>  <!-- STILL NEEDS CODING -->
+                                                            <?php require '../php/getMovieHistory.php'; ?>  <!--  -->
                                                         </tbody>
                                                     </table>
                                                 </td>

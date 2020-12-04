@@ -4,13 +4,16 @@
     $user = $_SESSION['user_id'];
 
     //retreive movie details
+
     $sql_movHis = "SELECT *
-                    FROM userhistory 
-                    INNER JOIN movieinformation ON userhistory.title = movieinformation.title
-                    WHERE userhistory.userID = '$user'
+                    FROM userhistory, movieinformation
+                    WHERE userhistory.title = movieinformation.title 
+                        AND userhistory.userID = '$user'
                     ";
-    
+                //ORDER BY userhistory.dateWatched
+
     $resultHis = mysqli_query($connection,$sql_movHis);
+    
 
     //for movie history
     if (mysqli_num_rows($resultHis) > 0) {
@@ -21,6 +24,7 @@
             $description = $row_MovHis['description'];
             $rating = $row_MovHis['rating'];
             $theatre = $row_MovHis['theatreAttended'];
+            //$dateWatched = $row_MovHis['dateWatched'];
 
             //create table
             echo("
@@ -34,7 +38,9 @@
                 </tr>
             ");
         }
+
     } 
+
 
     $connection->close();
 ?>
