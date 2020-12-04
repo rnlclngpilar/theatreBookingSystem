@@ -13,9 +13,9 @@
             <legend>Site Map:</legend>
             <li>About</li>
             <li><a href="Home.html">Home</a></li>
-            <li><a href="User_Page_Files/enterUserPage.php">Log-in/Sign-up</a></li>              <!-- Copy (..\(0)Skeleton_Draft1\loginForm.php) -->
-            <li><a href="User_Page_Files/userAccountPage.php">Account</a></li>             
-            <li><a href="">Quick Booking</a></li>                                               <!-- Copy (..\(0)Skeleton_Draft1\receipt\form.html) -->
+            <li><a href="UserPage_Files/enterUserPage.php">Log-in/Sign-up</a></li>              <!-- Copy (..\(0)Skeleton_Draft1\loginForm.php) -->
+            <li><a href="UserPage_Files/userAccountPage.php">Account</a></li>             
+            <li><a href="TicketReservation_Files/ticketReservationForm.html">Quick Booking</a></li>                                               <!-- Copy (..\(0)Skeleton_Draft1\receipt\form.html) -->
             <li><a href="SearchesWithFilters/LocateMovies/LocateMovie.php">Movies</a></li>
             <li>Contact</li>
         </ul>

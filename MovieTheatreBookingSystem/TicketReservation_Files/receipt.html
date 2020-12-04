@@ -1,0 +1,111 @@
+<html>
+<head>
+	<title>Receipt</title>
+
+	<style>
+		table{
+			border-collapse: collapse;
+			font-size: x-large;
+		}
+
+		body{
+			font-size: x-large;
+		}
+
+		form{
+			width: 20%;
+		}
+	</style>
+
+</head>
+<body>
+	<form>
+		<fieldset>
+	<table border="0" cellpadding="10">
+		<tr>
+			<th colspan=3>Receipt</th>
+		</tr>
+		</tr>
+			<tr>
+			<td>Seat: </td>
+			<td><span id="seat"></span></td>
+		</tr>
+			<td id="adult_td">Adult Price:</td>
+			<td id="adult_$">$<span id="result1"></span></td> 
+			<td id="adult_x">x<span id="ticket1"></span></td>
+		</tr>
+		<tr>
+			<td id="senior_td">Senior Price: </td>
+			<td id="senior_$">$<span id="result2"></span></td>
+			<td id="senior_x">x<span id="ticket2"></span></td>
+		</tr>
+		<tr>
+			<td id="child_td">Child Price: </td>
+			<td id="child_$">$<span id="result3"></span></td>
+			<td id="child_x">x<span id="ticket3"></span></td>
+		</tr>
+	</table>
+	------------------------------------------------------
+	<table cellpadding="10">
+		<tr>
+			<td>Subtotal: </td>
+			<td>$<span id="subtotal"></span></td>
+		</tr>
+
+		<tr>
+			<td>HST 13%: </td>
+			<td>$<span id="hst"></span></td>
+		</tr>
+		<tr>
+			<td>Total: </td>
+			<td>$<span id="total"></span></td>
+		</tr>
+	</table>
+	</fieldset>
+	</form>
+</body>
+
+<script>
+	//using the localStorage.getItem() method, the values of tickets and prices are taken to be displayed in the inner HTML
+	document.getElementById("result1").innerHTML = localStorage.getItem("adultvalue");
+    document.getElementById("ticket1").innerHTML = localStorage.getItem("adultticketvalue");
+    document.getElementById("result2").innerHTML = localStorage.getItem("seniorvalue");
+    document.getElementById("ticket2").innerHTML = localStorage.getItem("seniorticketvalue");
+    document.getElementById("result3").innerHTML = localStorage.getItem("childvalue");
+    document.getElementById("ticket3").innerHTML = localStorage.getItem("childticketvalue");
+    document.getElementById("subtotal").innerHTML = localStorage.getItem("subtotalvalue");
+    document.getElementById("hst").innerHTML = localStorage.getItem("hstvalue");
+    document.getElementById("total").innerHTML = localStorage.getItem("totalvalue");
+    document.getElementById("seat").innerHTML = localStorage.getItem("seatvalue");
+
+
+    //if statements if the value of the tickets are 0, will produced a blank output in the receipt
+    if(localStorage.getItem("childticketvalue") == 0)
+    {
+      document.getElementById("result3").innerHTML = "";
+      document.getElementById("ticket3").innerHTML = "";
+      document.getElementById("child_td").innerHTML = "";
+      document.getElementById("child_$").innerHTML = "";
+      document.getElementById("child_x").innerHTML = "";
+    }
+
+    if(localStorage.getItem("adultticketvalue") == 0)
+    {
+      document.getElementById("result1").innerHTML = "";
+      document.getElementById("ticket1").innerHTML = "";
+      document.getElementById("adult_td").innerHTML = "";
+      document.getElementById("adult_$").innerHTML = "";
+      document.getElementById("adult_x").innerHTML = "";
+    }
+
+    if(localStorage.getItem("seniorticketvalue") == 0)
+    {
+      document.getElementById("result2").innerHTML = "";
+      document.getElementById("ticket2").innerHTML = "";
+      document.getElementById("senior_td").innerHTML = "";
+      document.getElementById("senior_$").innerHTML = "";
+      document.getElementById("senior_x").innerHTML = "";
+    }
+</script>
+
+</html>
