@@ -1,62 +1,55 @@
-//Seat Reservation
+//jquery
+
+//in this function, checkboxes are set to be disabled initially
 function onLoaderFunc()
-
-
 {
   $(".seatStructure *").prop("disabled", true);
   $(".displayerBoxes *").prop("disabled", true);
 }
+
+
+//this function takes the legible data inputed by the user, to enable checkbox for seat selections.
 function takeData()
 
 {
-  if (($("#adult").val() == 0 ) && ($("#senior").val() == 0 ) && ($("#child").val() == 0 ))
+
+  /* prevents the user from entering negative numbers. Will not proceed till the user enters positive numbers in all
+  textboxes */
+  if (($("#adult").val() < 0 ) || ($("#senior").val() < 0 ) || ($("#child").val() < 0 ))
   {
-  alert("Please enter at least one ticket");
+  alert("Cannot enter negative numbers!");
   }
+
   else
   {
-    $(".inputForm *").prop("disabled", true);
-    $(".seatStructure *").prop("disabled", false);
-    document.getElementById("notification").innerHTML = "<b style='margin-bottom:0px;background:yellow;'>Please Select your Seats NOW!</b>";
+
+    /* If all textboxes are 0, there will be an alert message to tell the user to at least enter one ticket  */
+    if (($("#adult").val() == 0 ) && ($("#senior").val() == 0 ) && ($("#child").val() == 0 ))
+      {
+        alert("Please enter at least one ticket");
+      }
+
+      //proceeds to this if the user enter at least one ticket. 
+    else
+      {
+        $(".inputForm *").prop("disabled", true);
+        $(".seatStructure *").prop("disabled", false);
+        document.getElementById("notification").innerHTML = "Please Select your Seats NOW!";
+      }
   }
+
 }
 
-
-function updateTextArea() { 
-    
-  if ($("input:checked").length == ($("#Numseats").val()))
-    {
-      $(".seatStructure *").prop("disabled", true);
-      
-     var allNameVals = [];
-     var allNumberVals = [];
-     var allSeatsVals = [];
-  
-     //Storing in array
-     allNameVals.push($("#Username").val());
-     allNumberVals.push($("#Numseats").val());
-     $('#seatsBlock :checked').each(function() {
-       allSeatsVals.push($(this).val());
-     });
-    
-     //Output
-     $('#nameDisplay').val(allNameVals);
-     $('#NumberDisplay').val(allNumberVals);
-     $('#seatsDisplay').val(allSeatsVals);
-    }
-  else
-    {
-      alert("Please select " + ($("#Numseats").val()) + " seats")
-    }
-  }
-
-
-function myFunction() {
+function myFunction() 
+{
   alert($("input:checked").length);
 }
 
-$(":checkbox").click(function() {
-  if ($("input:checked").length == ($("#Numseats").val())) {
+
+//disables the checkbox after selection has reached the amount of tickets entered
+$(":checkbox").click(function() 
+{
+  if ($("input:checked").length == ($("#adult").val()) + ($("#child").val()) + ($("#senior").val())) {
     $(":checkbox").prop('disabled', true);
     $(':checked').prop('disabled', false);
   }
