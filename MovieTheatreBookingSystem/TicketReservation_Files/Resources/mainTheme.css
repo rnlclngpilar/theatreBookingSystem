@@ -1,7 +1,7 @@
 body            { background-color: white;   margin: 1rem; padding: .5rem; font-family: comic;}
 .mainPageTable  { background-color: darkred; width: 100%; height: 100%; border-collapse: collapse; outline: black solid .25rem;}
 th, tr          { border: white ridge .25rem; }
-th              { background-color:lightgray }     /* rgb(218, 160, 160);*/
+th              { background-color:lightgray }
 .menu, .menu>td { background-color: papayawhip; width: 100px;}
 
 #SelectedGenera, #SelectedTheatre { border: solid black medium; }
