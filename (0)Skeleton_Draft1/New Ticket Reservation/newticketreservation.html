@@ -76,14 +76,16 @@
             localStorage.setItem() method.
 
          */
-        var seat_checkbox_array, seat_checkbox_value;
+        var seat_checkbox_array;
+
         seat_checkbox_array = document.getElementsByName("seats");
+        var str = ' ';
         for (i = 0; i < seat_checkbox_array.length; i++)
         {
-            if (seat_checkbox_array[i].checked)
+            if (seat_checkbox_array[i].checked == true)
             {
-                seat_checkbox_value = seat_checkbox_array[i].value
-                localStorage.setItem("seatvalue", seat_checkbox_value);
+                str += seat_checkbox_array[i].value + " ";
+                localStorage.setItem("seatvalue", str);
             }
         }
 
