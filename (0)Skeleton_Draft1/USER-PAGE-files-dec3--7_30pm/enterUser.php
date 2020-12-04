@@ -8,7 +8,7 @@
     <script src = "tab_button.js" type="text/javascript" ></script>
 
     <?php 
-        include "php/login.php";
+        include "php/login.php"; // NEED TO BE RECONNECTED
         include "php/signup.php";
     ?>
 </head>
