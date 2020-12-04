@@ -52,7 +52,7 @@
     .error {
         color: green;
     }
-    .tab .error {        
-        justify-content: center;
+    .th {        
+        text-align: center;
     }
   
