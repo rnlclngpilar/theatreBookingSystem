@@ -1,0 +1,160 @@
+/* ----------------------------------------------------------------------------- */
+html, body
+.included       /*div*/
+#mainPageTable  /*table*/
+.menuContainer  /*tr*/
+#filterMenu     /*td*/
+br              /*<b>GENRE: </b>*/
+form
+input
+label
+#SelectedGenera {border: solid black medium}; /*div     . . .<div id='SelectedGenera'></div></td></tr>*/
+
+.headerContainer        /*td*/
+#divHeader              /*h1*/      /* <tr><td class="headerContainer"><h1 id="divHeader">Browse Movies</h1></td></tr> */
+
+.dropDownFunctionContainer /*td*/
+.div2, #div2            /*div*/
+.dropDownLabel          /*legend*/  /* <tr><td><div><legend>Movies</legend> . . .*/
+
+/* php output */
+.poster     /*poster*/
+img
+.boxImg     /*img*/         /*<table><td><img></td><td>*/
+p                           /*<p><strong>Title:</strong> Title Here </p></td></table>*/
+strong                      /*</div><br></td></tr></table></div>      </body></html>*/
+
+/* ----------------------------------------------------------------------------- */
+
+/*General and Background*/
+.included {margin: .01rem; padding: .01rem; border: solid black medium; background-color: white;}
+#mainPageTable {margin: auto; /*5px*/}
+html, body{
+    box-sizing: border-box; 
+    padding:0; 
+    margin:2rem;
+}
+div, img { box-sizing: border-box; }
+
+/*Tables and Labels*/
+table, th, tr,td{ border-collapse: collapse;}
+label{ text-align: left; }
+
+/*Movie poster-image boxes*/
+.boxImg { 
+    position:float;
+    background-color: white;
+    float:left;
+    border-collapse: separate;
+    border: solid black medium;
+    
+    min-height:200px;
+    min-width:100px;
+    margin:5px;
+    border-radius: 2vw;
+}
+
+#divHeader{
+    background-color: darkgrey; 
+    border-radius: 15px;
+    width:95%; 
+    position: center;
+    border: solid medium black; 
+    padding: 5pt;
+    margin: 5pt;
+    box-align: center;
+    align-content: center;
+}
+/*-----------*/
+.div2  table{width:max-content; margin:5px;}
+.div2  img{height:20vh; padding:5px; }
+
+img { max-height: 15rem; max-width: 10rem;}
+
+.div2{
+    overflow:auto;
+    height:70vh;
+    width:100%;
+    text-align: center ;			
+    background-color:darkred;
+    border-radius: 20px;
+}
+/*-----------*/
+.poster:hover{
+    background-blend-mode: multiply;
+    background-color:yellow;
+}
+
+.poster {
+    position:float;
+    background-color: white;
+    float:left;
+    border-collapse: separate;
+    border: solid black medium;
+    width: 20%;
+    height: auto;
+    text-overflow: auto;
+}
+
+.outline{ background-color: grey; padding:5px;}
+
+body {	
+    background-image: url("https://img.freepik.com/free-vector/pattern-snacks-theme-popcorn_85534-194.jpg?size=338&ext=jpg");			
+    background-size: 20vw;
+    /*background-repeat: <!-- -------------- -->;*/
+    background-attachment: fixed;
+    background-color: grey; 
+    background-blend-mode: hard-light; }
+
+table {border-radius: 2vw;}
+
+
+#ticketImg {
+    background-color:white; 
+    border: double 4px black; 
+    padding:5px;	
+    border-radius: 15px;
+}
+#ticketImg:hover {
+    background-color: lightyellow; 
+    border: solid 4px black;
+}
+
+/* Filer menu (by theme) */
+#filterMenu {margin:5vw; background:lightgrey; min-width: 70pt; max-width: 80pt; text-overflow: auto;}
+.menuContainer{
+	background:darkgrey; 
+	border-right: thick black solid; 
+	border-radius: 30px;
+	width:150px;
+}
+
+/* Header block */
+.headerContainer {
+	background:darkred; 
+	border-bottom: thick black solid; 
+	border-radius:2vw; 
+	padding:5px;
+}
+h1 { box-sizing:border-box; width:100%; padding: 5px; margin: 0pt 50pt 0pt 5pt;}
+
+/* Movie Options block */
+
+
+/* Drop down menu labels */
+.dropDownFunctionContainer {
+	background:darkgrey;
+	border-bottom: thick black solid; 
+	border-radius: 10px; 
+	padding:5px;
+	margin:20px; 
+}
+.dropDownButton { 
+	width:100%; 
+	position:relative;
+}
+.dropDownLabel {
+	background-color: ivory;
+}
+
+/* id="div2" class="div2" */
