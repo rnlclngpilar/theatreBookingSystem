@@ -40,7 +40,8 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                     <tr><td>
                                         <span><?php echo "<br>Logged-in as: ".$_SESSION['full_name']."<br><br>";?>  </span>
                                     </td></tr>
-        <!-- movie history tab -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Account')">Update Account</button></th> </tr></div>       
+        <!-- view account tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'View')">View Account</button></th> </tr></div>       
+        <!-- movie history tab -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Update')">Update Account</button></th> </tr></div>       
         <!-- user account tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'MovieHist')">Movie History</button></th></tr></div>
         <!-- statistics tab     <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Stats')">Statistics</button></th>       </tr></div> -->
         <!-- logouts user tab  -->  <div><tr class="tab" style="height:min-content"><th><button class="tablinks" onclick="openTab(event, 'Logout')">Logout</button></th>       </tr></div>
@@ -56,8 +57,17 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
 <!-- welcome section -->                <div id="Welcome" class="tabcontent" style="display:block">
                                             <h2><em>Welcome!</em></h2>
                                                 <h3>Please select a tab</h3>
-                                        </div>                                       
-<!-- user account section -->           <div id="Account" class="tabcontent">      <!-- if a seperate html page has the content for signin/login fields they can be used here too - using a php include statement (may need to change file type)  -->
+                                        </div>
+                                        
+                                        
+<!-- view account tab  -->              <div id="View" class="tabcontent">      
+                                            <table class="innerContentTable">
+                                                <caption>User Profile</caption>
+                                                <?php include 'Resources/php/getUserInfo.php'; ?>  <!--  -->
+                                            </table>
+                                        </div>
+
+<!-- user account section -->           <div id="Update" class="tabcontent">      <!-- if a seperate html page has the content for signin/login fields they can be used here too - using a php include statement (may need to change file type)  -->
                                                 <form method="POST" action="<?php echo htmlspecialchars($_SERVER["PHP_SELF"]);?>">             <!-- form element here  ////////////////////////////////////////////////// -->
                                                     <table class="innerContentTable">
                                                         <caption>Update Account Information</caption>
@@ -93,16 +103,9 @@ FOR THIS FILE: can the width be set to "width:fit-content" on the input?  Issue:
                                                                 <!-- <th>Reviews</th> -->
                                                             </tr>
                                                         </thead>
-                                                        <tfoot>
-                                                            <tr>
-                                                                <td>Total:</td>
-                                                                <td>#</td>
-                                                                <td colspan="5"></td>
-                                                            </tr>
-                                                        </tfoot>
-                                                        <tbody>
-                                                            <?php require 'Resources/php/getMovieHistory.php'; ?>  <!--  -->
-                                                        </tbody>
+                                                        
+                                                        <?php include 'Resources/php/getMovieHistory.php'; ?>  <!--  -->
+                                                        
                                                     </table>
                                                 </td>
 
